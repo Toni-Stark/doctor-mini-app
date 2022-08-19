@@ -1,0 +1,54 @@
+/* pages/mine/evaluation-list/index.wxss */
+.eval-container {
+    background-color: #f2f2f2;
+    overflow: hidden;
+    height: 100vh;
+}
+.eval-list {
+    display: flex;
+    height: 89vh;
+}
+.eval-item {
+    margin: 30rpx;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12rpx;
+    padding: 30rpx;
+    box-sizing: border-box;
+}
+.main-time {
+    display: flex;
+    padding: 5rpx 0 10rpx 0;
+    justify-content: space-between;
+}
+.main-time text {
+    font-size: 28rpx;
+    color: #999999;
+}
+.main-detail {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1rpx solid #f2f2f2;
+    padding-top: 20rpx;
+    align-items: center;
+}
+.main-detail view {
+    font-size: 32rpx;
+}
+.main-detail image {
+    width: 40rpx;
+    height: 40rpx;
+}
+.main-content {
+    padding: 0 0 20rpx 0;
+}
+.main-label {
+    display: flex;
+    font-size: 30rpx;
+    padding: 10rpx 0;
+}
+.main-label view {
+     color: #888888;
+     padding-right: 30rpx;
+}

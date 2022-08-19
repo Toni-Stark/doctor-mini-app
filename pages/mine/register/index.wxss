@@ -1,0 +1,47 @@
+/* pages/mine/register/index.wxss */
+.register {
+    height: 100vh;
+    padding: 20rpx 80rpx 220rpx;
+    box-sizing: border-box;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.title view {
+    font-size: 54rpx;
+    line-height: 100rpx;
+}
+.form-btn {
+    margin-top: 120rpx;
+    background: #27b148;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14rpx;
+    border-radius: 50rpx;
+    box-shadow: 0rpx 0rpx 7rpx 0rpx #27b148;
+    cursor: pointer;
+}
+.form-btn image {
+    width: 66rpx;
+    height: 66rpx;
+}
+.form-btn text {
+    font-size: 36rpx;
+    color: #ffffff;
+}
+.form-agree {
+    font-size: 30rpx;
+    padding: 25rpx 40rpx;
+    display: flex;
+}
+.checkbox checkbox .wx-checkbox-input{
+    width: 35rpx; 
+    height: 35rpx; 
+}
+.form-agreement {
+    color: #3291f8;
+}
+.form-link {
+    line-height: 47rpx;
+}

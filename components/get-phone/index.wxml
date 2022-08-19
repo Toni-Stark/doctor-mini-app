@@ -1,0 +1,15 @@
+<!--components/get-phone/index.wxml-->
+<van-popup
+    show="{{ show }}"
+    closeable="{{false}}"
+    bind:close="onClose"
+    lock-scroll
+    close-on-click-overlay
+    custom-class="popup"
+>   
+    <view class="popup-view">
+        <view class="popup-title">提示</view>
+        <view class="popup-label">为了更好的用户体验，需要您授权微信手机号</view>
+        <button class="popup-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">去授权</button>
+    </view>
+</van-popup>

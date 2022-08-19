@@ -1,0 +1,27 @@
+<!--pages/mine/evaluation-list/index.wxml-->
+<view class="container eval-container">
+    <header title="{{'评价列表'}}" height="{{height}}" bindonPress="back"></header>
+    <scroll-view 
+        class="eval-list"
+        refresher-triggered="{{refresh}}" 
+        refresher-enabled 
+        lower-threshold="20" 
+        bindrefresherrefresh="brashData" 
+        bindscrolltolower="addDataList" 
+        scroll-y="true">
+        <view class="eval-item shadow" bindtap="naviToDetail">
+            <view class="main-time">
+                <view></view>
+                <text>8月17日 19:12</text>
+            </view>
+            <view class="main-content">
+                <view class="main-label"><view>评价对象</view>藿香正气液</view>
+                <view class="main-label"><view>评价内容</view>清热解毒，提神醒脑</view>
+            </view>
+            <view class="main-detail">
+                <view>进入详情</view>
+                <image mode="widthFix" src="../../../img/mine/grey-r-arrow.png"></image>
+            </view>
+        </view>
+    </scroll-view>
+</view>

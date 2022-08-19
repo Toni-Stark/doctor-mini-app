@@ -1,0 +1,27 @@
+/* components/back/index.wxss */
+.br-view {
+    /* height: 3vh; */
+}
+.header {
+    /* height: 10vh; */
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+.header-view {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+}
+.back {
+    position: absolute;
+    width: 45rpx;
+    height: 45rpx;
+    left: 20rpx;
+}
+.shadow {
+    box-shadow: 2rpx 2rpx 2rpx #e2e2e2;
+}

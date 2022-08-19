@@ -1,0 +1,27 @@
+<!--pages/mine/register/index.wxml-->
+<view class="register">
+    <view class="title">
+        <view>欢迎使用，</view>
+        <view>左手医生服务</view>
+    </view>
+    <view class="form">
+        <view class="form-btn" catchtap="handleLogin">
+            <image mode="widthFix" src="../../../img/mine/wechat.png"></image>
+            <text>微信快速登录</text>
+        </view>
+        <view class="form-agree">
+            <checkbox-group bindchange="checkboxChange">
+                <label class="checkbox">
+                    <checkbox value="1" />
+                </label>
+            </checkbox-group>
+            <view class="form-link">
+                我已经阅读并同意
+                <text bindtap="naviToAgreement" class="form-agreement">《用户协议》、</text>
+                <text bindtap="naviToPolicy" class="form-agreement">《隐私政策》</text>
+            </view>
+        </view>
+    </view>
+</view>
+<get-phone show="{{needPhone}}" bind:getPhone="getPhone"></get-phone>
+<van-toast id="van-toast" />

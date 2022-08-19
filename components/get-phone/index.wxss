@@ -1,0 +1,44 @@
+/* components/get-phone/index.wxss */
+.popup {
+    width: 78%;
+    box-sizing: border-box;
+    border-radius: 30rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.popup-view {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.popup-title {
+    display: flex;
+    justify-content: center;
+    padding: 25rpx 0;
+}
+.popup-label {
+    padding: 40rpx;
+    border-bottom: 1rpx solid #f2f2f2;
+    border-top: 1rpx solid #f2f2f2;
+    font-size: 37rpx;
+    line-height: 50rpx;
+}
+.popup-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 98rpx;
+    background-color: #ffffff;
+    color: #27b148;
+    border-radius: 50rpx;
+    padding: 0;
+    font-size: 32rpx;
+
+}
+button::after{
+    border: none !important;
+}

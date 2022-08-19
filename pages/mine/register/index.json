@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "get-phone": "../../../components/get-phone/index"
+  }
+}

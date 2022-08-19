@@ -1,0 +1,22 @@
+<!--pages/mine/order-detail/index.wxml-->
+<view class="container">
+    <header title="{{'订单详情'}}" height="{{height}}" bindonPress="back"></header>
+    <view class="card shadow">
+        <view class="title"><view class="label">药品名称：</view>阿莫西林胶囊</view>
+        <view class="view"><view class="label"> 订 单 号：</view>32048293048023</view>
+        <view class="view"><view class="label"> 手 机 号：</view>13300950034</view>
+        <view class="view"><view class="label">付款时间：</view>2022-03-19 22:33</view>
+        <view class="view"><view class="label">下单时间：</view>2022-03-19 22:33</view>
+        <view class="view"><view class="label">数<view>量：</view></view>1</view>
+        <view class="view"><view class="label">总<view>价：</view></view>￥32.4</view>
+        <view class="view"><view class="label">实<view>付：</view></view>￥32.4</view>
+    </view>
+    <view class="fixex">
+        <view class="fixex-box" bindtap="naviToPrice">
+            <view>评价</view>
+        </view>
+        <view class="fixex-box" bindtap="naviToService">
+            <view>医师咨询</view>
+        </view>
+    </view>
+</view>

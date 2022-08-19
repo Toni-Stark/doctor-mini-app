@@ -1,0 +1,8 @@
+<!--components/back/index.wxml-->
+<view class="header shadow" style="height:{{height}}px;">
+    <view class="br-view"></view>
+    <view class="header-view">
+        {{title}}
+        <image class="back" bindtap="backPress" mode="widthFix" src="../../img/components/back.png"></image>
+    </view>
+</view>

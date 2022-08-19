@@ -1,0 +1,33 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/mine/index",
+        "pages/mine/register/index",
+        "pages/mine/order-list/index",
+        "pages/mine/order-detail/index",
+        "pages/mine/order-service/index",
+        "pages/mine/order-evaluate/index",
+        "pages/mine/evaluation-list/index"
+    ],
+    "window": {
+        "navigationStyle": "custom"
+    },
+    "sitemapLocation": "sitemap.json",
+    "lazyCodeLoading": "requiredComponents",
+    "tabBar": {
+        "color": "#666666",
+        "selectedColor": "#3E7BFA",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "./img/tabBar/index1.png",
+                "selectedIconPath": "./img/tabBar/index.png"
+            },
+            {
+                "pagePath": "pages/mine/index",
+                "iconPath": "./img/tabBar/me1.png",
+                "selectedIconPath": "./img/tabBar/me.png"
+            }
+        ]
+    }
+}

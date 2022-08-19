@@ -1,0 +1,51 @@
+<!--pages/mine/order-list/index.wxml-->
+<view class="container order-container">
+    <header title="{{'订单列表'}}" height="{{height}}" bindonPress="back"></header>
+    <scroll-view 
+        class="order-list"
+        refresher-triggered="{{refresh}}" 
+        refresher-enabled 
+        lower-threshold="20" 
+        bindrefresherrefresh="brashData" 
+        bindscrolltolower="addDataList" 
+        scroll-y="true">
+        <view class="order-item shadow" bindtap="naviToDetail">
+            <view class="main-time">
+                <view></view>
+                <text>8月17日 19:12</text>
+            </view>
+            <view class="main-title">
+                <text>发货成功</text>
+                货物名称
+            </view>
+            <view class="main-content">
+                <view class="main-label"><view>发货方式</view> 顺丰</view>
+                <view class="main-label"><view>收件对象</view>路人丙</view>
+                <view class="main-label"><view>订单说明</view>34443242234234234234</view>
+            </view>
+            <view class="main-detail">
+                <view>进入详情</view>
+                <image mode="widthFix" src="../../../img/mine/grey-r-arrow.png"></image>
+            </view>
+        </view>
+        <view class="order-item shadow" bindtap="naviToDetail">
+            <view class="main-time">
+                <view></view>
+                <text>8月17日 19:12</text>
+            </view>
+            <view class="main-title">
+                <text>发货成功</text>
+                货物名称
+            </view>
+            <view class="main-content">
+                <view class="main-label"><view>发货方式</view> 顺丰</view>
+                <view class="main-label"><view>收件对象</view>路人丙</view>
+                <view class="main-label"><view>订单说明</view>34443242234234234234</view>
+            </view>
+            <view class="main-detail">
+                <view>进入详情</view>
+                <image mode="widthFix" src="../../../img/mine/grey-r-arrow.png"></image>
+            </view>
+        </view>
+    </scroll-view>
+</view>

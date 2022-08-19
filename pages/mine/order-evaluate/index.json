@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "header": "../../../components/back/index",
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-rate": "@vant/weapp/rate/index"
+  }
+}

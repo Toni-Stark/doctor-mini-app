@@ -1,0 +1,65 @@
+/* pages/mine/order-detail/index.wxss */
+.container {
+    background-color: #f8f8f8;
+    height: 100vh;
+    position: relative;
+}
+.fixex {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    height: 120rpx;
+    box-shadow: 0rpx -5rpx 10rpx 4rpx #eeeeee;
+}
+.fixex view {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+.fixex .fixex-box:first-child view {
+    width: 70%;
+    height: 70%;
+    border-radius: 50rpx;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    display: flex;
+    box-shadow: 0rpx 4rpx 11rpx 4rpx #eeeeee;
+    background-image: linear-gradient(90deg,  #FF7B1A, #FE4408);
+}
+.fixex .fixex-box:last-child view {
+    font-weight: bold;
+
+}
+.card {
+    margin: 25rpx;
+    background-color: #ffffff;
+    border-radius: 13rpx;
+    padding: 12rpx 25rpx;
+}
+.title {
+    padding: 10rpx 0;
+    display: flex;
+    font-size: 32rpx;
+    font-weight: bold;
+}
+.view {
+    padding: 10rpx 0;
+    display: flex;
+    font-size: 30rpx;
+}
+.title .label{
+    font-weight: bold;
+}
+.view .label {
+    color: #999999;
+    display: flex;
+}
+.view .label view {
+    text-indent:2em;
+}

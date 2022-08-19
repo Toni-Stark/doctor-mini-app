@@ -1,0 +1,50 @@
+<view class="container">
+    <header title="{{'发表评价'}}" height="{{height}}" bindonPress="back"></header>
+    <view class="form">
+        <view>
+            <van-uploader       
+                file-list="{{ fileList }}" 
+                preview-size="80" 
+                deletable="{{!isEdit}}"
+                max-count="{{5}}"
+                accept="image"
+                disabled="{{isEdit}}"
+                show-upload="{{!isEdit}}"
+                image-fit="aspectFill"
+                multiple="{{true}}"
+                bind:delete="deleteItem"
+                bind:after-read="afterRead"/>
+        </view>
+        <view class="label">
+            <text>综合评分</text>
+            <van-rate
+                value="{{ value }}"
+                size="{{ 25 }}"
+                color="#ffd21e"
+                void-icon="star"
+                void-color="#eee"
+                bind:change="onChange"
+            />
+        </view>
+        <view class="label">
+            <text>快递打分</text>
+            <van-rate
+                value="{{ express }}"
+                size="{{ 25 }}"
+                color="#ffd21e"
+                void-icon="star"
+                void-color="#eee"
+                bind:change="onChangeExpress"
+            />
+        </view>
+        <view class="label">
+            <text>猜你想说</text>
+        </view>
+        <view>
+            <textarea placeholder="请您写下真实感受" class="textarea" cols="30" rows="10"></textarea>
+        </view>
+    </view>
+    <view class="box">
+        <view class="btn">提交评价</view>
+    </view>
+</view>
