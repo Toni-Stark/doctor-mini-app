@@ -2,7 +2,7 @@
 <view class="register">
     <view class="title">
         <view>欢迎使用，</view>
-        <view>左手医生服务</view>
+        <view>药药线上通服务</view>
     </view>
     <view class="form">
         <view class="form-btn" catchtap="handleLogin">

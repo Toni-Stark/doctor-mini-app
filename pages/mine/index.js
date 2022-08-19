@@ -34,9 +34,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let headerHeight = (app.globalData.menuHeight + app.globalData.menuBot)*2;
+        let headerHeight = app.globalData.navHeight
+        let navTop = app.globalData.navTop
         this.setData({
-            headerHeight: headerHeight
+            height: headerHeight,
+            navTop: navTop
         })
     },
 

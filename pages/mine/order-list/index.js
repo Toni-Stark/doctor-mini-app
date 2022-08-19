@@ -19,10 +19,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let headerHeight = (app.globalData.menuHeight + app.globalData.menuBot)*2;
-        this.setData({
-            height: headerHeight
-        })
     },
 
     /**

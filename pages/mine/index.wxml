@@ -1,6 +1,10 @@
 <!--pages/mine/index.wxml-->
 <view class="container">
-    <view class="header shadow" style="height:{{headerHeight}}px">我的</view>
+    <view class="active" style="height:{{height}}px;padding-bottom: {{navTop}}px;">
+        我的
+    </view>
+    <view class="header">
+    </view>
     <view class="avatar-view">
         <view class="avatar">
             <image class="avatar-image" mode="aspectFill" src="{{avatarUrl}}"></image>

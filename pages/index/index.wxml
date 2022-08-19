@@ -1,11 +1,11 @@
 <!--index.wxml-->
 <view class="container">
     <view class="active" style="height:{{headerHeight}}px">
-        左手医生
+        药药线上通
     </view>
     <view class="header">
         <image class="header-rubi" mode="widthFix" src='../../img/index/home-robot.png'></image>
-        <text>我是左手医生 您身边的智能家庭医生</text>
+        <text class="header-title">我是药药线上通 您身边的智能家庭医生</text>
         <view class="search">
             <text>有健康问题，先来问问我吧...</text>
             <image mode="heightFix" src="../../img/index/audio.png"></image>

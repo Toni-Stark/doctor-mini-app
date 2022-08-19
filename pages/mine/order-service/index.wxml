@@ -1,6 +1,6 @@
 <!--pages/mine/order-service/index.wxml-->
 <view class="container">
-    <header title="{{'医生咨询'}}" height="{{height}}" bindonPress="back"></header>
+    <header title="{{'医生咨询'}}" bindonPress="back"></header>
     <view class="card">
         <image mode="aspectFill" class="header" src="../../../img/components/doctor.png"></image>
         <view class="mobile">电话预约咨询</view>

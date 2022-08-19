@@ -1,5 +1,5 @@
 <view class="container">
-    <header title="{{'发表评价'}}" height="{{height}}" bindonPress="back"></header>
+    <header title="{{'发表评价'}}" height="{{height}}" navTop="{{navTop}}" bindonPress="back"></header>
     <view class="form">
         <view>
             <van-uploader       
@@ -39,6 +39,9 @@
         </view>
         <view class="label">
             <text>猜你想说</text>
+            <view class="label-view">
+                <view wx:for="{{cateList}}" data-id="{{item.id}}" catchtap="checkOut" class="{{currentId == item.id ? 'active' : ''}}">{{item.title}}</view>
+            </view>
         </view>
         <view>
             <textarea placeholder="请您写下真实感受" class="textarea" cols="30" rows="10"></textarea>

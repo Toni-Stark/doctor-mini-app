@@ -1,6 +1,6 @@
 <!--pages/mine/evaluation-list/index.wxml-->
 <view class="container eval-container">
-    <header title="{{'评价列表'}}" height="{{height}}" bindonPress="back"></header>
+    <header title="{{'评价列表'}}" bindonPress="back"></header>
     <scroll-view 
         class="eval-list"
         refresher-triggered="{{refresh}}" 
