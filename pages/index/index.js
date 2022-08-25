@@ -1,5 +1,5 @@
 // index.js
-// 获取应用实例
+const { route } = require("../../utils/index")
 const app = getApp()
 
 Page({
@@ -10,6 +10,15 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
+  },
+  naviToCustomer(){
+      route.navigateTo('./customer-services/index');
+  },
+  naviToRecommend(){
+    route.navigateTo('./recommend/index');
+  },
+  naviToSearch(){
+    route.navigateTo('./search-modal/index');
   },
   // 事件处理函数
   bindViewTap() {

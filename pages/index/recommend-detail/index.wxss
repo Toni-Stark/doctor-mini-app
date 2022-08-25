@@ -1,0 +1,15 @@
+/* pages/index/recommend-detail/index.wxss */
+.container {
+    padding: 30rpx;
+}
+.title {
+    font-size: 36rpx;
+}
+.desc {
+    font-size: 32rpx;
+    padding: 30rpx 0 40rpx;
+    color: #666666;
+}
+.content {
+    font-size: 32rpx;
+}

@@ -1,0 +1,117 @@
+/* pages/index/customer-services/index.wxss */
+.container {
+    height: 100vh;
+}
+.footer-img {
+    width: 55rpx;
+    height: 55rpx;
+}
+.header-status {
+    height: 7vh;
+    display: flex;
+    padding: 8rpx;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: flex-end;
+    background-color: #ffffff;
+}
+.header-view {
+    background-image: linear-gradient(#8469FF, #6266FF);
+    padding: 10rpx 20rpx;
+    display: flex;
+    height: 100%;
+    font-size: 30rpx;
+    border-radius: 100rpx;
+    color: #ffffff;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+.circle {
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 15rpx;
+    color: #8469FF;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 100%;
+    margin-right: 10rpx;
+}
+.header-view image {
+    margin-left: 10rpx;
+    width: 17rpx;
+    height: 17rpx;
+}
+
+.other {
+    background-color: #f2f2f2;
+    font-size: 30rpx;
+    padding: 20rpx 30rpx;
+    margin: 15rpx 30rpx;
+    border-radius: 22rpx;
+    border-top-left-radius: 0;
+    line-height: 49rpx;
+    align-self: flex-start;
+}
+
+.mine {
+    background-color: #4562FF;
+    color: #ffffff;
+    font-size: 30rpx;
+    padding: 20rpx 30rpx;
+    margin: 15rpx 30rpx;
+    border-radius: 22rpx;
+    border-top-right-radius: 0;
+    line-height: 49rpx;
+    align-self: flex-end;
+}
+.scroll-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.scroll-view {
+    display: flex;
+    height: 83vh;
+}
+.footer {
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20rpx 20rpx;
+    background-color: #ffffff;
+    box-shadow: 0rpx -5rpx 28rpx #e2e2e2;
+    box-sizing: border-box;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+.footer .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer input {
+    border: 1rpx solid #b0baf1;
+    margin: 0 30rpx;
+    border-radius: 50px;
+    font-size: 28rpx;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    height: 5vh;
+    width: 100%;
+    background: rgba(202, 211, 241, 0.35);
+}
+.send-message {
+    background: #4562FF;
+    white-space: nowrap;
+    border-radius: 50rpx;
+    padding: 8rpx 20rpx;
+    color: #ffffff;
+    font-size: 30rpx;
+}

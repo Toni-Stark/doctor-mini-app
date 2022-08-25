@@ -1,0 +1,8 @@
+<!--pages/index/recommend-detail/index.wxml-->
+<view class="container">
+    <view class="title">无痛分娩</view>
+    <view class="desc">
+        以下内容由本平台合作医生编辑提供
+    </view>
+    <view class="content">孩子的生日，常被称为“母难日”。在医院待产室，许多准妈妈们为了成为母亲，往往要在痛处之中辗转数小时乃至数十小时</view>
+</view>

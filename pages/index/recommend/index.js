@@ -1,6 +1,5 @@
-// pages/mine/evaluation-list/index.js
-const { route } = require("../../../utils/index");
-
+// pages/index/recommend/index.js
+const { route } = require("../../../utils/index")
 Page({
 
     /**
@@ -9,15 +8,15 @@ Page({
     data: {
 
     },
-    back(){
-        route.navigateBack(1)
-    },
+
     naviToDetail(){
-        route.navigateTo('../order-evaluate/index')
+        route.navigateTo('../recommend-detail/index')
     },
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+
     },
 })

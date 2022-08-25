@@ -1,0 +1,39 @@
+<!--pages/index/recommend/index.wxml-->
+<view class="banner">
+    <view class="share">
+        <view class="share-list">
+            <view class="share-item" catchtap="naviToDetail">
+                <view class="share-point"></view>
+                <view class="share-label">心衰患者的运动方式</view>
+            </view>
+            <view class="share-item">
+                <view class="share-point"></view>
+                <view class="share-label">卵巢囊肿，我该如何对付你？</view>
+            </view>
+            <view class="share-item">
+                <view class="share-point"></view>
+                <view class="share-label">疥疮有哪些后遗症？</view>
+            </view>
+            <view class="share-item">
+                <view class="share-point"></view>
+                <view class="share-label">糖尿病生活方式</view>
+            </view>
+            <view class="share-item">
+                <view class="share-point"></view>
+                <view class="share-label">乳腺癌患者应如何安排日常生活？</view>
+            </view>
+            <view class="share-item">
+                <view class="share-point"></view>
+                <view class="share-label">胃癌手术后要少吃多餐</view>
+            </view>
+            <view class="share-item">
+                <view class="share-point"></view>
+                <view class="share-label">肺纤维化患者出现顽固性咳嗽要警惕肺癌</view>
+            </view>
+            <view class="share-item">
+                <view class="share-point"></view>
+                <view class="share-label">如何进行癌症筛查</view>
+            </view>
+        </view>
+    </view>
+</view>

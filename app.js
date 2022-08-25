@@ -24,7 +24,7 @@ App({
       success: res => {
         // 整个导航栏的高度
         let navHeight = (menuButtonObject.top*3/2) + menuButtonObject.height;
-        let navTop = (menuButtonObject.top/3*1.8);
+        let navTop = (menuButtonObject.top/3*1.8)+5;
         // 导航栏的高度
         // let nav = navHeight - res.statusBarHeight
  

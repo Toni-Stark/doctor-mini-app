@@ -7,10 +7,18 @@
         "pages/mine/order-detail/index",
         "pages/mine/order-service/index",
         "pages/mine/order-evaluate/index",
-        "pages/mine/evaluation-list/index"
+        "pages/mine/evaluation-list/index",
+        "pages/index/customer-services/index",
+        "pages/index/recommend/index",
+        "pages/index/recommend-detail/index",
+        "pages/index/search-modal/index",
+        "pages/index/search-list/index"
     ],
     "window": {
-        "navigationStyle": "custom"
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTitleText": "标题栏",
+        "navigationBarTextStyle": "black"
     },
     "sitemapLocation": "sitemap.json",
     "lazyCodeLoading": "requiredComponents",

@@ -1,0 +1,86 @@
+<!--pages/index/search-modal/index.wxml-->
+<view class="container">
+    <view class="header">
+        <view class="cate-type">
+            <!-- <image class="logo" mode="center" src="../../../img/index/search/banner.png"></image> -->
+            <view class="logo-text">查药品</view>
+            <view class="tab-bar">
+                <view class="start-btn {{active? 'active': ''}}" catchtap="changeActive">
+                    <image class="tab-image" wx:if="{{active}}" mode="widthFix" src="../../../img/index/search/yaopin.png"></image>
+                    西药
+                </view>
+                <view class="center-line"></view>
+                <view class="end-btn {{!active? 'active': ''}}" catchtap="changeActive">
+                    <image class="tab-image" wx:if="{{!active}}" mode="widthFix" src="../../../img/index/search/yaopin.png"></image>
+                    中成药
+                </view>
+            </view>
+        </view>
+        <view class="search" bindtap="naviToSearch">
+            <image class="search-icon" mode="widthFix" src="../../../img/index/search/search.png"></image>
+            <!-- <input type="text" placeholder=""/> -->
+            <view>搜索药品名称</view>
+        </view>
+        <view class="">
+            <image class="banner" mode="widthFix" src="../../../img/index/search/banner.png"></image>
+        </view>
+    </view>
+    <view class="context">
+        <view class="tab-list">
+            <view wx:for="{{tabList}}" class="{{index===tabActive?'tab-active':''}}" wx:key="index" data-index="{{index}}" catchtap="changeTab">
+                {{item}}
+                <view wx:if="{{index===tabActive}}" class="position-tab"></view>
+            </view>    
+        </view>
+        <view class="result-list">
+            <view class="result-item">
+                <view class="result-title">辛温解表类</view>
+                <view class="result-tab-list">
+                    <view>四季三黄片</view>
+                    <view>柴胡滴丸</view>
+                    <view>桂枝颗粒</view>
+                    <view>畅鼻通颗粒</view>
+                    <view>伤风停胶囊</view>
+                    <view>四季抗病毒合剂</view>
+                </view>
+                <view class="result-more">
+                    <view></view>
+                    更多
+                    <view></view>
+                </view>
+            </view>
+            <view class="result-item">
+                <view class="result-title">辛温解表类</view>
+                <view class="result-tab-list">
+                    <view>四季三黄片</view>
+                    <view>柴胡滴丸</view>
+                    <view>桂枝颗粒</view>
+                    <view>畅鼻通颗粒</view>
+                    <view>伤风停胶囊</view>
+                    <view>四季抗病毒合剂</view>
+                </view>
+                <view class="result-more">
+                    <view></view>
+                    更多
+                    <view></view>
+                </view>
+            </view>
+            <view class="result-item">
+                <view class="result-title">辛温解表类</view>
+                <view class="result-tab-list">
+                    <view>四季三黄片</view>
+                    <view>柴胡滴丸</view>
+                    <view>桂枝颗粒</view>
+                    <view>畅鼻通颗粒</view>
+                    <view>伤风停胶囊</view>
+                    <view>四季抗病毒合剂</view>
+                </view>
+                <view class="result-more">
+                    <view></view>
+                    更多
+                    <view></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

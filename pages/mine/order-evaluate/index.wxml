@@ -1,5 +1,4 @@
 <view class="container">
-    <header title="{{'发表评价'}}" height="{{height}}" navTop="{{navTop}}" bindonPress="back"></header>
     <view class="form">
         <view>
             <van-uploader       

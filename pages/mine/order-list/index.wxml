@@ -1,6 +1,5 @@
 <!--pages/mine/order-list/index.wxml-->
 <view class="container order-container">
-    <header title="{{'订单列表'}}" bindonPress="back"></header>
     <scroll-view 
         class="order-list"
         refresher-triggered="{{refresh}}" 

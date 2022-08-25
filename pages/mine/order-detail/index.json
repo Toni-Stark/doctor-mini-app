@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "header": "../../../components/back/index"
-  }
-}
+  },
+  "navigationBarTitleText": "订单详情"
+}   

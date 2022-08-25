@@ -1,0 +1,23 @@
+<!--pages/index/customer-services/index.wxml-->
+<view class="container">
+    <view class="header-status">
+        <view class="header-view">
+            <view class="circle">张</view>张三<image src="../../../img/index/diagnose-back.png" mode="widthFix"></image>
+        </view>
+    </view>
+    <scroll-view class="scroll-view">
+        <view class="scroll-child">
+            <view wx:for="{{messageList}}" class="{{item.type}}" wx:key="index">{{item.msg}}</view>
+        </view>
+    </scroll-view>
+    <view class="footer" style='bottom:{{inputBottom}}px'>
+        <view class="btn">
+            <image src="../../../img/index/yuyin.png" mode="widthFix" class="footer-img"></image>
+        </view>
+        <input type="text" value="{{ say }}" bindinput="bindKeyInput" bindfocus="foucus" bindblur="blur"  adjust-position='{{false}}'/>
+        <view class="btn">
+            <image wx:if="{{say.length<=0}}" src="../../../img/index/skill-jihe.png" mode="widthFix" class="footer-img"></image>
+            <view wx:else="" class="send-message" catchtap="sendMessage">发送</view>
+        </view>
+    </view>
+</view>
