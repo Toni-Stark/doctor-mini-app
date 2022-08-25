@@ -125,6 +125,12 @@
                     "pathName": "pages/mine/order-evaluate/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/index/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }
