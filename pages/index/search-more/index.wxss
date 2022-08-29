@@ -1,0 +1,17 @@
+/* pages/index/search-more/index.wxss */
+.container {
+    box-sizing: border-box;
+    height: 100vh;
+}
+.result-item {
+    padding: 20rpx 45rpx;
+    border-bottom: 1rpx solid #F2F2F3;
+}
+.result-item view:first-child {
+    font-size: 32rpx;
+    margin-bottom: 20rpx;
+}
+.result-item view:last-child {
+    font-size: 25rpx;
+    color: #666666;
+}

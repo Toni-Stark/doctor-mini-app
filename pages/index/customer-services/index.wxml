@@ -2,19 +2,19 @@
 <view class="container">
     <view class="header-status">
         <view class="header-view">
-            <view class="circle">张</view>张三<image src="../../../img/index/diagnose-back.png" mode="widthFix"></image>
+            <view class="circle">{{nick}}</view>{{nickName}}
         </view>
     </view>
     <view class="scroll-view-parent">
         <view class="scroll-view-child {{showMode?'scroll-mode':''}}">
-            <scroll-view class="scroll-view" scroll-y="{{true}}">
+            <scroll-view class="scroll-view" scroll-top="{{scrollTop}}" scroll-y="{{true}}">
                 <view class="scroll-child">
-                    <view wx:for="{{locolhostList}}" class="{{item.type}}" wx:key="index">{{item.msg}}</view>
+                    <view wx:for="{{locolhostList}}" class="{{item.type}}" wx:key="index" data-id="{{item.id}}">{{item.msg}}</view>
                 </view>
                 <view class="card-scroll">
                     <view class="card-view">
                         <view class="card" data-title="咳嗽可能是什么病？" catchtap="naviToDetail">
-                            <view class="card-tip">症状自诊</view>
+                            <view class="card-tip success">症状自诊</view>
                             <view class="card-title">咳嗽可能是什么病？</view>
                             <view class="desc">您肯需要去呼吸内科就诊，来和我互动，得到更准确的评估吧</view>
                             <view class="desc-view">
@@ -22,17 +22,17 @@
                                 <image class="card-image" mode="widthFix" src="../../../img/index/icon-back.png"></image>
                             </view>
                         </view>
-                        <view class="card" data-title="咳嗽可能是什么病？" catchtap="naviToDetail">
-                            <view class="card-tip">症状自诊</view>
-                            <view class="card-title">咳嗽可能是什么病？</view>
-                            <view class="desc">您肯需要去呼吸内科就诊，来和我互动，得到更准确的评估吧</view>
+                        <view class="card" data-title="咳嗽用什么药？" catchtap="naviToDetail">
+                            <view class="card-tip warning">小病找药</view>
+                            <view class="card-title">咳嗽用什么药？</view>
+                            <view class="desc">左手医生知道70240种药物，来和我互动，我帮您找到更适合您的用药方案。</view>
                             <view class="desc-view">
-                                <text>进入症状自诊</text>
+                                <text>进入小病找药</text>
                                 <image class="card-image" mode="widthFix" src="../../../img/index/icon-back.png"></image>
                             </view>
                         </view>
                         <view class="card" data-title="咳嗽可能是什么病？" catchtap="naviToDetail">
-                            <view class="card-tip">症状自诊</view>
+                            <view class="card-tip commit">症状自诊</view>
                             <view class="card-title">咳嗽可能是什么病？</view>
                             <view class="desc">您肯需要去呼吸内科就诊，来和我互动，得到更准确的评估吧</view>
                             <view class="desc-view">
@@ -68,7 +68,7 @@
         </view>
     </view>
     <view class="footer {{!showMode?'top-shadow':''}}" style='bottom:{{inputBottom}}px'>
-        <input type="text" value="{{ say }}" placeholder="不舒服？请简短的告诉我" bindinput="bindKeyInput" bindfocus="foucus" bindblur="blur"  adjust-position='{{false}}'/>
+        <input type="text" value="{{ say }}" placeholder="不舒服？请简短的告诉我" placeholder-class="footer-input" bindinput="bindKeyInput" bindfocus="foucus" bindblur="blur" adjust-position='{{false}}'/>
         <view class="btn">
             <image wx:if="{{say.length<=0}}" src="../../../img/index/skill-jihe.png" mode="widthFix" class="footer-img" bindtap="showMode"></image>
             <view wx:else="" class="send-message" catchtap="sendMessage">发送</view>

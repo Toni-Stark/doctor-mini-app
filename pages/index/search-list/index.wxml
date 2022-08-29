@@ -14,17 +14,9 @@
             <image class="image-list" mode="widthFix" src="../../../img/index/search/delete.png"></image>
         </view>
         <view class="search-list">
-            <view class="search-item">
+            <view class="search-item" wx:for="{{localList}}" data-title="{{item}}" catchtap="naviToLocalhost">
                 <image class="search-icon" mode="widthFix" src="../../../img/index/search/search.png"></image>
-                <text>工时费给</text>
-            </view>
-            <view class="search-item">
-                <image class="search-icon" mode="widthFix" src="../../../img/index/search/search.png"></image>
-                <text>公司的放虎归山</text>
-            </view>
-            <view class="search-item">
-                <image class="search-icon" mode="widthFix" src="../../../img/index/search/search.png"></image>
-                <text>三个地方</text>
+                <text>{{item}}</text>
             </view>
         </view>
     </view>

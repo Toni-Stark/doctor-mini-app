@@ -22,8 +22,10 @@ Page({
             "内科理血类药物"],
         tabActive: 0
     },
+    naviToMore(e){
+        route.navigateTo('../search-more/index?title='+e.currentTarget.dataset.title)
+    },
     naviToDetail(e){
-        console.log(e);
         route.navigateTo('../recommend-detail/index?title='+e.currentTarget.dataset.title)
     },
     naviToSearch(){

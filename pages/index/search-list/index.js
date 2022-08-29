@@ -8,10 +8,13 @@ Page({
      */
     data: {
         search: '',
-        searchList: []
+        searchList: [],
+        localList: ['莲花清瘟胶囊', '藿香正气水', '牛黄']
     },
 
     confirm(){
+        let list = this.data.localList.reverse();
+        list.push(this.data.search);
         if (this.data.search.length>0){
             this.setData({
                 searchList: [
@@ -43,18 +46,27 @@ Page({
                         name: '阿莫西林',
                         desc: '北京复方药公司'
                     },
-                ]
+                ],
+                localList: list.reverse()
             }) 
         } else {
             this.setData({
-                searchList: []
+                searchList: [],
+                localList: list.reverse()
             })
         }
+    },
+    naviToLocalhost(e){
+        this.setData({
+            search: e.currentTarget.dataset.title
+        })
+        this.confirm()
     },
 
     deleteKey(){
         this.setData({
-            search: ''
+            search: '',
+            searchList: []
         })
     },
     naviBack(){
@@ -62,7 +74,7 @@ Page({
     },
     bindKeyInput(e){
         this.setData({
-            search: e.detail.value
+            search: e.detail.value,
         })
     },
     onLoad: function (options) {

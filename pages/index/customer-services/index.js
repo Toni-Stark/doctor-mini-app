@@ -1,6 +1,6 @@
 // pages/index/customer-services/index.js
-const { route } = require("../../../utils/index")
-
+const { route, storage } = require("../../../utils/index")
+const app = getApp();
 Page({
 
     /**
@@ -15,14 +15,17 @@ Page({
             {
                 msg: '你好',
                 type: 'mine',
+                id: 44,
             },
             {
                 msg: '我是药药通',
                 type: 'other',
+                id: 49,
             },
             {
                 msg: '再见',
                 type: 'mine',
+                id: 46,
             },
         ],
         customerList: [
@@ -70,6 +73,8 @@ Page({
         ],
         showMode: false,
         showLabel: false,
+        scrollTop: '',
+        nickName: ''
     },
 
     naviToDetail(e){
@@ -107,6 +112,9 @@ Page({
             messageList: data,
             say: ''
         })
+        this.setData({
+            scrollTop: app.globalData.screenHeight
+        })
     },
     foucus: function (e) {
         var that = this;
@@ -121,12 +129,16 @@ Page({
         })
     },
     onLoad: function (options) {
-        console.log(options);
         if(options.title){
             this.setData({
-                say: options.title
+                say: options.title,
             });
             this.sendMessage()
         }
+        let nickName = storage.getStorageSync('nickName');
+        this.setData({
+            nickName: nickName,
+            nick: nickName.slice(0, 1) 
+        })
     },
 })

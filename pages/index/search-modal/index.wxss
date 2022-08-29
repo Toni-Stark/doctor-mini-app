@@ -88,6 +88,11 @@
     width: 25%;
     overflow-y: scroll;
 }
+.tab-list::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;   
+}
 .tab-list view {
     font-size: 31rpx;
     display: flex;

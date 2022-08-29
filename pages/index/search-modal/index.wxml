@@ -43,39 +43,39 @@
                     <view catchtap="naviToDetail" data-title="{{'伤风停胶囊'}}">伤风停胶囊</view>
                     <view catchtap="naviToDetail" data-title="{{'四季抗病毒合剂'}}">四季抗病毒合剂</view>
                 </view>
-                <view class="result-more">
+                <view class="result-more" data-title="辛温解表类" catchtap="naviToMore">
                     <view></view>
                     更多
                     <view></view>
                 </view>
             </view>
             <view class="result-item">
-                <view class="result-title">辛温解表类</view>
+                <view class="result-title">钙通道阻滞药</view>
                 <view class="result-tab-list">
-                    <view catchtap="naviToDetail" data-title="{{'四季三黄片'}}">四季三黄片</view>
-                    <view catchtap="naviToDetail" data-title="{{'柴胡滴丸'}}">柴胡滴丸</view>
-                    <view catchtap="naviToDetail" data-title="{{'桂枝颗粒'}}">桂枝颗粒</view>
-                    <view catchtap="naviToDetail" data-title="{{'畅鼻通颗粒'}}">畅鼻通颗粒</view>
-                    <view catchtap="naviToDetail" data-title="{{'伤风停胶囊'}}">伤风停胶囊</view>
-                    <view catchtap="naviToDetail" data-title="{{'四季抗病毒合剂'}}">四季抗病毒合剂</view>
+                    <view catchtap="naviToDetail" data-title="{{'维拉帕米'}}">维拉帕米</view>
+                    <view catchtap="naviToDetail" data-title="{{'尼群地平'}}">尼群地平</view>
+                    <view catchtap="naviToDetail" data-title="{{'地尔硫卓'}}">地尔硫卓</view>
+                    <view catchtap="naviToDetail" data-title="{{'硝苯地平'}}">硝苯地平</view>
+                    <view catchtap="naviToDetail" data-title="{{'尼索地平'}}">尼索地平</view>
+                    <view catchtap="naviToDetail" data-title="{{'尼卡地平'}}">尼卡地平</view>
                 </view>
-                <view class="result-more">
+                <view class="result-more" data-title="钙通道阻滞药" catchtap="naviToMore">
                     <view></view>
                     更多
                     <view></view>
                 </view>
             </view>
             <view class="result-item">
-                <view class="result-title">辛温解表类</view>
+                <view class="result-title">抗心律失常药</view>
                 <view class="result-tab-list">
-                    <view catchtap="naviToDetail" data-title="{{'四季三黄片'}}">四季三黄片</view>
-                    <view catchtap="naviToDetail" data-title="{{'柴胡滴丸'}}">柴胡滴丸</view>
-                    <view catchtap="naviToDetail" data-title="{{'桂枝颗粒'}}">桂枝颗粒</view>
-                    <view catchtap="naviToDetail" data-title="{{'畅鼻通颗粒'}}">畅鼻通颗粒</view>
-                    <view catchtap="naviToDetail" data-title="{{'伤风停胶囊'}}">伤风停胶囊</view>
-                    <view catchtap="naviToDetail" data-title="{{'四季抗病毒合剂'}}">四季抗病毒合剂</view>
+                    <view catchtap="naviToDetail" data-title="{{'奎尼丁'}}">奎尼丁</view>
+                    <view catchtap="naviToDetail" data-title="{{'安踏挫林'}}">安踏挫林</view>
+                    <view catchtap="naviToDetail" data-title="{{'利多卡因'}}">利多卡因</view>
+                    <view catchtap="naviToDetail" data-title="{{'苯妥英钠'}}">苯妥英钠</view>
+                    <view catchtap="naviToDetail" data-title="{{'美西律'}}">美西律</view>
+                    <view catchtap="naviToDetail" data-title="{{'腺苷'}}">腺苷</view>
                 </view>
-                <view class="result-more">
+                <view class="result-more" data-title="抗心律失常药" catchtap="naviToMore">
                     <view></view>
                     更多
                     <view></view>

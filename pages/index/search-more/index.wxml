@@ -1,0 +1,9 @@
+<!--pages/index/search-more/index.wxml-->
+<view class="container">
+    <view class="result-list">
+        <view class="result-item" wx:for="{{searchList}}" wx:key="index" data-title="{{item.name}}" catchtap="naviToDetail">
+            <view>{{item.name}}</view>
+            <view>{{item.desc}}</view>
+        </view>
+    </view>
+</view>
