@@ -5,18 +5,72 @@
             <view class="circle">张</view>张三<image src="../../../img/index/diagnose-back.png" mode="widthFix"></image>
         </view>
     </view>
-    <scroll-view class="scroll-view">
-        <view class="scroll-child">
-            <view wx:for="{{messageList}}" class="{{item.type}}" wx:key="index">{{item.msg}}</view>
+    <view class="scroll-view-parent">
+        <view class="scroll-view-child {{showMode?'scroll-mode':''}}">
+            <scroll-view class="scroll-view" scroll-y="{{true}}">
+                <view class="scroll-child">
+                    <view wx:for="{{locolhostList}}" class="{{item.type}}" wx:key="index">{{item.msg}}</view>
+                </view>
+                <view class="card-scroll">
+                    <view class="card-view">
+                        <view class="card" data-title="咳嗽可能是什么病？" catchtap="naviToDetail">
+                            <view class="card-tip">症状自诊</view>
+                            <view class="card-title">咳嗽可能是什么病？</view>
+                            <view class="desc">您肯需要去呼吸内科就诊，来和我互动，得到更准确的评估吧</view>
+                            <view class="desc-view">
+                                <text>进入症状自诊</text>
+                                <image class="card-image" mode="widthFix" src="../../../img/index/icon-back.png"></image>
+                            </view>
+                        </view>
+                        <view class="card" data-title="咳嗽可能是什么病？" catchtap="naviToDetail">
+                            <view class="card-tip">症状自诊</view>
+                            <view class="card-title">咳嗽可能是什么病？</view>
+                            <view class="desc">您肯需要去呼吸内科就诊，来和我互动，得到更准确的评估吧</view>
+                            <view class="desc-view">
+                                <text>进入症状自诊</text>
+                                <image class="card-image" mode="widthFix" src="../../../img/index/icon-back.png"></image>
+                            </view>
+                        </view>
+                        <view class="card" data-title="咳嗽可能是什么病？" catchtap="naviToDetail">
+                            <view class="card-tip">症状自诊</view>
+                            <view class="card-title">咳嗽可能是什么病？</view>
+                            <view class="desc">您肯需要去呼吸内科就诊，来和我互动，得到更准确的评估吧</view>
+                            <view class="desc-view">
+                                <text>进入症状自诊</text>
+                                <image class="card-image" mode="widthFix" src="../../../img/index/icon-back.png"></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="scroll-child">
+                    <view wx:for="{{messageList}}" class="{{item.type}}" wx:key="index">{{item.msg}}</view>
+                </view>
+            </scroll-view>
         </view>
-    </scroll-view>
-    <view class="footer" style='bottom:{{inputBottom}}px'>
-        <view class="btn">
-            <image src="../../../img/index/yuyin.png" mode="widthFix" class="footer-img"></image>
+        <view class="footer-config top-shadow {{showMode?'footer-fire':''}}">
+            <view class="footer-view-list" style="left: {{showLabel?-100:0}}vw;">
+                <view class="footer-config-left">
+                    <view wx:for="{{customerList}}" wx:key="index" class="footer-item" catchtap="setAskSay">
+                        <image src="{{item.url}}" mode="widthFix" class="footer-image"></image>
+                        <text>症状自诊</text>
+                    </view>
+                </view>
+                <view class="footer-config-right">
+                    <view class="back-title" catchtap="setAskSay">
+                        <image mode="widthFix" class="back-image" src="../../../img/components/back.png"></image>
+                        你可以这样问我
+                    </view>
+                    <view class="card-tip-list">
+                        <view class="card-tip-item" wx:for="{{askList}}" wx:key="index" data-title="{{item.title}}" catchtap="naviToServices">{{item.title}}</view>
+                    </view>
+                </view>
+            </view>
         </view>
-        <input type="text" value="{{ say }}" bindinput="bindKeyInput" bindfocus="foucus" bindblur="blur"  adjust-position='{{false}}'/>
+    </view>
+    <view class="footer {{!showMode?'top-shadow':''}}" style='bottom:{{inputBottom}}px'>
+        <input type="text" value="{{ say }}" placeholder="不舒服？请简短的告诉我" bindinput="bindKeyInput" bindfocus="foucus" bindblur="blur"  adjust-position='{{false}}'/>
         <view class="btn">
-            <image wx:if="{{say.length<=0}}" src="../../../img/index/skill-jihe.png" mode="widthFix" class="footer-img"></image>
+            <image wx:if="{{say.length<=0}}" src="../../../img/index/skill-jihe.png" mode="widthFix" class="footer-img" bindtap="showMode"></image>
             <view wx:else="" class="send-message" catchtap="sendMessage">发送</view>
         </view>
     </view>

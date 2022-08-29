@@ -36,12 +36,12 @@
             <view class="result-item">
                 <view class="result-title">辛温解表类</view>
                 <view class="result-tab-list">
-                    <view>四季三黄片</view>
-                    <view>柴胡滴丸</view>
-                    <view>桂枝颗粒</view>
-                    <view>畅鼻通颗粒</view>
-                    <view>伤风停胶囊</view>
-                    <view>四季抗病毒合剂</view>
+                    <view catchtap="naviToDetail" data-title="{{'四季三黄片'}}">四季三黄片</view>
+                    <view catchtap="naviToDetail" data-title="{{'柴胡滴丸'}}">柴胡滴丸</view>
+                    <view catchtap="naviToDetail" data-title="{{'桂枝颗粒'}}">桂枝颗粒</view>
+                    <view catchtap="naviToDetail" data-title="{{'畅鼻通颗粒'}}">畅鼻通颗粒</view>
+                    <view catchtap="naviToDetail" data-title="{{'伤风停胶囊'}}">伤风停胶囊</view>
+                    <view catchtap="naviToDetail" data-title="{{'四季抗病毒合剂'}}">四季抗病毒合剂</view>
                 </view>
                 <view class="result-more">
                     <view></view>
@@ -52,12 +52,12 @@
             <view class="result-item">
                 <view class="result-title">辛温解表类</view>
                 <view class="result-tab-list">
-                    <view>四季三黄片</view>
-                    <view>柴胡滴丸</view>
-                    <view>桂枝颗粒</view>
-                    <view>畅鼻通颗粒</view>
-                    <view>伤风停胶囊</view>
-                    <view>四季抗病毒合剂</view>
+                    <view catchtap="naviToDetail" data-title="{{'四季三黄片'}}">四季三黄片</view>
+                    <view catchtap="naviToDetail" data-title="{{'柴胡滴丸'}}">柴胡滴丸</view>
+                    <view catchtap="naviToDetail" data-title="{{'桂枝颗粒'}}">桂枝颗粒</view>
+                    <view catchtap="naviToDetail" data-title="{{'畅鼻通颗粒'}}">畅鼻通颗粒</view>
+                    <view catchtap="naviToDetail" data-title="{{'伤风停胶囊'}}">伤风停胶囊</view>
+                    <view catchtap="naviToDetail" data-title="{{'四季抗病毒合剂'}}">四季抗病毒合剂</view>
                 </view>
                 <view class="result-more">
                     <view></view>
@@ -68,12 +68,12 @@
             <view class="result-item">
                 <view class="result-title">辛温解表类</view>
                 <view class="result-tab-list">
-                    <view>四季三黄片</view>
-                    <view>柴胡滴丸</view>
-                    <view>桂枝颗粒</view>
-                    <view>畅鼻通颗粒</view>
-                    <view>伤风停胶囊</view>
-                    <view>四季抗病毒合剂</view>
+                    <view catchtap="naviToDetail" data-title="{{'四季三黄片'}}">四季三黄片</view>
+                    <view catchtap="naviToDetail" data-title="{{'柴胡滴丸'}}">柴胡滴丸</view>
+                    <view catchtap="naviToDetail" data-title="{{'桂枝颗粒'}}">桂枝颗粒</view>
+                    <view catchtap="naviToDetail" data-title="{{'畅鼻通颗粒'}}">畅鼻通颗粒</view>
+                    <view catchtap="naviToDetail" data-title="{{'伤风停胶囊'}}">伤风停胶囊</view>
+                    <view catchtap="naviToDetail" data-title="{{'四季抗病毒合剂'}}">四季抗病毒合剂</view>
                 </view>
                 <view class="result-more">
                     <view></view>

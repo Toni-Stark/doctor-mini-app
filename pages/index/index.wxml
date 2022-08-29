@@ -6,7 +6,7 @@
     <view class="header">
         <image class="header-rubi" mode="widthFix" src='../../img/index/home-robot.png'></image>
         <text class="header-title">我是药药线上通 您身边的智能家庭医生</text>
-        <view class="search">
+        <view class="search" catchtap="naviToCustomer">
             <text>有健康问题，先来问问我吧...</text>
             <!-- <image mode="heightFix" src="../../img/index/audio.png"></image> -->
         </view>
@@ -58,31 +58,46 @@
             你可以这样问我
         </view>
         <view class="card-tip-list">
-            <view class="card-tip-item">咳嗽是怎么回事</view>
-            <view class="card-tip-item">呕吐是怎么回事</view>
-            <view class="card-tip-item">咳嗽用什么药</view>
-            <view class="card-tip-item">感冒的治疗方法</view>
-            <view class="card-tip-item">清开灵颗粒的注意事项</view>
+            <view class="card-tip-item" wx:for="{{askList}}" wx:key="index" data-title="{{item.title}}" catchtap="naviToServices">{{item.title}}</view>
         </view>
     </view>
-  <!-- <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view> -->
+    <view class="banner">
+        <view class="banner-title">推荐文章</view>
+        <view class="share">
+            <view class="share-list">
+                <view class="share-item" catchtap="naviToDetail">
+                    <view class="share-point"></view>
+                    <view class="share-label">心衰患者的运动方式</view>
+                </view>
+                <view class="share-item">
+                    <view class="share-point"></view>
+                    <view class="share-label">卵巢囊肿，我该如何对付你？</view>
+                </view>
+                <view class="share-item">
+                    <view class="share-point"></view>
+                    <view class="share-label">疥疮有哪些后遗症？</view>
+                </view>
+                <view class="share-item">
+                    <view class="share-point"></view>
+                    <view class="share-label">糖尿病生活方式</view>
+                </view>
+                <view class="share-item">
+                    <view class="share-point"></view>
+                    <view class="share-label">乳腺癌患者应如何安排日常生活？</view>
+                </view>
+                <view class="share-item">
+                    <view class="share-point"></view>
+                    <view class="share-label">胃癌手术后要少吃多餐</view>
+                </view>
+                <view class="share-item">
+                    <view class="share-point"></view>
+                    <view class="share-label">肺纤维化患者出现顽固性咳嗽要警惕肺癌</view>
+                </view>
+                <view class="share-item">
+                    <view class="share-point"></view>
+                    <view class="share-label">如何进行癌症筛查</view>
+                </view>
+            </view>
+        </view>
+    </view>
 </view>

@@ -1,4 +1,6 @@
 // pages/index/customer-services/index.js
+const { route } = require("../../../utils/index")
+
 Page({
 
     /**
@@ -8,19 +10,88 @@ Page({
         inputBottom: 0,
         say: '',
         messageList: [
-            {
-                msg: 'Hello',
-                type: 'other',
-            },
+        ],
+        locolhostList: [
             {
                 msg: '你好',
                 type: 'mine',
             },
             {
-                msg: 'Hello',
+                msg: '我是药药通',
                 type: 'other',
             },
+            {
+                msg: '再见',
+                type: 'mine',
+            },
         ],
+        customerList: [
+            {
+                title: '症状自诊',
+                url: '../../../img/index/zizhen.png'
+            },
+            {
+                title: '小病找医',
+                url: '../../../img/index/zizhen.png'
+            },
+            {
+                title: '用药管家',
+                url: '../../../img/index/zizhen.png'
+            },
+            {
+                title: '防疫问答',
+                url: '../../../img/index/zizhen.png'
+            },
+            {
+                title: '疾病知识',
+                url: '../../../img/index/zizhen.png'
+            },
+            {
+                title: '药品说明',
+                url: '../../../img/index/zizhen.png'
+            },
+        ],
+        askList: [
+            {
+                title: '咳嗽是怎么回事'
+            },
+            {
+                title: '呕吐是怎么回事'
+            },  
+            {
+                title: '咳嗽用什么药'
+            },  
+            {
+                title: '感冒的治疗方法'
+            },  
+            {
+                title: '清开灵颗粒的注意事项'
+            }  
+        ],
+        showMode: false,
+        showLabel: false,
+    },
+
+    naviToDetail(e){
+        route.navigateTo('../recommend-detail/index?title='+e.currentTarget.dataset.title)
+    },
+    naviToServices(e){
+        this.setData({
+            showLabel: false,
+            showMode: false,
+            say: e.currentTarget.dataset.title
+        })
+        this.sendMessage()
+    },
+    setAskSay(e){
+        this.setData({
+            showLabel: !this.data.showLabel
+        })
+    },
+    showMode(e){
+        this.setData({
+            showMode: !this.data.showMode
+        })
     },
     bindKeyInput: function(e){
         this.setData({
@@ -50,6 +121,12 @@ Page({
         })
     },
     onLoad: function (options) {
-
+        console.log(options);
+        if(options.title){
+            this.setData({
+                say: options.title
+            });
+            this.sendMessage()
+        }
     },
 })

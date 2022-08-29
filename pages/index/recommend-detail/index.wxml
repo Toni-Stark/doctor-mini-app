@@ -1,6 +1,6 @@
 <!--pages/index/recommend-detail/index.wxml-->
 <view class="container">
-    <view class="title">无痛分娩</view>
+    <view class="title">{{title}}</view>
     <view class="desc">
         以下内容由本平台合作医生编辑提供
     </view>

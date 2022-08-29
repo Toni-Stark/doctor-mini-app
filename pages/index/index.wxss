@@ -166,7 +166,7 @@
     margin-top: 15rpx;
 }
 .share {
-    padding: 40rpx 0;
+    padding: 0 0 40rpx;
 }
 .share-title {
     font-size: 38rpx;
