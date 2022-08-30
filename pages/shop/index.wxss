@@ -162,3 +162,91 @@
     font-size: 28rpx;
     color: #666666
 }
+
+.price-view {
+    margin: 20rpx;
+    background-image: linear-gradient(#4562FF, #8469FF);
+    border-radius: 18rpx;
+    padding: 20rpx;
+    box-sizing: border-box;
+}
+.price-title {
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0 0 25rpx 0;
+}
+.banner-card {
+    width: 100%;
+    display: flex;
+    position: relative;
+    height: 225rpx;
+    margin-top: 35rpx;
+    border-radius: 18rpx;
+    background: #ffffff;
+    justify-content: space-between;
+}
+.banner-image {
+    width: 260rpx;
+    height: 260rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 18rpx;
+    border-bottom-right-radius: 0;
+    border: 8rpx solid #f9ebfd;
+    box-sizing: border-box;
+    box-shadow: -1rpx 25rpx 40rpx -17rpx #666666;
+}
+.banner-background {
+    width: 260rpx;
+}
+.banner-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 20rpx;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+.banner-title {
+    font-size: 31rpx;
+    display: -webkit-box;       
+    overflow: hidden;
+    -webkit-box-orient: vertical;  
+    -webkit-line-clamp: 2;
+}
+.banner-btn {
+    width: 84%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-image: linear-gradient(#4562FF, #8469FF);
+    border-radius: 50rpx;
+    color: #ffffff;
+    font-weight: bold;
+    height: 75rpx;
+}
+.banner-btn view {
+    align-items: center;
+    justify-content: center;
+}
+.banner-btn view:first-child {
+    color: red;
+    background-color: #ffffff;
+    height: 84%;
+    font-size: 30rpx;
+    display: flex;
+    width: 40%;
+    border-top-left-radius: 50rpx;
+    border-bottom-left-radius: 50rpx;
+}
+.banner-btn view:last-child {
+    height: 84%;
+    display: flex;
+    font-size: 32rpx;
+    white-space: nowrap;
+    width: 57%;
+    border-top-right-radius: 50rpx;
+    border-bottom-right-radius: 50rpx;
+}

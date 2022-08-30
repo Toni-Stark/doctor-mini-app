@@ -15,7 +15,8 @@
         "pages/index/search-list/index",
         "pages/index/search-more/index",
         "pages/shop/index",
-        "pages/shop/shop-result/index"
+        "pages/shop/shop-result/index",
+        "pages/tool/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -41,6 +42,11 @@
                 "pagePath": "pages/shop/index",
                 "iconPath": "./img/tabBar/shop1.png",
                 "selectedIconPath": "./img/tabBar/shop.png"
+            },
+            {
+                "pagePath": "pages/tool/index",
+                "iconPath": "./img/tabBar/tool1.png",
+                "selectedIconPath": "./img/tabBar/tool.png"
             },
             {
                 "pagePath": "pages/mine/index",

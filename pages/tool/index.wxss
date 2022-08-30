@@ -1,0 +1,33 @@
+/* pages/tool/index.wxss */
+.scroll-view {
+    height: 100vh;
+    background-image: linear-gradient(45deg, #8469FF, #1c698e,#1c8e83, #197d46,#60ab0d, #bb860f);
+}
+.scroll-list {
+    /* background-image: linear-gradient(#8469FF, #120b38); */
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 200rpx;
+    padding: 1%;
+}
+.scroll-item {
+    margin: 10rpx;
+    padding: 30rpx 20rpx;
+    width: 30%;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12rpx;
+}
+.item-image {
+    width: 95rpx;
+    height: 95rpx;
+}
+.item-title {
+    margin-top: 15rpx;
+    font-weight: bold;
+    color: #ffffff;
+}

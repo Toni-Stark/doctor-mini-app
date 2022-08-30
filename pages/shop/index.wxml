@@ -24,8 +24,22 @@
                 bindrefresherrefresh="brashData" 
                 bindscrolltolower="addDataList" 
                 scroll-y="true">
+                <view class="price-view" catchtap="naviToWeb">
+                    <view class="price-title">超值优惠</view>
+                    <view class="banner-card">
+                        <image class="banner-image" mode="aspectFill" src="../../img/assets/cake7.jpg"></image>
+                        <view class="banner-background"></view>
+                        <view class="banner-content">
+                            <view class="banner-title">蒸的味道，烘焙面包，蒸的味道，烘焙面包</view>
+                            <view class="banner-btn">
+                                <view>￥232.5</view>
+                                <view>立即秒杀</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
                 <view class="script-view">
-                    <view class="card" wx:for="{{cardList}}" wx:key="index" data-id="{{item.price}}" catchtap="naviToWeb">
+                    <view wx:for="{{cardList}}" wx:key="index" class="card" data-id="{{item.price}}" catchtap="naviToWeb">
                         <view class="card-image-view">
                             <image class="card-image" mode="widthFix" src="{{item.url}}"></image>
                         </view>
@@ -37,10 +51,6 @@
                             </view>
                         </view>
                     </view>
-                    <view></view>
-                    <view></view>
-                    <view></view>
-                    <view></view>
                 </view>
                 <view class="footer-bar"> ~ 到底了 ~ </view>
             </scroll-view>
