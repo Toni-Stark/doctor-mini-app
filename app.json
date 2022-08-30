@@ -14,7 +14,8 @@
         "pages/index/search-modal/index",
         "pages/index/search-list/index",
         "pages/index/search-more/index",
-        "pages/shop/index"
+        "pages/shop/index",
+        "pages/shop/shop-result/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -24,7 +25,9 @@
     },
     "sitemapLocation": "sitemap.json",
     "lazyCodeLoading": "requiredComponents",
-    "embeddedAppIdList": ["wx91d27dbf599dff74"],
+    "embeddedAppIdList": [
+        "wx91d27dbf599dff74"
+    ],
     "tabBar": {
         "color": "#666666",
         "selectedColor": "#3E7BFA",

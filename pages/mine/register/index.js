@@ -50,11 +50,12 @@ Page({
         }
         wx.login({
             success: res => {
-            }
+            },
         })
         wx.getUserProfile({
             desc: '用于完善会员资料',
             success: res => {
+                console.log(res, 'res')
                 storage.setStorageSync('nickName', res.userInfo.nickName)
                 storage.setStorageSync('avatarUrl', res.userInfo.avatarUrl)
                 this.setData({
@@ -63,7 +64,7 @@ Page({
                     needPhone: true,
                 })
             }
-        })
+        })  
     },
 
     /**

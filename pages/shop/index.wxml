@@ -25,7 +25,18 @@
                 bindscrolltolower="addDataList" 
                 scroll-y="true">
                 <view class="script-view">
-                    <view></view>
+                    <view class="card" wx:for="{{cardList}}" wx:key="index" data-id="{{item.price}}" catchtap="naviToWeb">
+                        <view class="card-image-view">
+                            <image class="card-image" mode="widthFix" src="{{item.url}}"></image>
+                        </view>
+                        <view class="card-banner">
+                            <view class="card-title">{{item.title}}</view>
+                            <view class="card-eval">
+                                <view class="card-price">￥{{item.price}}</view>
+                                <view class="card-view">{{item.num}}人付款</view>
+                            </view>
+                        </view>
+                    </view>
                     <view></view>
                     <view></view>
                     <view></view>

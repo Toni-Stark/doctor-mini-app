@@ -42,7 +42,7 @@
         "useCompilerPlugins": false
     },
     "compileType": "miniprogram",
-    "libVersion": "2.23.4",
+    "libVersion": "2.25.4",
     "appid": "wxc8745dedfb3a5f16",
     "projectname": "benign-drug",
     "debugOptions": {

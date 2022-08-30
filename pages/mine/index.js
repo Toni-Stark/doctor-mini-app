@@ -34,6 +34,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.naviToRegister()
         let headerHeight = app.globalData.navHeight
         let navTop = app.globalData.navTop
         this.setData({
@@ -41,5 +42,4 @@ Page({
             navTop: navTop
         })
     },
-
 })
