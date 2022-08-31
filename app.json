@@ -16,7 +16,8 @@
         "pages/index/search-more/index",
         "pages/shop/index",
         "pages/shop/shop-result/index",
-        "pages/tool/index"
+        "pages/tool/index",
+        "pages/tool/add-tool/index"
     ],
     "window": {
         "backgroundTextStyle": "light",

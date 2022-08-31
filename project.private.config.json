@@ -263,6 +263,18 @@
                     "pathName": "pages/tool/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/tool/add-tool/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/tool/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

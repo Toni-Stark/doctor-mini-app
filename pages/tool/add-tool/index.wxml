@@ -1,0 +1,32 @@
+<view class="container">
+    <view class="active" style="height:{{height}}px;padding-bottom: {{navTop}}px;">
+        添加小程序便签
+    </view>
+    <view class="header"></view>
+    <view class="content">
+        <view class="content-card">
+            <view class="card-title">下面两种方式任选一种</view>
+            <view class="order">
+                小程序appId：
+                <view class="order-id">
+                    <input placeholder="请填写小程序appId" placeholder-class="order-placeholder" type="text"/>
+                </view>
+            </view>
+            <view class="shop">
+                系统推荐小程序：
+                <view class="check" bindtap="onFocus">
+                    <view class="check-view" style="color: {{selectValue?'#000000':'#c4c4c4'}}">{{selectValue||'-- 请选择 --'}}</view>
+                    <view class="check-out">
+                        <image class="check-image" mode="widthFix" src="../../../img/components/down.png"></image>
+                    </view>
+                    <view class="check-list" style="display: {{isShow?'block':'none'}};">
+                        <view catchtap="delStatus">-- 请选择 --</view>
+                        <view wx:for="{{shopList}}" data-title="{{item.title}}" catchtap="selectStatus"><image class="check-list-image" src="{{item.icon}}"></image>{{item.title}}</view>
+                    </view> 
+                </view>
+            </view> 
+        </view>
+        <view class="submit" catchtap="naviBack">添加</view>
+        <view class="back" catchtap="naviBack">返回</view>
+    </view>
+</view>
