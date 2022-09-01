@@ -26,6 +26,13 @@
             </view>
             <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
         </view>
+        <view class="item" catchtap="naviToResult">
+            <view class="item-start">
+                <image class="item-image" mode="widthFix" src="../../img/mine/order.png"></image>
+                <text>订单录入</text>
+            </view>
+            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
+        </view>
     </view>
 
     <!-- <view class="list border-bottom">

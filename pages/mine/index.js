@@ -18,12 +18,16 @@ Page({
     naviToEvaluateList(){
         route.navigateTo('./evaluation-list/index')
     },
+    naviToResult(){
+        route.navigateTo('../shop/shop-result/index')
+    },
     naviToRegister(){
         if(!storage.getStorageSync('nickName')){
             route.navigateTo('./register/index')
         } else {
             let nickName = storage.getStorageSync('nickName') || '点击登录';
             let avatarUrl = storage.getStorageSync('avatarUrl') || '../../img/mine/home-robot.png';
+            console.log(nickName, avatarUrl)
             this.setData({
                 nickName: nickName,
                 avatarUrl: avatarUrl,
@@ -34,12 +38,14 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.naviToRegister()
         let headerHeight = app.globalData.navHeight
         let navTop = app.globalData.navTop
         this.setData({
             height: headerHeight,
             navTop: navTop
         })
+    },
+    onShow(){
+        this.naviToRegister()
     },
 })

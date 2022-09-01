@@ -36,7 +36,6 @@ Page({
     },
 
     getPhone(e){
-        console.log('手机号获取', e);
         this.setData({needPhone:false});
         setTimeout(()=>{
             route.navigateBack(1);
@@ -71,9 +70,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        wx.setNavigationBarTitle({
-            title: "登录"
-        })
         wx.setNavigationBarColor({
           backgroundColor: '#ffffff',
           frontColor: '#000000',

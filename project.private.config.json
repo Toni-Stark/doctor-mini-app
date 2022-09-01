@@ -275,6 +275,18 @@
                     "pathName": "pages/tool/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/shop/shop-result/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/shop/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

@@ -24,7 +24,7 @@
                 bindrefresherrefresh="brashData" 
                 bindscrolltolower="addDataList" 
                 scroll-y="true">
-                <view class="price-view" catchtap="naviToWeb">
+                <view class="price-view" data-appId="wx91d27dbf599dff74" data-path="/pages/item/detail/detail?sku=100007810999" data-id="{{item.price}}" catchtap="naviToWeb">
                     <view class="price-title">超值优惠</view>
                     <view class="banner-card">
                         <image class="banner-image" mode="aspectFill" src="../../img/assets/cake7.jpg"></image>
@@ -39,9 +39,10 @@
                     </view>
                 </view>
                 <view class="script-view">
-                    <view wx:for="{{cardList}}" wx:key="index" class="card" data-id="{{item.price}}" catchtap="naviToWeb">
+                    <view wx:for="{{cardList}}" wx:key="index" class="card" data-appId="{{item.appId}}" data-path="{{item.path}}" data-id="{{item.price}}" catchtap="naviToWeb">
                         <view class="card-image-view">
                             <image class="card-image" mode="widthFix" src="{{item.url}}"></image>
+                            <view class="card-image-tip">{{item.name}}</view>
                         </view>
                         <view class="card-banner">
                             <view class="card-title">{{item.title}}</view>

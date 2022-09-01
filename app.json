@@ -45,11 +45,6 @@
                 "selectedIconPath": "./img/tabBar/shop.png"
             },
             {
-                "pagePath": "pages/tool/index",
-                "iconPath": "./img/tabBar/tool1.png",
-                "selectedIconPath": "./img/tabBar/tool.png"
-            },
-            {
                 "pagePath": "pages/mine/index",
                 "iconPath": "./img/tabBar/me1.png",
                 "selectedIconPath": "./img/tabBar/me.png"
