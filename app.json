@@ -38,21 +38,25 @@
         "selectedColor": "#3E7BFA",
         "list": [
             {
+                "text": "首页",
                 "pagePath": "pages/index/index",
                 "iconPath": "./img/tabBar/index1.png",
                 "selectedIconPath": "./img/tabBar/index.png"
             },
             {
+                "text": "购物",
                 "pagePath": "pages/shop/index",
                 "iconPath": "./img/tabBar/shop1.png",
                 "selectedIconPath": "./img/tabBar/shop.png"
             },
             {
+                "text": "清库存",
                 "pagePath": "pages/logistics/index",
                 "iconPath": "./img/tabBar/logistics3.png",
                 "selectedIconPath": "./img/tabBar/logistics2.png"
             },
             {
+                "text": "我的",
                 "pagePath": "pages/mine/index",
                 "iconPath": "./img/tabBar/me1.png",
                 "selectedIconPath": "./img/tabBar/me.png"

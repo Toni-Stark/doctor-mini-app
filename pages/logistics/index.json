@@ -1,4 +1,4 @@
 {
-  "usingComponents": {},
-  "navigationStyle": "custom"
+  "usingComponents": {},  
+  "navigationBarTitleText": "库存管理"
 }

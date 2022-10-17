@@ -60,18 +60,12 @@
 }
 
 .avatar-view {
-    /* z-index: 50;
-    height: 400rpx;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: -166rpx; */
     z-index: 50;
     height: 400rpx;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(#6266fff0, #6266ff85);
+    /* background-image: linear-gradient(#6266fff0, #6266ff85); */
 }
 .avatar {
     display: flex;
@@ -88,7 +82,7 @@
     margin-top: 30rpx;
     font-weight: bold;
     font-size: 48rpx;
-    color: #ffffff;
+    color: #000000;
 }
 
 .alone {

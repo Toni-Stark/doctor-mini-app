@@ -305,6 +305,24 @@
                     "pathName": "pages/logistics/order-code/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/shop/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/logistics/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/mine/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

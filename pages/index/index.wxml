@@ -1,8 +1,8 @@
 <!--index.wxml-->
 <view class="container">
-    <view class="active" style="height:{{headerHeight}}px;padding-top: {{padding}};">
+    <!-- <view class="active" style="height:{{headerHeight}}px;padding-top: {{padding}};">
         药药线上通
-    </view>
+    </view> -->
     <view class="header">
         <image class="header-rubi" mode="widthFix" src='../../img/index/home-robot.png'></image>
         <text class="header-title">我是药药线上通 您身边的智能家庭医生</text>

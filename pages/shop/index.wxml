@@ -1,9 +1,9 @@
 <!--pages/shop/index.wxml-->
 <view class="container">
-    <view class="active" style="height:{{height}}px;padding-top: {{padding}};">
+    <!-- <view class="active" style="height:{{height}}px;padding-top: {{padding}};">
         便捷购物
-    </view>
-    <view class="header"></view>
+    </view> -->
+    <!-- <view class="header"></view> -->
     <view class="content">
         <view class="tab-bar">
             <view wx:for="{{tabList}}" data-index="{{index}}" class="{{tabActive===index?'tab-bar-active':''}}" catchtap="checkTab">
@@ -11,7 +11,7 @@
                 <view class="active-line" style="display: {{tabActive===index?'block':'none'}};"></view>
             </view>
         </view>
-        <view class="banner">- 全部商品 -</view>
+        <!-- <view class="banner">- 全部商品 -</view> -->
         <view class="status-bar">
             <view wx:for="{{statusList}}" data-index="{{index}}" class="{{tabStatus===index?'status-active':''}}" catchtap="checkTabStatus">{{item.title}}</view>
         </view>

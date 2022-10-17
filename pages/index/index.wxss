@@ -8,7 +8,7 @@
     align-items: center;
 }
 .header {
-    background-image: linear-gradient(#6266FF, #4562FF);    
+    /* background-image: linear-gradient(#6266FF, #4562FF);     */
     height: 210rpx;
     width: 102%;
     align-items: center;
