@@ -49,15 +49,15 @@ Page({
   },
   onLoad() {
     if (wx.getUserProfile) {
-        let headerHeight = app.globalData.navHeight
-        let navTop = app.globalData.navTop
+        let headerHeight = app.globalData.navHeight;
+        let navTop = app.globalData.navTop;
+        let paddingTop = app.globalData.paddingTop;
         this.setData({
             height: headerHeight,
-            navTop: navTop
-        })
-        this.setData({
+            navTop: navTop,
             headerHeight: headerHeight,
-            canIUseGetUserProfile: true
+            canIUseGetUserProfile: true,
+            padding: paddingTop
         })
     }
   },

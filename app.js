@@ -18,7 +18,7 @@ App({
     let menuButtonObject = wx.getMenuButtonBoundingClientRect();
     let screenObject = wx.getWindowInfo()
     console.log('log-----------')
-    console.log(screenObject)
+    console.log(screenObject, menuButtonObject)
     console.log('log-----------')
     // 获取设备信息
     wx.getSystemInfo({
@@ -30,6 +30,8 @@ App({
         this.globalData.navHeight = navHeight;
         this.globalData.navTop = navTop;
         this.globalData.screenHeight = screenObject.screenHeight;
+        this.globalData.paddingTop = screenObject.statusBarHeight + 'rpx';
+        // '10px'
       },
       fail: err => {
         console.log(err)

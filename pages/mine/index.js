@@ -38,11 +38,13 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let headerHeight = app.globalData.navHeight
-        let navTop = app.globalData.navTop
+        let headerHeight = app.globalData.navHeight;
+        let navTop = app.globalData.navTop;
+        let paddingTop = app.globalData.paddingTop;
         this.setData({
             height: headerHeight,
-            navTop: navTop
+            navTop: navTop,
+            padding: paddingTop
         })
     },
     onShow(){

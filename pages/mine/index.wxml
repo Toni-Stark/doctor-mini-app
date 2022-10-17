@@ -1,6 +1,6 @@
 <!--pages/mine/index.wxml-->
 <view class="container">
-    <view class="active" style="height:{{height}}px;padding-bottom: {{navTop}}px;">
+    <view class="active" style="height:{{height}}px;padding-top: {{padding}};">
         我的
     </view>
     <view class="header">

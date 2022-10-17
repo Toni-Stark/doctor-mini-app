@@ -1,0 +1,25 @@
+/* components/count-settting/index.wxss */
+.container {
+    display: flex;
+    align-items: center;
+    border: 1rpx solid #5964FF;
+    border-radius: 13rpx;
+    height: 50rpx;
+}
+.left, .right {
+    width: 50rpx;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+.center {}
+.center input {
+    width: 55rpx;
+    text-align: center;
+}
+
+.left image, .right image {
+    width: 20rpx;
+    height: 20rpx;
+}

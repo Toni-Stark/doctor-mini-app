@@ -17,7 +17,10 @@
         "pages/shop/index",
         "pages/shop/shop-result/index",
         "pages/tool/index",
-        "pages/tool/add-tool/index"
+        "pages/tool/add-tool/index",
+        "pages/logistics/index",
+        "pages/logistics/order-code/index",
+        "pages/logistics/bound-code/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -43,6 +46,11 @@
                 "pagePath": "pages/shop/index",
                 "iconPath": "./img/tabBar/shop1.png",
                 "selectedIconPath": "./img/tabBar/shop.png"
+            },
+            {
+                "pagePath": "pages/logistics/index",
+                "iconPath": "./img/tabBar/logistics3.png",
+                "selectedIconPath": "./img/tabBar/logistics2.png"
             },
             {
                 "pagePath": "pages/mine/index",

@@ -1,0 +1,6 @@
+<!--components/count-settting/index.wxml-->
+<view class="container">
+    <view class="left" bindtap="setCountLeft"><image mode="widthFix" src="../../img/assets/right.png"></image></view>
+    <view class="center"><input type="number" value="{{count}}"/></view>
+    <view class="right" bindtap="setCountRight"><image mode="widthFix" src="../../img/assets/left.png"></image></view>
+</view>

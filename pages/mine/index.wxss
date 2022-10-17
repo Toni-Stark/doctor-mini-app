@@ -1,20 +1,20 @@
 /* pages/mine/index.wxss */
 .active {
-    background-image: linear-gradient(#8469FF, #6266FF);
+    background-image: linear-gradient(#8469FF, #6266fff0);
     color: #ffffff;
     padding: 0 30rpx;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
 }
 .header {
     background-image: linear-gradient(#6266FF, #4562FF);
-    height: 210rpx;
+    /* height: 210rpx; */
     width: 102%;
     align-items: center;
     display: flex;
-    padding-bottom: 75rpx;
+    /* padding-bottom: 75rpx; */
     box-sizing: border-box;
     justify-content: center;
     font-size: 28rpx;
@@ -60,12 +60,18 @@
 }
 
 .avatar-view {
+    /* z-index: 50;
+    height: 400rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -166rpx; */
     z-index: 50;
     height: 400rpx;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: -166rpx;
+    background-image: linear-gradient(#6266fff0, #6266ff85);
 }
 .avatar {
     display: flex;
@@ -82,10 +88,11 @@
     margin-top: 30rpx;
     font-weight: bold;
     font-size: 48rpx;
+    color: #ffffff;
 }
 
 .alone {
     border-radius: 20rpx;
-    margin: 0 35rpx;
+    margin: 20rpx 35rpx;
     box-shadow: 4rpx 5rpx 20rpx -9rpx #807f7f;
 }

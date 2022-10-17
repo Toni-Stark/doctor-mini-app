@@ -287,6 +287,24 @@
                     "pathName": "pages/shop/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/shop/shop-result/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/logistics/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/logistics/order-code/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

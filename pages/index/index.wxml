@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-    <view class="active" style="height:{{headerHeight}}px">
+    <view class="active" style="height:{{headerHeight}}px;padding-top: {{padding}};">
         药药线上通
     </view>
     <view class="header">

@@ -1,0 +1,25 @@
+<!--pages/logistics/index.wxml-->
+<view class="container">
+    <view class="active" style="height:{{height}}px;padding-top: {{padding}};">
+        库存管理
+    </view>
+    <view class="header"></view>
+    <view class="content">
+        <view class="search" catchtap="naviToCustomer">
+            <text>商品查询，点击这里...</text>
+            <view>
+                <image mode="heightFix" src="../../img/logistics/search.png"></image>
+            </view>
+        </view>
+        <view class="card-list">
+            <view class="card-item" catchtap="naviToOrder">
+                <image mode="heightFix" src="../../img/logistics/order.png" alt=""/>
+                下单查询
+            </view>
+            <view class="card-item card-dual" catchtap="naviToBound">
+                <image mode="heightFix" src="../../img/logistics/outbound.png" alt=""/>
+                出库验货
+            </view>
+        </view>
+    </view>
+</view>

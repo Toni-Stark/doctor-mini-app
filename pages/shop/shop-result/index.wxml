@@ -4,11 +4,6 @@
     <!-- <view class="header"></view> -->
     <view class="content">
         <view class="content-card">
-            <view class="order">
-                <view class="order-id">
-                    <input placeholder="请填写您的订单号" placeholder-class="order-placeholder" type="text"/>
-                </view>
-            </view>
             <view class="shop">
                 <view class="check" bindtap="onFocus">
                     <view class="check-view" style="color: {{selectValue?'#000000':'#c4c4c4'}}">{{selectValue||'-- 请选择渠道 --'}}</view>
@@ -21,6 +16,11 @@
                     </view> 
                 </view>
             </view> 
+            <view class="order">
+                <view class="order-id">
+                    <input placeholder="请填写您的订单号" placeholder-class="order-placeholder" type="text"/>
+                </view>
+            </view>
         </view>
         <view class="submit" catchtap="naviBack">提交</view>
     </view>

@@ -35,8 +35,10 @@
 }
 
 .content {
-    /* z-index: 990; */
-    padding: 44rpx 70rpx;
+    padding: 74rpx 70rpx;
+    height: 100vh;
+    position: relative;
+    background-color: #f7f7f7;
 }
 .order {
     display: flex;
@@ -46,16 +48,17 @@
     font-weight: bold;
 }
 .order-id {
-    margin: 20rpx 0 20rpx 17rpx;
+    margin: 20rpx 0 20rpx 0;
     border: 1rpx solid #c5c5c5;
     border-radius: 10rpx;
-    padding: 10rpx 20rpx;
     display: flex;
     width: 100%;
 }
 .order-id input {
-    font-size: 29rpx;
+    font-size: 30rpx;
     color: #002348;
+    padding: 15rpx 20rpx;
+    width: 100%;
 }
 .order-placeholder {
     color: #c5c5c5;
@@ -74,17 +77,17 @@
     color: #002348;
 }
 .check {
-    margin: 20rpx 0 20rpx 17rpx;
+    margin: 20rpx 0 20rpx 0;
     border: 1rpx solid #c4c4c4;
     border-radius: 10rpx;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 10rpx;
+    padding: 20rpx;
     position: relative;
     white-space: pre-wrap;
-    font-size: 29rpx;
+    font-size: 30rpx;
 }
 .check-view {
     width: 87%;
@@ -108,9 +111,7 @@
     height: 35rpx;
 }
 .submit {
-    width: 60%;
     padding: 20rpx 30rpx;
-    margin: 80rpx auto 40rpx;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -118,6 +119,10 @@
     font-weight: bold;
     border-radius: 15rpx;
     background-image: linear-gradient(#6266FF, #4562FF);
+    position: absolute;
+    bottom: 15%;
+    right: 15%;
+    left: 15%;
 }
 .back {
     width: 60%;
@@ -136,25 +141,26 @@
 }
 .check-list {
     position: absolute;
-    bottom: -301rpx;
+    bottom: -373rpx;
     left: 0;
     right: 0;
-    height: 300rpx;
+    height: 371rpx;
     background: #ffffff;
-    box-shadow: 1rpx 15rpx 16rpx -2rpx #6b6b6b;
+    box-shadow: 1rpx 3rpx 13rpx -4rpx #666666;
     border-bottom-left-radius: 15rpx;
     border-bottom-right-radius: 15rpx;
     overflow-y: scroll;
     padding: 20rpx 35rpx;
     box-sizing: border-box;
+    z-index: 980;
 }
 .check-list view {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15rpx;
+    padding: 20rpx 15rpx;
     color: #000000;
-    border-bottom: 1rpx solid #f7f7f7;
+    border-bottom: 1rpx solid #e8e8e8;
 }
 .check-list view:first-child {
     color: #999999;
