@@ -17,6 +17,9 @@ Page({
     naviToBound(){
         route.navigateTo('./bound-code/index');
     },
+    naviToSearch(){
+        route.navigateTo('./search-code/index');
+    },
 
     /**
      * 生命周期函数--监听页面加载

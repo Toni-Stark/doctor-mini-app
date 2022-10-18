@@ -1,11 +1,10 @@
-<!--pages/logistics/order-code/index.wxml-->
 <view class="container">
     <view class="search">
         <view class="scan">
             <image mode="widthFix" src="../../../img/logistics/logistics.png"></image>
         </view>
         <view class="input">
-            <input type="text" placeholder="请扫描货物条形码添加商品" />
+            <input type="text" placeholder="请扫描货物条形码查询商品" />
         </view>
         <view class="image">
             <image mode="widthFix" src="../../../img/logistics/search.png"></image>
@@ -23,19 +22,8 @@
                     <view class="item-pid">药品编号：14444420382093448</view>
                     <view class="item-pid">药品厂家：桐君阁大药房</view>
                     <view class="item-count">
-                        清点数量：4
-                        <count-view></count-view>
-                        <view class="cicle-left"></view>
-                        <view class="cicle-right"></view>
-                    </view>
-                </view>
-                <view class="scroll-item">
-                    <view class="item-header">药品名称：藿香正气液</view>
-                    <view class="item-pid">药品编号：14444420382093448</view>
-                    <view class="item-pid">药品厂家：桐君阁大药房</view>
-                    <view class="item-count">
-                        清点数量：4
-                        <count-view></count-view>
+                        库存数量：4
+                        <!-- <count-view></count-view> -->
                         <view class="cicle-left"></view>
                         <view class="cicle-right"></view>
                     </view>

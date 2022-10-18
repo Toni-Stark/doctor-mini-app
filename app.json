@@ -20,7 +20,8 @@
         "pages/tool/add-tool/index",
         "pages/logistics/index",
         "pages/logistics/order-code/index",
-        "pages/logistics/bound-code/index"
+        "pages/logistics/bound-code/index",
+        "pages/logistics/search-code/index"
     ],
     "window": {
         "backgroundTextStyle": "light",

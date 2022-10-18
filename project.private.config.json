@@ -323,6 +323,12 @@
                     "pathName": "pages/mine/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/logistics/search-code/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

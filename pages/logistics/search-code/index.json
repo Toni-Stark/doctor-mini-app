@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "count-view": "../../../components/count-setting/index"
+  },
+  "navigationBarTitleText": "商品查询"
+}
