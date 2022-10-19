@@ -13,7 +13,18 @@
         </view>
         <!-- <view class="banner">- 全部商品 -</view> -->
         <view class="status-bar">
-            <view wx:for="{{statusList}}" data-index="{{index}}" class="{{tabStatus===index?'status-active':''}}" catchtap="checkTabStatus">{{item.title}}</view>
+            <view 
+                wx:for="{{statusList}}"
+                data-index="{{index}}" 
+                class="{{tabStatus===index?'status-active':''}}" 
+                catchtap="checkTabStatus"
+            >
+                {{item.title}}
+                <view class="price-btn" wx:if="{{tabStatus===index && item.title==='价格'}}">
+                    <div class="t {{priceStatus?'status-top':''}}"></div>
+                    <div class="b {{!priceStatus?'status-bottom':''}}"></div>
+                </view>
+            </view>
         </view>
         <view class="content-view">
             <scroll-view   

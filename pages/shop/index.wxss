@@ -275,3 +275,32 @@
     border-top-right-radius: 50rpx;
     border-bottom-right-radius: 50rpx;
 }
+.status-bar .price-btn {
+    width:30rpx;
+    display: flex;
+    position: relative;
+}
+.t {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border: 10rpx solid transparent;
+    border-bottom-color: #8a8a8a;
+    top: -11rpx;
+    border-radius: 3rpx;
+}
+.b {
+    position:absolute;
+    top: 15rpx;
+    width: 0px;
+    height: 0px;
+    border: 10rpx solid transparent;
+    border-top-color: #8a8a8a;
+    border-radius: 3rpx;
+}
+.status-top {
+    border-bottom-color: #1d1b1b;
+}
+.status-bottom {
+    border-top-color: #1d1b1b;
+}

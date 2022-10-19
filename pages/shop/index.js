@@ -135,7 +135,8 @@ Page({
             //     path: '#小程序://饿了么l外卖美食超市买菜水果/qOPHWvHwMsSeJiH',
             //     name: '饿了么'
             // },
-        ]
+        ],
+        priceStatus: false
     },
     checkTab(e){
         this.setData({
@@ -143,9 +144,17 @@ Page({
         })
     },
     checkTabStatus(e){
-        this.setData({
-            tabStatus: e.currentTarget.dataset.index
-        })
+        let index = e.currentTarget.dataset.index;
+        if(this.data.statusList[index].title === "价格"){
+            this.setData({
+                tabStatus: index,
+                priceStatus: !this.data.priceStatus
+            })
+        } else {
+            this.setData({
+                tabStatus: index
+            })
+        }
     },
     naviToWeb(e){
         // wx.navigateToMiniProgram({
