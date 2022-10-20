@@ -335,6 +335,30 @@
                     "pathName": "pages/shop/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/logistics/order-code/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/logistics/bound-code/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/logistics/search-code/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/shop/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

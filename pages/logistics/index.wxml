@@ -14,7 +14,7 @@
         <view class="card-list">
             <view class="card-item" catchtap="naviToOrder">
                 <image mode="heightFix" src="../../img/logistics/order.png" alt=""/>
-                下单查询
+                清点入库
             </view>
             <view class="card-item card-dual" catchtap="naviToBound">
                 <image mode="heightFix" src="../../img/logistics/outbound.png" alt=""/>

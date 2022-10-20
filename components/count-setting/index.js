@@ -4,14 +4,16 @@ Component({
      * 组件的属性列表
      */
     properties: {
-
+        count: {
+            type: Number,
+            value: 0
+        }
     },
 
     /**
      * 组件的初始数据
      */
     data: {
-        count: 0
     },
 
     /**
@@ -19,17 +21,15 @@ Component({
      */
     methods: {
         setCountLeft(){
-            if(this.data.count>0){
-                this.setData({
-                    count: this.data.count-1
-                })
+            if(this.properties.count>0){
+                this.triggerEvent("setCount", this.properties.count-1)
             }
         },
+        setInput(e){
+            this.triggerEvent("setCount", e.detail.value)
+        },
         setCountRight(e){
-            console.log(this.data.count + 1);
-            this.setData({
-                count: this.data.count+1
-            })
+            this.triggerEvent("setCount", this.properties.count+1)
         },
     }
 })

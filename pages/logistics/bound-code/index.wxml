@@ -1,45 +1,45 @@
 <!--pages/logistics/order-code/index.wxml-->
 <view class="container">
-    <view class="search">
+    <view class="search" >
         <view class="scan">
             <image mode="widthFix" src="../../../img/logistics/logistics.png"></image>
         </view>
         <view class="input">
-            <input type="text" placeholder="请扫描货物条形码添加商品" />
+            <input type="text" adjust-position="{{true}}" value="{{inputCode}}" bindblur="currentBlur" bindfocus="currentFocus" focus="{{true}}" bindinput="currentInput" placeholder="请扫描货物条形码添加商品" />
         </view>
         <view class="image">
             <image mode="widthFix" src="../../../img/logistics/search.png"></image>
+        </view>
+        <view class="blue-tip" wx:if="{{inputFocus}}">
+            <view class="border-tip"></view>
+            请点击输入框后继续录入
         </view>
     </view>
     <view class="context">
         <scroll-view
             class="scroll-view"
             scroll-y
-            scroll-into-view="{{ scrollIntoView }}"
         >
             <view class="scroll-list">
-                <view class="scroll-item">
-                    <view class="item-header">药品名称：藿香正气液</view>
-                    <view class="item-pid">药品编号：14444420382093448</view>
-                    <view class="item-pid">药品厂家：桐君阁大药房</view>
+                <view class="scroll-item" wx:for="{{requestList}}" wx:key="index">
+                    <view class="item-header">药品名称：{{item.name}}</view>
+                    <view class="item-pid">药品编号：{{item.id}}</view>
+                    <view class="item-pid">药品厂家：{{item.address}}</view>
                     <view class="item-count">
-                        清点数量：4
-                        <count-view></count-view>
+                        订单总数：{{item.count}}
+                        <view class="item-select">
+                            已点数量：
+                            <count-view  wx:if="{{item.selected !== item.count}}" data-index="{{index}}" count="{{item.selected}}" bindsetCount="setCount"></count-view>
+                            <view class="item-success" wx:else="">完成</view>
+                        </view>
                         <view class="cicle-left"></view>
                         <view class="cicle-right"></view>
                     </view>
                 </view>
-                <view class="scroll-item">
-                    <view class="item-header">药品名称：藿香正气液</view>
-                    <view class="item-pid">药品编号：14444420382093448</view>
-                    <view class="item-pid">药品厂家：桐君阁大药房</view>
-                    <view class="item-count">
-                        清点数量：4
-                        <count-view></count-view>
-                        <view class="cicle-left"></view>
-                        <view class="cicle-right"></view>
-                    </view>
-                </view>
+            </view>
+
+            <view class="upload-view" wx:if="{{hadRemaining}}">
+                <view class="upload">提交</view>
             </view>
         </scroll-view>
     </view>

@@ -9,6 +9,7 @@
     padding: 0 15rpx;
     border: 1rpx solid #e8e8e8;
     border-radius: 15rpx;
+    position: relative;
 }
 .scan {
     padding: 15rpx;
@@ -71,11 +72,15 @@
 .item-count {
     padding: 20rpx 15rpx;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     border-top: 1rpx dashed #eaeaea;
     margin-top: 15rpx;
     position: relative;
+}
+.item-num{
+    display: flex; 
+    align-items: center;   
 }
 .cicle-left, .cicle-right {
     width: 30rpx;
@@ -98,4 +103,49 @@
     right: 0;
     background: linear-gradient(to right, #eaeaea 0%,#ededed 35%,#F1F1F1 65%,#f7f7f7 100%);
     border-left: 1rpx solid #e0e0e0;
+}
+.upload-view {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+.upload {
+    width: 35%;
+    padding: 15rpx 0;
+    background-color: rgb(255, 255, 255);
+    color: rgb(30, 143, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10rpx;
+    border: 1rpx solid rgb(30, 143, 255);
+    font-size: 32rpx;
+}
+.border-tip {
+    border: 1rpx;
+}
+.blue-tip {
+    position: absolute;
+    top: 100%;
+    margin-top: 20rpx;
+    left: 45%;
+    border: 1rpx solid #ffe58f;
+    padding: 15rpx;
+    font-size: 30rpx;
+    border-radius: 8rpx;
+    color: #000000;
+    background-color: #fffbe6;
+    z-index: 99;
+}
+.border-tip {
+    position: absolute;
+    /* top: -9px; */
+    left: 15%;
+    margin-top: -34rpx;
+    border-right: 20rpx solid transparent;
+    border-top: 0rpx solid transparent;
+    border-left: 20rpx solid transparent;
+    border-bottom: 18rpx solid #ffe58f;
 }

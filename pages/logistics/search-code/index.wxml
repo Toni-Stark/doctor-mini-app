@@ -4,7 +4,7 @@
             <image mode="widthFix" src="../../../img/logistics/logistics.png"></image>
         </view>
         <view class="input">
-            <input type="text" placeholder="请扫描货物条形码查询商品" />
+            <input type="text" adjust-position="{{true}}" value="{{inputCode}}" bindblur="currentBlur" bindfocus="currentFocus" focus="{{true}}" bindinput="currentInput" placeholder="请扫描货物条形码查询商品" />
         </view>
         <view class="image">
             <image mode="widthFix" src="../../../img/logistics/search.png"></image>
@@ -14,16 +14,14 @@
         <scroll-view
             class="scroll-view"
             scroll-y
-            scroll-into-view="{{ scrollIntoView }}"
         >
             <view class="scroll-list">
-                <view class="scroll-item">
-                    <view class="item-header">药品名称：藿香正气液</view>
-                    <view class="item-pid">药品编号：14444420382093448</view>
-                    <view class="item-pid">药品厂家：桐君阁大药房</view>
+                <view class="scroll-item" wx:if="{{searchItem}}">
+                    <view class="item-header">药品名称：{{searchItem.name}}</view>
+                    <view class="item-pid">药品编号：{{searchItem.id}}</view>
+                    <view class="item-pid">药品厂家：{{searchItem.address}}</view>
                     <view class="item-count">
-                        库存数量：4
-                        <!-- <count-view></count-view> -->
+                        库存数量：{{searchItem.count}}
                         <view class="cicle-left"></view>
                         <view class="cicle-right"></view>
                     </view>

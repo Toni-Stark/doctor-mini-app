@@ -27,7 +27,6 @@ Page({
         } else {
             let nickName = storage.getStorageSync('nickName') || '点击登录';
             let avatarUrl = storage.getStorageSync('avatarUrl') || '../../img/mine/home-robot.png';
-            console.log(nickName, avatarUrl)
             this.setData({
                 nickName: nickName,
                 avatarUrl: avatarUrl,

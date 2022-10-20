@@ -1,11 +1,98 @@
 // pages/logistics/order-code/index.js
+let timer;
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        inputCode: "",
+        requestList: [
+            {
+                name: '藿香正气水',
+                id: '6914329004530',
+                address: '桐君阁大药房',
+                count: 1,
+            },
+            {
+                name: '999感冒灵',
+                id: '6926378900626',
+                address: '桐君阁大药房',
+                count: 1,
+            },
+            {
+                name: '连花清瘟颗粒',
+                id: '6903544060292',
+                address: '桐君阁大药房',
+                count: 1,
+            }
+        ],
+        orderCode: '',
+        orderList: [],
+        inputFocus: false,
+    },
 
+    currentBlur(){
+        this.setData({
+            inputFocus: true
+        })
+    },
+    currentFocus(){
+        this.setData({
+            inputFocus: false
+        })
+    },
+
+    setCount(e){
+        let index = e.currentTarget.dataset.index;
+            this.data.orderList[index].count = e.detail;
+        let list = this.data.orderList;
+        this.setData({
+            orderList: list
+        })
+    },
+
+    currentInput(e){
+        this.setData({
+            inputCode: e.detail.value
+        })
+        wx.showToast({
+            title: '加载中...',
+            icon: 'loading'
+        })
+        timer && clearTimeout(timer);
+        timer = null;
+        timer = setTimeout(()=>{
+            let obj = this.data.requestList.filter(item=>item.id === e.detail.value);
+            if(obj.length<=0){
+                wx.showToast({
+                  icon: 'none',
+                  title: '未找到商品',
+                })
+                this.setData({
+                    inputCode: ''
+                });
+                return;
+            }
+            let index = this.data.orderList.findIndex(item => item.id === e.detail.value);
+            if(index<0){
+                let list = this.data.orderList.concat(obj);
+                this.setData({
+                    orderList: list
+                })
+            } else {
+                this.data.orderList[index].count ++ ;
+                let list = this.data.orderList;
+                this.setData({
+                    orderList: list
+                })
+            }
+            wx.hideToast();
+            timer = null;
+            this.setData({
+                inputCode: ''
+            })
+        }, 1000);
     },
 
     /**
@@ -14,53 +101,4 @@ Page({
     onLoad: function (options) {
 
     },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
 })

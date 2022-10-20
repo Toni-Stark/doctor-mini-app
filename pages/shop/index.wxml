@@ -64,7 +64,7 @@
                         </view>
                     </view>
                 </view>
-                <view class="footer-bar"> ~ 到底了 ~ </view>
+                <view class="footer-bar"> --- 到底了 --- </view>
             </scroll-view>
         </view>
     </view>
