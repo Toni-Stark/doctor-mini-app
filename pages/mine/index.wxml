@@ -100,3 +100,7 @@
         </view>
     </view> -->
 </view>
+<tabView activeIdx="{{3}}"></tabView>
+
+
+

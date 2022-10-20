@@ -4,6 +4,7 @@
   flex-direction: column;
   box-sizing: border-box;
   border-top: 1rpx solid #f2f2f2;
+  overflow-y: scroll;
 } 
 .shadow {
     box-shadow: 2rpx 2rpx 2rpx #e2e2e2;

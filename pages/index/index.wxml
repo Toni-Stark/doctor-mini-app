@@ -101,3 +101,4 @@
         </view>
     </view>
 </view>
+<tabView activeIdx="{{0}}"></tabView>

@@ -21,7 +21,8 @@
         "pages/logistics/index",
         "pages/logistics/order-code/index",
         "pages/logistics/bound-code/index",
-        "pages/logistics/search-code/index"
+        "pages/logistics/search-code/index",
+        "pages/tabView/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -35,6 +36,7 @@
         "wx91d27dbf599dff74"
     ],
     "tabBar": {
+        "custom": true,
         "color": "#666666",
         "selectedColor": "#3E7BFA",
         "list": [
@@ -63,5 +65,8 @@
                 "selectedIconPath": "./img/tabBar/me.png"
             }
         ]
+    },
+    "usingComponents": {
+        "tabView":"./pages/tabView/index"
     }
 }

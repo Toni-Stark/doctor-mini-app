@@ -27,3 +27,4 @@
         </view>
     </view>
 </view>
+<tabView activeIdx="{{2}}"></tabView>

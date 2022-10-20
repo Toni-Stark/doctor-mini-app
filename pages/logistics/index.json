@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},  
+  "usingComponents": {
+    "tabView": "../../pages/tabView/index"
+  },  
   "navigationBarTitleText": "库存管理"
 }

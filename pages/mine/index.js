@@ -46,7 +46,12 @@ Page({
             padding: paddingTop
         })
     },
-    onShow(){
+    onShow() {
         this.naviToRegister()
+        if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+            this.getTabBar().setData({
+                activeIdx: 1
+            })
+        }
     },
 })

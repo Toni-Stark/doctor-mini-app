@@ -68,5 +68,5 @@
             </scroll-view>
         </view>
     </view>
-
 </view>
+<tabView activeIdx="{{1}}"></tabView>
