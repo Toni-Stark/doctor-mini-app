@@ -17,9 +17,9 @@ App({
     // 获取胶囊信息
     let menuButtonObject = wx.getMenuButtonBoundingClientRect();
     let screenObject = wx.getWindowInfo()
-    console.log('log-----------')
-    console.log(screenObject, menuButtonObject)
-    console.log('log-----------')
+    // console.log('log-----------')
+    // console.log(screenObject, menuButtonObject)
+    // console.log('log-----------')
     // 获取设备信息
     wx.getSystemInfo({
       success: res => {

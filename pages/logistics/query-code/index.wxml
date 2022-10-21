@@ -1,20 +1,20 @@
-<!--pages/logistics/order-code/index.wxml-->
+<!--pages/logistics/query-code/index.wxml-->
 <view class="container">
-    <view class="search" >
+    <view class="search">
         <view class="scan">
             <image mode="widthFix" src="../../../img/logistics/logistics.png"></image>
         </view>
         <view class="input">
             <textarea 
                 value="{{inputCode}}"
-                placeholder="请扫描快递单或药品编码"
+                placeholder="请扫描条码或者输入订单号"
                 focus="{{true}}" 
                 bindinput="currentInput" 
                 bindblur="currentBlur" 
                 bindfocus="currentFocus" 
                 show-confirm-bar="{{true}}"
-                cols="30"
-                rows="2"
+                bindconfirm="currentConfirm"
+                confirm-type="search"
             ></textarea>
         </view>
         <view class="image">
@@ -26,36 +26,22 @@
         </view>
     </view>
     <view class="context">
-        <scroll-view
-            class="scroll-view"
-            scroll-y
-        >
+        <scroll-view class="scroll-view" scroll-y>
+            <view class="order-title" wx:if="{{currentCode}}">订单号: {{currentCode}}</view>
             <view class="scroll-list">
-                <view class="order-list" wx:if="{{requestCodes.length>0}}">
-                    订单号:
-                    <view class="order-table">
-                        <view class="order-title" wx:for="{{requestCodes}}">订单{{index+1}}/{{item}}</view>
-                    </view>
-                </view>
-                <view class="scroll-item" wx:for="{{requestList}}" wx:key="index">
+                <view class="scroll-item" wx:for="{{orderList}}" wx:key="index">
                     <view class="item-header">药品名称：{{item.name}}</view>
                     <view class="item-pid">药品编号：{{item.id}}</view>
                     <view class="item-pid">药品厂家：{{item.address}}</view>
                     <view class="item-count">
-                        商品数量：{{item.count}}
-                        <view class="item-select">
-                            核验数量：
-                            <count-view  wx:if="{{item.selected !== item.count}}" data-index="{{index}}" count="{{item.selected}}" bindsetCount="setCount"></count-view>
-                            <view class="item-success" wx:else="">完成</view>
+                        <view class="item-num">
+                            下单数量：{{item.count}}
+                            <!-- <count-view data-index="{{index}}" count="{{item.count}}" bindsetCount="setCount"></count-view> -->
                         </view>
                         <view class="cicle-left"></view>
                         <view class="cicle-right"></view>
                     </view>
                 </view>
-            </view>
-
-            <view class="upload-view" wx:if="{{hadRemaining}}">
-                <view class="upload">提交</view>
             </view>
         </scroll-view>
     </view>

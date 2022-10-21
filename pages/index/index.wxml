@@ -1,104 +1,107 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container-index">
     <!-- <view class="active" style="height:{{headerHeight}}px;padding-top: {{padding}};">
         药药线上通
     </view> -->
-    <view class="header">
-        <image class="header-rubi" mode="widthFix" src='../../img/index/home-robot.png'></image>
-        <text class="header-title">我是药药线上通 您身边的智能家庭医生</text>
-        <view class="search" catchtap="naviToCustomer">
-            <text>有健康问题，先来问问我吧...</text>
-            <!-- <image mode="heightFix" src="../../img/index/audio.png"></image> -->
-        </view>
-    </view>
-    <view class="tabbar">
-        <!-- <view class="tab">
-            <image class="tab-image" mode="widthFix" src="../../img/index/zizhen.png"></image>
-            <text class="tab-label">症状自诊</text>
-        </view>
-        <view class="tab">
-            <image class="tab-image" mode="widthFix" src="../../img/index/yaopin.png"></image>
-            <text c lass="tab-label">小病找药</text>
-        </view>
-        <view class="tab">
-            <image class="tab-image" mode="widthFix" src="../../img/index/jibing.png"></image>
-            <text class="tab-label">疾病知识</text>
-        </view>
-        <view class="tab">
-            <image class="tab-image" mode="widthFix" src="../../img/index/yaopin.png"></image>
-            <text class="tab-label">药品知识</text>
-        </view> -->
-        <view class="banner-list">
-            <view class="banner-item" catchtap="naviToCustomer">
-                <image class="banner-image" mode="widthFix" src='../../img/index/bg-kap1.png'></image>
-                <view class="banner-absou">
-                    <image class="banner-image-eval" mode="widthFix" src="../../img/index/home-icon-paichufang.png"></image>
-                    <text class="banner-text-eval">症状自诊</text>
-                </view>
-            </view>
-            <view class="banner-item" catchtap="naviToSearch">
-                <image class="banner-image" mode="widthFix" src='../../img/index/bg-kap2.png'></image>
-                <view class="banner-absou">
-                    <image class="banner-image-eval" mode="widthFix" src="../../img/index/home-icon-anpai.png"></image>
-                    <text class="banner-text-eval">药品知识</text>
-                </view>
-            </view>
-            <view class="banner-item" catchtap="naviToRecommend">
-                <image class="banner-image" mode="widthFix" src='../../img/index/bg-kap3.png'></image>
-                <view class="banner-absou">
-                    <image class="banner-image-eval" mode="widthFix" src="../../img/index/home-icon-zhidao.png"></image>
-                    <text class="banner-text-eval">推荐文章</text>
-                </view>
+    <view class="content">
+        <view class="header">
+            <image class="header-rubi" mode="widthFix" src='../../img/index/home-robot.png'></image>
+            <text class="header-title">我是药药线上通 您身边的智能家庭医生</text>
+            <view class="search" catchtap="naviToCustomer">
+                <text>有健康问题，先来问问我吧...</text>
+                <!-- <image mode="heightFix" src="../../img/index/audio.png"></image> -->
             </view>
         </view>
-    </view>
-    <view class="card">
-        <view class="card-header">
-            <image class="card-img" mode="widthFix" src="../../img/index/home-icon-question.png"></image>
-            你可以这样问我
-        </view>
-        <view class="card-tip-list">
-            <view class="card-tip-item" wx:for="{{askList}}" wx:key="index" data-title="{{item.title}}" catchtap="naviToServices">{{item.title}}</view>
-        </view>
-    </view>
-    <view class="banner">
-        <view class="banner-title">推荐文章</view>
-        <view class="share">
-            <view class="share-list">
-                <view class="share-item" catchtap="naviToDetail">
-                    <view class="share-point"></view>
-                    <view class="share-label">心衰患者的运动方式</view>
+        <view class="tabbar">
+            <!-- <view class="tab">
+                <image class="tab-image" mode="widthFix" src="../../img/index/zizhen.png"></image>
+                <text class="tab-label">症状自诊</text>
+            </view>
+            <view class="tab">
+                <image class="tab-image" mode="widthFix" src="../../img/index/yaopin.png"></image>
+                <text c lass="tab-label">小病找药</text>
+            </view>
+            <view class="tab">
+                <image class="tab-image" mode="widthFix" src="../../img/index/jibing.png"></image>
+                <text class="tab-label">疾病知识</text>
+            </view>
+            <view class="tab">
+                <image class="tab-image" mode="widthFix" src="../../img/index/yaopin.png"></image>
+                <text class="tab-label">药品知识</text>
+            </view> -->
+            <view class="banner-list">
+                <view class="banner-item" catchtap="naviToCustomer">
+                    <image class="banner-image" mode="widthFix" src='../../img/index/bg-kap1.png'></image>
+                    <view class="banner-absou">
+                        <image class="banner-image-eval" mode="widthFix" src="../../img/index/home-icon-paichufang.png"></image>
+                        <text class="banner-text-eval">症状自诊</text>
+                    </view>
                 </view>
-                <view class="share-item">
-                    <view class="share-point"></view>
-                    <view class="share-label">卵巢囊肿，我该如何对付你？</view>
+                <view class="banner-item" catchtap="naviToSearch">
+                    <image class="banner-image" mode="widthFix" src='../../img/index/bg-kap2.png'></image>
+                    <view class="banner-absou">
+                        <image class="banner-image-eval" mode="widthFix" src="../../img/index/home-icon-anpai.png"></image>
+                        <text class="banner-text-eval">药品知识</text>
+                    </view>
                 </view>
-                <view class="share-item">
-                    <view class="share-point"></view>
-                    <view class="share-label">疥疮有哪些后遗症？</view>
-                </view>
-                <view class="share-item">
-                    <view class="share-point"></view>
-                    <view class="share-label">糖尿病生活方式</view>
-                </view>
-                <view class="share-item">
-                    <view class="share-point"></view>
-                    <view class="share-label">乳腺癌患者应如何安排日常生活？</view>
-                </view>
-                <view class="share-item">
-                    <view class="share-point"></view>
-                    <view class="share-label">胃癌手术后要少吃多餐</view>
-                </view>
-                <view class="share-item">
-                    <view class="share-point"></view>
-                    <view class="share-label">肺纤维化患者出现顽固性咳嗽要警惕肺癌</view>
-                </view>
-                <view class="share-item">
-                    <view class="share-point"></view>
-                    <view class="share-label">如何进行癌症筛查</view>
+                <view class="banner-item" catchtap="naviToRecommend">
+                    <image class="banner-image" mode="widthFix" src='../../img/index/bg-kap3.png'></image>
+                    <view class="banner-absou">
+                        <image class="banner-image-eval" mode="widthFix" src="../../img/index/home-icon-zhidao.png"></image>
+                        <text class="banner-text-eval">推荐文章</text>
+                    </view>
                 </view>
             </view>
         </view>
+        <view class="card">
+            <view class="card-header">
+                <image class="card-img" mode="widthFix" src="../../img/index/home-icon-question.png"></image>
+                你可以这样问我
+            </view>
+            <view class="card-tip-list">
+                <view class="card-tip-item" wx:for="{{askList}}" wx:key="index" data-title="{{item.title}}" catchtap="naviToServices">{{item.title}}</view>
+            </view>
+        </view>
+        <view class="banner">
+            <view class="banner-title">推荐文章</view>
+            <view class="share">
+                <view class="share-list">
+                    <view class="share-item" catchtap="naviToDetail">
+                        <view class="share-point"></view>
+                        <view class="share-label">心衰患者的运动方式</view>
+                    </view>
+                    <view class="share-item">
+                        <view class="share-point"></view>
+                        <view class="share-label">卵巢囊肿，我该如何对付你？</view>
+                    </view>
+                    <view class="share-item">
+                        <view class="share-point"></view>
+                        <view class="share-label">疥疮有哪些后遗症？</view>
+                    </view>
+                    <view class="share-item">
+                        <view class="share-point"></view>
+                        <view class="share-label">糖尿病生活方式</view>
+                    </view>
+                    <view class="share-item">
+                        <view class="share-point"></view>
+                        <view class="share-label">乳腺癌患者应如何安排日常生活？</view>
+                    </view>
+                    <view class="share-item">
+                        <view class="share-point"></view>
+                        <view class="share-label">胃癌手术后要少吃多餐</view>
+                    </view>
+                    <view class="share-item">
+                        <view class="share-point"></view>
+                        <view class="share-label">肺纤维化患者出现顽固性咳嗽要警惕肺癌</view>
+                    </view>
+                    <view class="share-item">
+                        <view class="share-point"></view>
+                        <view class="share-label">如何进行癌症筛查</view>
+                    </view>
+                </view>
+            </view>
+        </view>
     </view>
+    <view class="bottom-banner"></view>
 </view>
-<tabView activeIdx="{{0}}"></tabView>
+<tabView activeIdx="{{0}}" userScan="{{userScan}}"></tabView>

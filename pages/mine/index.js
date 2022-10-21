@@ -1,5 +1,4 @@
-const { route } = require("../../utils/index")
-const storage = require("../../utils/storage")
+const { route, storage } = require("../../utils/index")
 const app = getApp()
 
 // pages/mine/index.js
@@ -10,7 +9,8 @@ Page({
      */
     data: {
         nickName: '',
-        avatarUrl: ''
+        avatarUrl: '',
+        userScan: 0
     },
     naviToOrderList(){
         route.navigateTo('./order-list/index')
@@ -46,6 +46,15 @@ Page({
             padding: paddingTop
         })
     },
+    regPermissions(){
+        let nickName = storage.getStorageSync('nickName');
+        if (typeof this.getTabBar === 'function') {
+            let userScan = nickName ? 1 : 0;
+            this.setData({
+                userScan
+            })
+        }
+    },
     onShow() {
         this.naviToRegister()
         if (typeof this.getTabBar === 'function' && this.getTabBar()) {
@@ -53,5 +62,6 @@ Page({
                 activeIdx: 1
             })
         }
+        this.regPermissions();
     },
 })

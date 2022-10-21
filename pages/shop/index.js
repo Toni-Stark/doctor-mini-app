@@ -1,4 +1,5 @@
 // pages/shop/index.js
+const { storage } = require("../../utils/index")
 const app = getApp();
 
 Page({
@@ -7,6 +8,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        userScan: 0,
         tabList: [
             {
                 title: '商品一'
@@ -189,11 +191,21 @@ Page({
             padding: paddingTop
         })
     },
+    regPermissions(){
+        let nickName = storage.getStorageSync('nickName');
+        if (typeof this.getTabBar === 'function') {
+            let userScan = nickName ? 1 : 0;
+            this.setData({
+                userScan
+            })
+        }
+    },
     onShow() {
         if (typeof this.getTabBar === 'function' && this.getTabBar()) {
             this.getTabBar().setData({
                 activeIdx: 1
             })
         }
+        this.regPermissions();
     },
 })

@@ -67,6 +67,7 @@
                 <view class="footer-bar"> --- 到底了 --- </view>
             </scroll-view>
         </view>
+        <view class="bottom-banner"></view>
     </view>
 </view>
-<tabView activeIdx="{{1}}"></tabView>
+<tabView activeIdx="{{1}}" userScan="{{userScan}}"></tabView>

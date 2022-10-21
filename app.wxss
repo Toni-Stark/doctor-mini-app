@@ -9,3 +9,6 @@
 .shadow {
     box-shadow: 2rpx 2rpx 2rpx #e2e2e2;
 }
+.bottom-banner{
+    height: 9.5vh;
+}

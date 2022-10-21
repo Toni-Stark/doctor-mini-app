@@ -2,5 +2,5 @@
     "usingComponents": {
         "count-view": "../../../components/count-setting/index"
     },
-    "navigationBarTitleText": "出库验货"
+    "navigationBarTitleText": "发货核验"
   }

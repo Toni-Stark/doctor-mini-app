@@ -1,5 +1,4 @@
 // pages/logistics/order-code/index.js
-let timer;
 Page({
 
     /**
@@ -16,7 +15,7 @@ Page({
             },
             {
                 name: '999感冒灵',
-                id: '6926378900626',
+                id: '6903544060292',
                 address: '桐君阁大药房',
                 count: 1,
             },
@@ -42,6 +41,18 @@ Page({
             inputFocus: false
         })
     },
+    uploade(){
+        wx.showToast({
+            title: '上传中...',
+            icon: 'loading'
+        });
+        setTimeout(()=>{
+            wx.hideToast()
+            this.setData({
+                orderList: []
+            })
+        }, 2500)
+    },
 
     setCount(e){
         let index = e.currentTarget.dataset.index;
@@ -51,48 +62,69 @@ Page({
             orderList: list
         })
     },
-
-    currentInput(e){
-        this.setData({
-            inputCode: e.detail.value
-        })
+    setListData(value){
         wx.showToast({
             title: '加载中...',
             icon: 'loading'
         })
-        timer && clearTimeout(timer);
-        timer = null;
-        timer = setTimeout(()=>{
-            let obj = this.data.requestList.filter(item=>item.id === e.detail.value);
-            if(obj.length<=0){
-                wx.showToast({
-                  icon: 'none',
-                  title: '未找到商品',
-                })
-                this.setData({
-                    inputCode: ''
-                });
-                return;
+        let obj = this.data.requestList.filter(item=>item.id === value);
+        if(obj.length<=0){
+            wx.showToast({
+                icon: 'none',
+                title: '未找到商品',
+            })
+            this.setData({
+                inputCode: ''
+            });
+            return;
+        }
+        let index = this.data.orderList.findIndex(item => item.id === value);
+        if(index<0){
+            let list = this.data.orderList.concat(obj);
+            this.setData({
+                orderList: list
+            })
+        } else {
+            this.data.orderList[index].count ++ ;
+            let list = this.data.orderList;
+            this.setData({
+                orderList: list
+            })
+        }
+        wx.hideToast();
+        this.setData({
+            inputCode: ''
+        })
+    },
+    currentConfirm (e) {
+        this.setListData(e.detail.value);
+    },
+    currentInput(e){
+        // let isCR = e.detail.keyCode == 10;
+        let value = (e.detail.value).toString();
+        let notNull = value.trim().length>0;
+        if(notNull){
+            let isCR = value.slice(value.length-1,value.length) == '\n'
+            if(isCR){
+                let reg = value.slice(0,2) == '69';
+                console.log(reg);
+                if(reg) {
+                    this.setListData(value.slice(0, -1));
+                } else {
+                    wx.showToast({
+                        icon: 'none',
+                        title: '请扫描货物条形码',
+                    });
+                    this.setData({
+                        inputCode: ''
+                    })
+                }
             }
-            let index = this.data.orderList.findIndex(item => item.id === e.detail.value);
-            if(index<0){
-                let list = this.data.orderList.concat(obj);
-                this.setData({
-                    orderList: list
-                })
-            } else {
-                this.data.orderList[index].count ++ ;
-                let list = this.data.orderList;
-                this.setData({
-                    orderList: list
-                })
-            }
-            wx.hideToast();
-            timer = null;
+        } else {
             this.setData({
                 inputCode: ''
             })
-        }, 1000);
+        }
     },
 
     /**

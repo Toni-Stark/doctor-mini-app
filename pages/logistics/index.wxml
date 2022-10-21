@@ -12,19 +12,24 @@
             </view>
         </view> -->
         <view class="card-list">
-            <view class="card-item" catchtap="naviToOrder">
-                <image mode="heightFix" src="../../img/logistics/order.png" alt=""/>
-                清点入库
+            <view class="card-item" catchtap="naviToQuery">
+                <image mode="heightFix" src="../../img/logistics/query.png" alt=""/>
+                下账查询
             </view>
             <view class="card-item card-dual" catchtap="naviToBound">
                 <image mode="heightFix" src="../../img/logistics/outbound.png" alt=""/>
-                出库验货
+                发货核验
             </view>
             <view class="card-item" catchtap="naviToSearch">
                 <image mode="heightFix" src="../../img/logistics/search.png" alt=""/>
                 商品查询
             </view>
+            <view class="card-item card-dual" catchtap="naviToOrder">
+                <image mode="heightFix" src="../../img/logistics/order.png" alt=""/>
+                清点入库
+            </view>
         </view>
     </view>
 </view>
-<tabView activeIdx="{{2}}"></tabView>
+<view class="bottom-banner"></view>
+<tabView activeIdx="{{2}}" userScan="{{userScan}}"></tabView>

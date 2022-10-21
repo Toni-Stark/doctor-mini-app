@@ -100,7 +100,9 @@
         </view>
     </view> -->
 </view>
-<tabView activeIdx="{{3}}"></tabView>
+<view class="bottom-banner"></view>
+<tabView activeIdx="{{3}}" userScan="{{userScan}}"></tabView>
+
 
 
 

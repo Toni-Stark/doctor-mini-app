@@ -1,13 +1,7 @@
 // pages/logistics/order-code/index.js
-let timer;
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
-        inputCode: "",
-        requestList: [
+        responseData: [
             {
                 name: '藿香正气水',
                 id: '6914329004530',
@@ -15,37 +9,41 @@ Page({
                 count: 2,
                 selected: 0
             },
-            {
-                name: '999感冒灵',
-                id: '6926378900626',
-                address: '桐君阁大药房',
-                count: 3,
-                selected: 0
-            },
-            {
-                name: '马来酸曲美布汀片',
-                id: '6953345101229',
-                address: '桐君阁大药房',
-                count: 2,
-                selected: 0
-            },
-            {
-                name: '连花清瘟颗粒',
-                id: '6903544060292',
-                address: '桐君阁大药房',
-                count: 1,
-                selected: 0
-            },
-            {
-                name: '阿莫西林胶囊',
-                id: '6973009160164',
-                address: '桐君阁大药房',
-                count: 4,
-                selected: 0
-            }
+            // {
+            //     name: '999感冒灵',
+            //     id: '6926378900626',
+            //     address: '桐君阁大药房',
+            //     count: 3,
+            //     selected: 0
+            // },
+            // {
+            //     name: '马来酸曲美布汀片',
+            //     id: '6953345101229',
+            //     address: '桐君阁大药房',
+            //     count: 2,
+            //     selected: 0
+            // },
+            // {
+            //     name: '连花清瘟颗粒',
+            //     id: '6903544060292',
+            //     address: '桐君阁大药房',
+            //     count: 1,
+            //     selected: 0
+            // },
+            // {
+            //     name: '阿莫西林胶囊',
+            //     id: '6973009160164',
+            //     address: '桐君阁大药房',
+            //     count: 4,
+            //     selected: 0
+            // },
         ],
+        inputCode: "",
+        requestList: [],
+        requestCodes: [],
         inputFocus: false,
         hadRemaining: false,
+        hadExpressSingle: false
     },
 
     regNumberRemaining(list){
@@ -55,10 +53,28 @@ Page({
             this.setData({
                 hadRemaining: true
             })
+            wx.showToast({
+                icon: 'loading',
+                title: '上传中...',
+            })
+            setTimeout(()=>{
+                wx.hideToast();
+                wx.showToast({
+                    icon: 'success',
+                    title: '上传核验成功',
+                })
+                this.setData({
+                    requestList: [],
+                    requestCodes: [],
+                    inputCode: '',
+                    hadExpressSingle: false,
+                    hadRemaining: false,
+                })
+            }, 2500);
         } else if (this.data.hadRemaining){
             this.setData({
                 hadRemaining: false
-            })
+            });
         }
     },
 
@@ -81,41 +97,97 @@ Page({
             inputFocus: false
         })
     },
-    currentInput(e){
+
+    setOrderList(value){
         this.setData({
-            inputCode: e.detail.value
+            requestCodes: ['243833105279','2647280845879638942'],
+            requestList: JSON.parse(JSON
+                .stringify(this.data.responseData)),
+            inputCode: '',
+            hadExpressSingle: true,
         })
-        wx.showToast({
-            title: '加载中...',
-            icon: 'loading'
+        wx.hideToast();
+    },
+
+    setOrderItem(value){
+        // 6914329004530
+        this.setData({
+            inputCode: value,
         })
-        timer && clearTimeout(timer);
-        timer = null;
-        timer = setTimeout(()=>{
-            let obj = this.data.requestList.filter(item=>item.id === e.detail.value);
-            if(obj.length<=0){
+        let obj = this.data.requestList.filter(item=>item.id === value);
+        if(obj.length<=0){
+            wx.showToast({
+                icon: 'none',
+                title: '订单中无此商品',
+            })
+            this.setData({
+                inputCode: ''
+            });
+            return;
+        }
+        let index = this.data.requestList.findIndex(item => item.id === value);
+        let list = [];
+        if (index>=0) {
+            if(this.data.requestList[index].selected == this.data.requestList[index].count){
                 wx.showToast({
-                  icon: 'none',
-                  title: '订单中无此商品',
+                    icon: 'none',
+                    title: '此项商品数量已足够',
                 })
-                this.setData({
-                    inputCode: ''
-                });
+                this.setData({inputCode: ''});
                 return;
             }
-            let index = this.data.requestList.findIndex(item => item.id === e.detail.value);
-            if (index>=0) {
-                this.data.requestList[index].selected ++ ;
-                let list = this.data.requestList;
-                this.setData({requestList: list})
+            this.data.requestList[index].selected ++ ;
+            list = this.data.requestList;
+            this.setData({requestList: list})
+        }
+        wx.showToast({icon: 'none',title: '添加成功',duration: 1000});
+        this.regNumberRemaining(list);
+        this.setData({inputCode: ''})
+    },
+
+    setListData(event, reg){
+        if(!this.data.hadExpressSingle){
+            this.setOrderList(event);
+        } else {
+            if(reg){
+                this.setOrderItem(event);
+            } else {
+                this.setData({
+                    hadExpressSingle: false,
+                });
+                this.setOrderList(event);
             }
-            wx.hideToast();
-            wx.showToast({icon: 'none',title: '添加成功',duration: 1000});
-            this.regNumberRemaining(list);
-            // 6914329004530
-            timer = null;
-            this.setData({inputCode: ''})
-        }, 500);
+        }
+        // 6914329004530
+    },
+    currentInput(e){
+        let value = (e.detail.value).toString();
+        let isCR = value.slice(value.length-1, value.length) == '\n';
+        let notNull = value.trim().length>0;
+        let reg = value.slice(0,2) == '69';
+        if(notNull && isCR && !this.data.hadExpressSingle && reg){
+            wx.showToast({
+                title: '请先扫描快递单号以获取订单信息',
+                icon: 'none'
+            })
+            this.setData({
+                inputCode: ''
+            })
+            return;
+        }
+        if(notNull && isCR){
+            let value = e.detail.value.slice(0, -1);
+            this.setListData(value, reg);
+        }
+        if(!notNull){
+            this.setData({
+                inputCode: ''
+            });
+            wx.showToast({
+                title: '请输入快递单号',
+                icon: 'none'
+            })
+        }
     },
     /**
      * 生命周期函数--监听页面加载

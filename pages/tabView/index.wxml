@@ -1,0 +1,14 @@
+<!--pages/tabView/index.wxml-->
+<view class="nav-tabs">
+  <view class="{{activeIdx == idx?'active':'default'}} tab-list" wx:for="{{tabArray}}" wx:key="prototype" wx:for-index="idx" 
+    wx:for-item="itemName" data-current="{{idx}}" bindtap="swichNav" wx:if="{{(userScan==0&&idx!=2) || (userScan!==0)}}">
+    <!-- <view wx:if="{{idx!=2}}"> -->
+    <view>
+        <image src="{{activeIdx == idx? itemName.selectIcon: itemName.icon}}" style="width: 20px;height: 20px; "></image>
+        <view>{{itemName.name}}</view>
+    </view>
+    <!-- <view wx:if="{{idx == 2}}" class="beginDo"> -->
+        <!-- <view>{{itemName.name}}</view> -->
+    <!-- </view> -->
+  </view>
+</view>

@@ -22,7 +22,8 @@
         "pages/logistics/order-code/index",
         "pages/logistics/bound-code/index",
         "pages/logistics/search-code/index",
-        "pages/tabView/index"
+        "pages/tabView/index",
+        "pages/logistics/query-code/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -53,7 +54,7 @@
                 "selectedIconPath": "./img/tabBar/shop.png"
             },
             {
-                "text": "清库存",
+                "text": "移动扫描枪",
                 "pagePath": "pages/logistics/index",
                 "iconPath": "./img/tabBar/logistics3.png",
                 "selectedIconPath": "./img/tabBar/logistics2.png"
@@ -67,6 +68,6 @@
         ]
     },
     "usingComponents": {
-        "tabView":"./pages/tabView/index"
+        "tabView": "./pages/tabView/index"
     }
 }

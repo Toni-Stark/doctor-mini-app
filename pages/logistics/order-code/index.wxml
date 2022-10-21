@@ -5,7 +5,18 @@
             <image mode="widthFix" src="../../../img/logistics/logistics.png"></image>
         </view>
         <view class="input">
-            <input type="text" value="{{inputCode}}" adjust-position="{{true}}" bindblur="currentBlur" bindfocus="currentFocus" focus="{{true}}" bindinput="currentInput" placeholder="请扫描货物条形码添加商品" />
+            <textarea 
+                value="{{inputCode}}"
+                placeholder="请扫描货物条形码添加商品"
+                focus="{{true}}" 
+                bindinput="currentInput" 
+                bindblur="currentBlur" 
+                bindfocus="currentFocus" 
+                bindconfirm="currentConfirm"
+                confirm-type="search"
+                cols="30"
+                rows="2"
+            ></textarea>
         </view>
         <view class="image">
             <image mode="widthFix" src="../../../img/logistics/search.png"></image>
@@ -16,10 +27,7 @@
         </view>
     </view>
     <view class="context">
-        <scroll-view
-            class="scroll-view"
-            scroll-y
-        >
+        <scroll-view class="scroll-view" scroll-y>
             <view class="scroll-list">
                 <view class="scroll-item" wx:for="{{orderList}}" wx:key="index">
                     <view class="item-header">药品名称：{{item.name}}</view>
@@ -27,7 +35,7 @@
                     <view class="item-pid">药品厂家：{{item.address}}</view>
                     <view class="item-count">
                         <view class="item-num">
-                            数量：
+                            库存：
                             <count-view data-index="{{index}}" count="{{item.count}}" bindsetCount="setCount"></count-view>
                         </view>
                         <view class="cicle-left"></view>
@@ -36,7 +44,7 @@
                 </view>
             </view>
             <view class="upload-view" wx:if="{{orderList.length>0}}">
-                <view class="upload">提交</view>
+                <view class="upload" bindtap="uploade">提交</view>
             </view>
         </scroll-view>
     </view>
