@@ -7,8 +7,10 @@
     display: flex;
     align-items: center;
 }
-.header {
-    /* background-image: linear-gradient(#6266FF, #4562FF);     */
+.header-view {
+    height: 1rpx;
+}
+/* .header {
     height: 210rpx;
     width: 100%;
     align-items: center;
@@ -23,44 +25,52 @@
     align-self: center;
     position: relative;
     margin-top: 100rpx;
+} */
+.header {
+    min-height: 230rpx !important;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
 }
 .header .header-title {
-    padding-left: 50rpx;
+    position: absolute;
+    font-size: 30rpx;
+    bottom: 57%;
+    left: 22%;
 }
 .header-rubi {
     width: 119rpx;
     height: 119rpx;
     position: absolute;
     left: 37rpx;
-    top: -77rpx;
+    bottom: 73rpx;
 }
 
 .search {
-    position: absolute;
     width: 88%;
     background-color: #ffffff;
-    align-self: center;
     border-radius: 50rpx;
     height: 100rpx;
-    bottom: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 32rpx;
     box-sizing: border-box;
     box-shadow: 4rpx 10rpx 40rpx 2rpx rgba(127, 129, 240, 0.51);
+    z-index: 800;
 }
 .search text {
     color: #484B54;
+    font-size: 32rpx;
 }
 .search image{
     width: 60rpx;
     height: 60rpx;
 }
 .tabbar {
-    display: flex;
-    padding: 40rpx 30rpx;
-    justify-content: space-around;
+    margin: 40rpx 0;
+    padding: 0 30rpx;
 }
 .tab {
     display: flex;
@@ -81,11 +91,10 @@
 .card {
     width: 88%;
     box-shadow: 4rpx 10rpx 40rpx 2rpx rgba(168, 168, 168, 0.51);
-    display: flex;
-    flex-direction: column;
-    align-self: center;
+    /* display: flex;
+    flex-direction: column; */
+    margin: 0 auto;
     border-radius: 17rpx;
-
 }
 .card-header {
     padding: 24rpx;
@@ -105,10 +114,12 @@
 .card-tip-list {
     display: flex;
     width: 100%;
-    height: 100%;
     padding: 15rpx;
     box-sizing: border-box;
     flex-wrap: wrap;
+    overflow: inherit;
+    /* min-height: 200rpx; */
+    /* max-height: 200rpx; */
 }
 .card-tip-item {
     padding: 15rpx 35rpx;
@@ -124,6 +135,7 @@
     flex-direction: column;
     align-self: center;
     padding: 60rpx 0;
+    margin: 0 auto;
 }
 .banner-title {
     font-size: 38rpx;
@@ -138,17 +150,21 @@
 .banner-item {
     display: flex;
     width: 100%;
-    /* flex-direction: column; */
+    height: 185rpx;
     position: relative;
+    align-items: center;
 }
 .banner-list .banner-item:not(:first-child) {
     margin-left: 20rpx;
 }
 .banner-image {
     width: 100%;
+    height: 185rpx;
 }
 .banner-absou {
     position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -195,9 +211,9 @@
 }
 .content {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
+    /* display: flex; */
+    /* text-align: center; */
+    /* flex-direction: column; */
     border-top: 1rpx solid #f2f2f2;
     overflow-y: scroll;
 }

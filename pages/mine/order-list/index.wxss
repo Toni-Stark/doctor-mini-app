@@ -6,7 +6,7 @@
 }
 .order-list {
     display: flex;
-    height: 89vh;
+    height: 100vh;
 }
 
 .main-detail image {

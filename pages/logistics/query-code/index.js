@@ -10,34 +10,47 @@ Page({
             {
                 name: '藿香正气水', 
                 id: '6914329004530',
-                payTime: '2022-10-21 13:47:46',
-                address: '桐君阁大药房',
+                count: 3,
+                price: '23.2',
+                createTime: '2022-10-21 13:47:46',
+                removeTime: '2023-10-21 13:47:46',
                 dose: '3mg:100µg*24粒/盒',
-                count: 1,
             },
             {
                 name: '999感冒灵',
                 id: '6926378900626',
-                payTime: '2022-10-21 13:47:46',
-                address: '桐君阁大药房',
+                count: 3,
+                price: '23.2',
+                createTime: '2022-10-21 13:47:46',
+                removeTime: '2023-10-21 13:47:46',
                 dose: '3mg:100µg*24粒/盒',
-                count: 1,
             },
             {
                 name: '连花清瘟颗粒',
                 id: '6903544060292',
-                payTime: '2022-10-21 13:47:46',
-                address: '桐君阁大药房',
+                count: 3,
+                price: '23.2',
+                createTime: '2022-10-21 13:47:46',
+                removeTime: '2023-10-21 13:47:46',
                 dose: '3mg:100µg*24粒/盒',
-                count: 1,
             }
         ],
         orderList: [],
         inputFocus: false,
         hasCode: false,
-        currentCode: ''
+        currentCode: '',
+        focus: true
     },
-
+    getFocus(){
+        this.setData({
+            focus: true
+        });
+    },
+    removeFocus(){
+        this.setData({
+            focus: false
+        });
+    },
     currentBlur(){
         this.setData({
             inputFocus: true
@@ -83,7 +96,7 @@ Page({
         this.setListData(e.detail.value);
     },
     currentInput(e){
-        let value = e.detail.value.toString()
+        let value = e.detail.toString()
         let notNull = value.trim().length>0;
         if(notNull){
             let isCR = value.slice(value.length-1,value.length) == '\n'
@@ -92,7 +105,7 @@ Page({
                     title: '加载中...',
                     icon: 'loading'
                 })
-                let value = e.detail.value.slice(0, -1);
+                let value = e.detail.slice(0, -1);
                 this.setListData(value);
             }
         }

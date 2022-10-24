@@ -13,6 +13,7 @@ Page({
                 address: '桐君阁大药房',
                 count: 2,
                 price: '23.2',
+                create: '13.2',
                 createTime: '2022-10-21 13:47:46',
                 removeTime: '2023-10-21 13:47:46',
                 dose: '3mg:100µg*24粒/盒',
@@ -23,6 +24,7 @@ Page({
                 address: '桐君阁大药房',
                 count: 3,
                 price: '23.2',
+                create: '13.2',
                 createTime: '2022-10-21 13:47:46',
                 removeTime: '2023-10-21 13:47:46',
                 dose: '3mg:100µg*24粒/盒',
@@ -33,6 +35,7 @@ Page({
                 address: '桐君阁大药房',
                 count: 2,
                 price: '23.2',
+                create: '13.2',
                 createTime: '2022-10-21 13:47:46',
                 removeTime: '2023-10-21 13:47:46',
                 dose: '3mg:100µg*24粒/盒',
@@ -43,6 +46,7 @@ Page({
                 address: '桐君阁大药房',
                 count: 1,
                 price: '23.2',
+                create: '13.2',
                 createTime: '2022-10-21 13:47:46',
                 removeTime: '2023-10-21 13:47:46',
                 dose: '3mg:100µg*24粒/盒',
@@ -53,15 +57,26 @@ Page({
                 address: '桐君阁大药房',
                 count: 4,
                 price: '23.2',
+                create: '13.2',
                 createTime: '2022-10-21 13:47:46',
                 removeTime: '2023-10-21 13:47:46',
                 dose: '3mg:100µg*24粒/盒',
             }
         ],
         inputFocus: false,
-        searchItem: null
+        searchItem: null,
+        focus: true
     },
-
+    getFocus(){
+        this.setData({
+            focus: true
+        });
+    },
+    removeFocus(){
+        this.setData({
+            focus: false
+        });
+    },
     getDetailInfo(value) {
         let list = this.data.requestList.filter(item=>item.id === value);
         if(list.length<=0){
@@ -86,9 +101,9 @@ Page({
     },
 
     currentInput(e){
-        let value = (e.detail.value).toString();
+        let value = (e.detail).toString();
         let notNull = value.trim().length>0;
-        console.log(e.detail.value)
+        console.log(e.detail)
         if(notNull){
             let isCR = value.slice(value.length-1,value.length) == '\n'
             if(isCR){

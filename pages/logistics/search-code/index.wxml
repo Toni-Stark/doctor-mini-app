@@ -1,23 +1,28 @@
 <view class="container">
     <view class="search">
-        <view class="scan">
+        <view class="scan" catchtap="getFocus">
             <image mode="widthFix" src="../../../img/logistics/logistics.png"></image>
         </view>
         <view class="input">
-            <textarea 
-                value="{{inputCode}}"
-                placeholder="请扫描货物条形码查询商品"
-                focus="{{true}}" 
-                bindinput="currentInput" 
-                bindblur="currentBlur" 
-                bindfocus="currentFocus" 
-                bindconfirm="currentConfirm"
-                confirm-type="search"
-                cols="30"
-                rows="2"
-            ></textarea>
+            <view class="field-group">
+                <van-cell-group class="field-cell">
+                    <van-field
+                        value="{{inputCode}}"
+                        placeholder="请扫描货物条形码查询商品"
+                        focus="{{focus}}" 
+                        bind:input="currentInput" 
+                        bind:blur="currentBlur" 
+                        bind:focus="currentFocus"
+                        bind:confirm="currentConfirm"
+                        show-confirm-bar="{{true}}"
+                        type="textarea"
+                        confirm-type="search"
+                        border="{{ false }}"
+                    />
+                </van-cell-group>
+            </view>
         </view>
-        <view class="image">
+        <view class="image" catchtap="getFocus">
             <image mode="widthFix" src="../../../img/logistics/search.png"></image>
         </view>
     </view>
@@ -27,16 +32,16 @@
             scroll-y
         >
             <view class="scroll-list">
-                <view class="scroll-item" wx:if="{{searchItem}}">
+                <view class="scroll-item" wx:if="{{searchItem}}" catchtap="removeFocus">
                     <view class="item-header">药品名称：{{searchItem.name}}</view>
                     <view class="item-pid">药品编号：{{searchItem.id}}</view>
                     <view class="item-pid">药品厂家：{{searchItem.address}}</view>
                     <view class="item-pid">药品规格：{{searchItem.dose}}</view>
                     <view class="item-pid">生产日期：{{searchItem.createTime}}</view>
-                    <view class="item-pid">有效期：{{searchItem.removeTime}}</view>
+                    <view class="item-pid">有效日期：{{searchItem.removeTime}}</view>
                     <view class="item-count">
                         <view>库存数量：{{searchItem.count}}</view>
-                        <view>价格：{{searchItem.price}}</view>
+                        <view class="create-view">成本：{{searchItem.create}} <view class="create"></view> 价格：{{searchItem.price}}</view>
                         <view class="cicle-left"></view>
                         <view class="cicle-right"></view>
                     </view>

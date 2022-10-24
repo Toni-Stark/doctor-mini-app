@@ -1,23 +1,29 @@
 <!--pages/logistics/query-code/index.wxml-->
 <view class="container">
     <view class="search">
-        <view class="scan">
+        <view class="scan" catchtap="getFocus">
             <image mode="widthFix" src="../../../img/logistics/logistics.png"></image>
         </view>
         <view class="input">
-            <textarea 
-                value="{{inputCode}}"
-                placeholder="请扫描条码或者输入订单号"
-                focus="{{true}}" 
-                bindinput="currentInput" 
-                bindblur="currentBlur" 
-                bindfocus="currentFocus" 
-                show-confirm-bar="{{true}}"
-                bindconfirm="currentConfirm"
-                confirm-type="search"
-            ></textarea>
+            <view class="field-group">
+                <van-cell-group class="field-cell">
+                    <van-field
+                        value="{{inputCode}}"
+                        placeholder="请扫描条码或者输入订单号"
+                        focus="{{focus}}" 
+                        bind:input="currentInput" 
+                        bind:blur="currentBlur" 
+                        bind:focus="currentFocus"
+                        bind:confirm="currentConfirm"
+                        show-confirm-bar="{{true}}"
+                        type="textarea"
+                        confirm-type="search"
+                        border="{{ false }}"
+                    />
+                </van-cell-group>
+            </view>
         </view>
-        <view class="image">
+        <view class="image" catchtap="getFocus">
             <image mode="widthFix" src="../../../img/logistics/search.png"></image>
         </view>
         <view class="blue-tip" wx:if="{{inputFocus}}">
@@ -29,10 +35,13 @@
         <scroll-view class="scroll-view" scroll-y>
             <view class="order-title" wx:if="{{currentCode}}">订单号: {{currentCode}}</view>
             <view class="scroll-list">
-                <view class="scroll-item" wx:for="{{orderList}}" wx:key="index">
+                <view class="scroll-item" wx:for="{{orderList}}" wx:key="index" catchtap="removeFocus">
                     <view class="item-header">药品名称：{{item.name}}</view>
                     <view class="item-pid">药品编号：{{item.id}}</view>
                     <view class="item-pid">药品厂家：{{item.address}}</view>
+                    <view class="item-pid">药品规格：{{item.dose}}</view>
+                    <view class="item-pid">生产日期：{{item.createTime}}</view>
+                    <view class="item-pid">有效日期：{{item.removeTime}}</view>
                     <view class="item-count">
                         <view class="item-num">
                             下单数量：{{item.count}}

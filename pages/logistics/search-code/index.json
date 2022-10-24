@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "count-view": "../../../components/count-setting/index"
+    "count-view": "../../../components/count-setting/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-cell-group": "@vant/weapp/cell-group/index"
   },
   "navigationBarTitleText": "商品查询"
 }

@@ -1,4 +1,5 @@
 // pages/logistics/order-code/index.js
+import Dialog from '@vant/weapp/dialog/dialog';
 Page({
 
     /**
@@ -11,26 +12,66 @@ Page({
                 name: '藿香正气水',
                 id: '6914329004530',
                 address: '桐君阁大药房',
-                count: 1,
+                count: 3,
+                price: '23.2',
+                createTime: '2022-10-21 13:47:46',
+                removeTime: '2023-10-21 13:47:46',
+                dose: '3mg:100µg*24粒/盒',
             },
             {
                 name: '999感冒灵',
                 id: '6903544060292',
                 address: '桐君阁大药房',
-                count: 1,
+                count: 3,
+                price: '23.2',
+                createTime: '2022-10-21 13:47:46',
+                removeTime: '2023-10-21 13:47:46',
+                dose: '3mg:100µg*24粒/盒',
             },
             {
                 name: '连花清瘟颗粒',
-                id: '6903544060292',
+                id: '6926378900626',
                 address: '桐君阁大药房',
-                count: 1,
+                count: 3,
+                price: '23.2',
+                createTime: '2022-10-21 13:47:46',
+                removeTime: '2023-10-21 13:47:46',
+                dose: '3mg:100µg*24粒/盒',
             }
         ],
         orderCode: '',
         orderList: [],
         inputFocus: false,
+        show: false,
+        focus: true
     },
-
+    getFocus(){
+        this.setData({
+            focus: true
+        });
+    },
+    removeFocus(){
+        this.setData({
+            focus: false
+        });
+    },
+    comfirm(){
+        console.log('确认')
+        wx.showToast({
+            title: '上传中...',
+            icon: 'loading'
+        });
+        setTimeout(()=>{
+            wx.hideToast()
+            this.setData({
+                orderList: [],
+                show: false
+            })
+        }, 2500)
+    },
+    close(){
+        console.log('取消')
+    },
     currentBlur(){
         this.setData({
             inputFocus: true
@@ -42,16 +83,9 @@ Page({
         })
     },
     uploade(){
-        wx.showToast({
-            title: '上传中...',
-            icon: 'loading'
-        });
-        setTimeout(()=>{
-            wx.hideToast()
-            this.setData({
-                orderList: []
-            })
-        }, 2500)
+        this.setData({
+            show: true
+        })
     },
 
     setCount(e){
@@ -59,7 +93,8 @@ Page({
             this.data.orderList[index].count = e.detail;
         let list = this.data.orderList;
         this.setData({
-            orderList: list
+            orderList: list,
+            focus: false
         })
     },
     setListData(value){
@@ -101,7 +136,7 @@ Page({
     },
     currentInput(e){
         // let isCR = e.detail.keyCode == 10;
-        let value = (e.detail.value).toString();
+        let value = (e.detail).toString();
         let notNull = value.trim().length>0;
         if(notNull){
             let isCR = value.slice(value.length-1,value.length) == '\n'

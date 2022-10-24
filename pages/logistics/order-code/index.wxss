@@ -10,6 +10,7 @@
     border: 1rpx solid #e8e8e8;
     border-radius: 15rpx;
     position: relative;
+    height: 65rpx;
 }
 .scan {
     padding: 15rpx;
@@ -34,10 +35,11 @@
 } */
 .input textarea {
     width: 100%;
-    height: 100%;
+    height: 40rpx;
     font-size: 32rpx;
-    padding: 15rpx 20rpx;
-    line-height: 31rpx;
+    padding: 0 10rpx !important;
+    /* padding: 15rpx 20rpx; */
+    /* line-height: 31rpx; */
     box-sizing: border-box;
 }
 .image {
@@ -158,4 +160,24 @@
     border-top: 0rpx solid transparent;
     border-left: 20rpx solid transparent;
     border-bottom: 18rpx solid #ffe58f;
+}
+.field-group {
+    width: 100%;
+    height: 100%;
+}
+.field-cell {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.van-cell-group {
+    width: 100%;
+}
+.van-cell {
+    padding: 0 !important;
+}
+.van-hairline--top-bottom:after {
+    border-width: 0 !important;
 }

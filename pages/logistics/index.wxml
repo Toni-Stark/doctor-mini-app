@@ -30,6 +30,6 @@
             </view>
         </view>
     </view>
+    <view class="bottom-banner"></view>
 </view>
-<view class="bottom-banner"></view>
 <tabView activeIdx="{{2}}" userScan="{{userScan}}"></tabView>
