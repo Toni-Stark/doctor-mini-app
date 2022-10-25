@@ -36,7 +36,7 @@
                 bind:change="onChangeExpress"
             />
         </view>
-        <view class="label">
+        <view class="label label-active">
             <text>猜你想说</text>
             <view class="label-view">
                 <view wx:for="{{cateList}}" data-id="{{item.id}}" catchtap="checkOut" class="{{currentId == item.id ? 'active' : ''}}">{{item.title}}</view>

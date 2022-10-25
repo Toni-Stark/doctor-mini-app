@@ -46,7 +46,7 @@ Page({
         let index = e.currentTarget.dataset.index;
         console.log( );
         if(!this.data.dataList[index]?.result){
-            route.navigateTo('../shop/shop-result/index');
+            route.navigateTo('../shop-result/index');
         }
         wx.openEmbeddedMiniProgram({
             appId: this.data.dataList[index].id,

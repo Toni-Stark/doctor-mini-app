@@ -11,4 +11,5 @@
 }
 .bottom-banner{
     height: 9.5vh;
+    padding-top: 15rpx;
 }

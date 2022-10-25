@@ -1,10 +1,4 @@
-<!--pages/mine/index.wxml-->
-<view class="container">
-    <!-- <view class="active" style="height:{{height}}px;padding-top: {{padding}};">
-        我的
-    </view>
-    <view class="header"> -->
-    <!-- </view> -->
+<view class="container-view">
     <view class="avatar-view">
         <view class="avatar">
             <image 
@@ -38,70 +32,9 @@
             <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
         </view>
     </view>
-
-    <!-- <view class="list border-bottom">
-        <view class="item" catchtap="naviToRegister">
-            <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-mine.png"></image>
-                <text>个人档案</text>
-            </view>
-            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
-        </view>
-        <view class="item">
-            <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-zzzz.png"></image>
-                <text>症状自诊记录</text>
-            </view>
-            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
-        </view>
-        <view class="item">
-            <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-xbzy.png"></image>
-                <text>小病找药记录</text>
-            </view>
-            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
-        </view>
-        <view class="item">
-            <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-yhwd.png"></image>
-                <text>医患问答记录</text>
-            </view>
-            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
-        </view>
-    </view>
-    <view class="list">
-        <view class="item">
-            <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/member-active.png"></image>
-                <text>会员激活</text>
-            </view>
-            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
-        </view>
-        <view class="item">
-            <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-fenxiang.png"></image>
-                <text>分享</text>
-            </view>
-            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
-        </view>
-        <view class="item">
-            <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-fankui.png"></image>
-                <text>意见反馈</text>
-            </view>
-            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
-        </view>
-        <view class="item">
-            <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-about.png"></image>
-                <text>关于</text>
-            </view>
-            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
-        </view>
-    </view> -->
 </view>
 <view class="bottom-banner"></view>
-<tabView activeIdx="{{3}}" userScan="{{userScan}}"></tabView>
+<tabView activeIdx="{{2}}" userScan="{{userScan}}"></tabView>
 
 
 

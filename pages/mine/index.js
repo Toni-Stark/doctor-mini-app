@@ -13,13 +13,14 @@ Page({
         userScan: 0
     },
     naviToOrderList(){
-        route.navigateTo('./order-list/index')
+        // route.navigateTo('./order-list/index')
+        route.switchTab('../index/index')
     },
     naviToEvaluateList(){
         route.navigateTo('./evaluation-list/index')
     },
     naviToResult(){
-        route.navigateTo('../shop/shop-result/index')
+        route.navigateTo('../shop-result/index')
     },
     naviToRegister(){
         if(!storage.getStorageSync('nickName')){
@@ -59,7 +60,7 @@ Page({
         this.naviToRegister()
         if (typeof this.getTabBar === 'function' && this.getTabBar()) {
             this.getTabBar().setData({
-                activeIdx: 1
+                activeIdx: 2
             })
         }
         this.regPermissions();

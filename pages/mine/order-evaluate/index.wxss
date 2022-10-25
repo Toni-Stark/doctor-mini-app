@@ -15,9 +15,12 @@
 
 .label {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     padding: 14rpx 0;
     width: 100%;
+}
+.label-active {
+    align-items: flex-start;
 }
 .label text {
     font-size: 30rpx;
@@ -65,4 +68,7 @@
 .label-view .active {
     border: 1rpx solid #1a9fec;
     color: #1a9fec;
+}
+.van-rate__icon {
+    display: flex !important;
 }

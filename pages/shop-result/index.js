@@ -1,6 +1,5 @@
-// pages/shop/shop-result/index.js
-const { route } = require("../../../utils/index")
-const storage = require("../../../utils/storage")
+const { route } = require("../../utils/index")
+const storage = require("../../utils/storage")
 const app = getApp()
 Page({
 

@@ -1,4 +1,3 @@
-/* pages/shop/shop-result/index.wxss */
 .container {
     display: flex;
     flex-direction: column;

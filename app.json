@@ -8,14 +8,7 @@
         "pages/mine/order-service/index",
         "pages/mine/order-evaluate/index",
         "pages/mine/evaluation-list/index",
-        "pages/index/customer-services/index",
-        "pages/index/recommend/index",
-        "pages/index/recommend-detail/index",
-        "pages/index/search-modal/index",
-        "pages/index/search-list/index",
-        "pages/index/search-more/index",
-        "pages/shop/index",
-        "pages/shop/shop-result/index",
+        "pages/shop-result/index",
         "pages/tool/index",
         "pages/tool/add-tool/index",
         "pages/logistics/index",
@@ -42,16 +35,10 @@
         "selectedColor": "#3E7BFA",
         "list": [
             {
-                "text": "首页",
+                "text": "订单",
                 "pagePath": "pages/index/index",
                 "iconPath": "./img/tabBar/index1.png",
                 "selectedIconPath": "./img/tabBar/index.png"
-            },
-            {
-                "text": "购物",
-                "pagePath": "pages/shop/index",
-                "iconPath": "./img/tabBar/shop1.png",
-                "selectedIconPath": "./img/tabBar/shop.png"
             },
             {
                 "text": "移动扫描枪",

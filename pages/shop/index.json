@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-      "tabView": "../../pages/tabView/index"
-  },  
-  "navigationBarTitleText": "便捷购物"
-}

@@ -78,7 +78,7 @@
 .card-item {
     background-color: #ffffff;
     width: 48%;
-    box-shadow: 0rpx 0rpx 12rpx 0rpx #dddddd;
+    box-shadow: 0rpx 5rpx 9rpx 4rpx #ededed;
     height: 250rpx;
     display: flex;
     border-radius: 25rpx;
