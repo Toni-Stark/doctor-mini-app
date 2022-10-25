@@ -82,25 +82,25 @@ Page({
             this.setData({
                 hadRemaining: true
             })
-            // wx.showToast({
-            //     icon: 'loading',
-            //     title: '上传中...',
-            // })
-            // setTimeout(()=>{
-            //     wx.hideToast();
-            //     wx.showToast({
-            //         icon: 'success',
-            //         title: '上传核验成功',
-            //     })
-            //     this.setData({
-            //         requestList: [],
-            //         requestCodes: [],
-            //         inputCode: '',
-            //         hadExpressSingle: false,
-            //         hadRemaining: false,
-            //         focus: true
-            //     })
-            // }, 2500);
+            wx.showToast({
+                icon: 'loading',
+                title: '上传中...',
+            })
+            setTimeout(()=>{
+                wx.hideToast();
+                wx.showToast({
+                    icon: 'success',
+                    title: '上传核验成功',
+                })
+                this.setData({
+                    requestList: [],
+                    requestCodes: [],
+                    inputCode: '',
+                    hadExpressSingle: false,
+                    hadRemaining: false,
+                    focus: true
+                })
+            }, 2500);
         } else if (this.data.hadRemaining){
             this.setData({
                 hadRemaining: false

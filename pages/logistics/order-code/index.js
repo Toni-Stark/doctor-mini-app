@@ -12,7 +12,7 @@ Page({
                 name: '藿香正气水',
                 id: '6914329004530',
                 address: '桐君阁大药房',
-                count: 3,
+                count: 0,
                 price: '23.2',
                 createTime: '2022-10-21 13:47:46',
                 removeTime: '2023-10-21 13:47:46',
@@ -22,7 +22,7 @@ Page({
                 name: '999感冒灵',
                 id: '6903544060292',
                 address: '桐君阁大药房',
-                count: 3,
+                count: 0,
                 price: '23.2',
                 createTime: '2022-10-21 13:47:46',
                 removeTime: '2023-10-21 13:47:46',
@@ -32,12 +32,34 @@ Page({
                 name: '连花清瘟颗粒',
                 id: '6926378900626',
                 address: '桐君阁大药房',
-                count: 3,
+                count: 0,
                 price: '23.2',
                 createTime: '2022-10-21 13:47:46',
                 removeTime: '2023-10-21 13:47:46',
                 dose: '3mg:100µg*24粒/盒',
-            }
+            },
+            {
+                name: '阿莫西林胶囊',
+                id: '6973009160164',
+                address: '桐君阁大药房',
+                count: 4,
+                price: '23.2',
+                createTime: '2022-10-21 13:47:46',
+                removeTime: '2023-10-21 13:47:46',
+                dose: '3mg:100µg*24粒/盒',
+                selected: 0
+            },
+            {
+                name: '阿莫西林胶囊',
+                id: '6953345101229',
+                address: '桐君阁大药房',
+                count: 4,
+                price: '23.2',
+                createTime: '2022-10-21 13:47:46',
+                removeTime: '2023-10-21 13:47:46',
+                dose: '3mg:100µg*24粒/盒',
+                selected: 0
+            },
         ],
         orderCode: '',
         orderList: [],
@@ -115,6 +137,8 @@ Page({
         }
         let index = this.data.orderList.findIndex(item => item.id === value);
         if(index<0){
+            console.log(obj);
+            obj[0].count = 1;
             let list = this.data.orderList.concat(obj);
             this.setData({
                 orderList: list

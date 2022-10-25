@@ -55,6 +55,7 @@
 }
 .context {
     flex: 1;
+    overflow: hidden;
 }
 .scroll-view {
     height: 100%;
@@ -180,4 +181,7 @@
 }
 .van-hairline--top-bottom:after {
     border-width: 0 !important;
+}
+.m-bottom {
+    margin-bottom: 100rpx;
 }

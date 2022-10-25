@@ -33,7 +33,7 @@
     </view>
     <view class="context">
         <scroll-view class="scroll-view" scroll-y>
-            <view class="scroll-list">
+            <view class="scroll-list {{orderList.length>0?'m-bottom':''}}">
                 <view class="scroll-item" wx:for="{{orderList}}" wx:key="index" catchtap="removeFocus">
                     <view class="item-header">药品名称：{{item.name}}</view>
                     <view class="item-pid">药品编号：{{item.id}}</view>
