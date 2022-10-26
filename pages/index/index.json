@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "tabView": "../../pages/tabView/index"
+    "tabView": "../../pages/tabView/index",
+    "van-popup": "@vant/weapp/popup/index"
   },  
   "navigationBarTitleText": "药药线上通"
 }

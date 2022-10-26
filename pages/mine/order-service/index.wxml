@@ -1,7 +1,9 @@
 <!--pages/mine/order-service/index.wxml-->
 <view class="container">
+    <view class="title">扫码添加医生微信</view>
     <view class="card">
-        <image mode="aspectFill" class="header" src="../../../img/components/doctor.png"></image>
-        <view class="mobile">电话预约咨询</view>
+        <!-- <image mode="aspectFill" class="header" src="../../../img/components/doctor.png"></image> -->
+        <image mode="aspectFill" show-menu-by-longpress="onLongPress" class="header" src="../../../img/index/code.png"></image>
+        <view class="mobile" bindtap="phoneCall">电话预约咨询</view>
     </view>
 </view>

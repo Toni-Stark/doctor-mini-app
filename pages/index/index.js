@@ -4,10 +4,39 @@ const app = getApp()
 
 Page({
     data: {
-        userScan: 0
+        userScan: 0,
+        show: false,
+        doctorMobile: 18434332504
     },
     naviToDetail(){
         route.navigateTo('../mine/order-detail/index')
+    },
+    copyWechatId(){
+        let that = this;
+        wx.setClipboardData({
+            data: this.data.doctorMobile.toString(),
+            success (res) {
+                that.setData({
+                    show: false
+                })
+                wx.hideToast()
+                wx.showToast({
+                    icon: 'none',
+                    title: '已经复制微信号，请打开微信添加医生微信号',
+                    duration: 2000
+                })
+            }
+        })
+    },
+    addWechat(){
+        this.setData({
+            show: true,
+        })
+    },
+    onClose(){
+        this.setData({
+            show: false,
+        })
     },
     onLoad() {
         if (wx.getUserProfile) {

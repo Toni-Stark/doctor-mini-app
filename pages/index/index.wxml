@@ -27,8 +27,14 @@
                         <view class="main-label"><view>核验人员</view>张三丰</view>
                     </view>
                     <view class="main-detail">
-                        <view>进入详情</view>
-                        <image mode="widthFix" src="../../../img/mine/grey-r-arrow.png"></image>
+                        <view class="doctor" catchtap="addWechat">
+                            咨询医生
+                            <image mode="widthFix" src="../../img/index/talk-about2.png"></image>
+                        </view>
+                        <view class="join-detail">
+                            <view>进入详情</view>
+                            <image class="detail-icon" mode="widthFix" src="../../img/index/right2.png"></image>
+                        </view>
                     </view>
                 </view>
                 <view class="order-item shadow-view" bindtap="naviToDetail">
@@ -47,8 +53,14 @@
                         <view class="main-label"><view>核验人员</view>张三丰</view>
                     </view>
                     <view class="main-detail">
-                        <view>进入详情</view>
-                        <image mode="widthFix" src="../../../img/mine/grey-r-arrow.png"></image>
+                        <view class="doctor" catchtap="addWechat">
+                            咨询医生
+                            <image mode="widthFix" src="../../img/index/talk-about2.png"></image>
+                        </view>
+                        <view class="join-detail">
+                            <view>进入详情</view>
+                            <image class="detail-icon" mode="widthFix" src="../../img/index/right2.png"></image>
+                        </view>
                     </view>
                 </view>
                 <view class="order-item shadow-view" bindtap="naviToDetail">
@@ -67,8 +79,14 @@
                         <view class="main-label"><view>核验人员</view>张三丰</view>
                     </view>
                     <view class="main-detail">
-                        <view>进入详情</view>
-                        <image mode="widthFix" src="../../../img/mine/grey-r-arrow.png"></image>
+                        <view class="doctor" catchtap="addWechat">
+                            咨询医生
+                            <image mode="widthFix" src="../../img/index/talk-about2.png"></image>
+                        </view>
+                        <view class="join-detail">
+                            <view>进入详情</view>
+                            <image class="detail-icon" mode="widthFix" src="../../img/index/right2.png"></image>
+                        </view>
                     </view>
                 </view>
             </view>
@@ -77,3 +95,15 @@
     <view class="bottom-banner"></view>
 </view>
 <tabView activeIdx="{{0}}" userScan="{{userScan}}"></tabView>
+<van-popup
+  show="{{ show }}"
+  round
+  position="bottom"
+  custom-style="height: 21vh"
+  bind:close="onClose">
+  <view class="popup-view" bindtap="copyWechatId">
+    <view class="mobile">医生微信号：{{doctorMobile}}</view>
+    <view class="copy">点击复制</view>
+  </view>
+  <view class="bottom-banner"></view>
+</van-popup>

@@ -35,7 +35,7 @@
         "selectedColor": "#3E7BFA",
         "list": [
             {
-                "text": "订单",
+                "text": "订单列表",
                 "pagePath": "pages/index/index",
                 "iconPath": "./img/tabBar/index1.png",
                 "selectedIconPath": "./img/tabBar/index.png"

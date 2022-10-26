@@ -8,6 +8,17 @@ Page({
     data: {
 
     },
+    onLongPress(){
+        console.log(23423)
+    },
+    phoneCall(){
+        wx.makePhoneCall({
+            phoneNumber: '19888888888',
+            success: function () {
+              console.log("拨打电话成功！")
+            },
+          })
+    },
     back(){
         route.navigateBack(1)
     },
