@@ -3,7 +3,7 @@
     <view class="title">扫码添加医生微信</view>
     <view class="card">
         <!-- <image mode="aspectFill" class="header" src="../../../img/components/doctor.png"></image> -->
-        <image mode="aspectFill" show-menu-by-longpress="onLongPress" class="header" src="../../../img/index/code.png"></image>
+        <image mode="aspectFill" bindtap="onPress" show-menu-by-longpress="onLongPress" class="header" src="../../../img/index/wechat.jpg"></image>
         <view class="mobile" bindtap="phoneCall">电话预约咨询</view>
     </view>
 </view>

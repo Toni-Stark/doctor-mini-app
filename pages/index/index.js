@@ -29,9 +29,10 @@ Page({
         })
     },
     addWechat(){
-        this.setData({
-            show: true,
-        })
+        // this.setData({
+        //     show: true,
+        // })
+        route.navigateTo('../mine/order-service/index')
     },
     onClose(){
         this.setData({

@@ -70,13 +70,16 @@
     margin-left: 0rpx;
 }
 .order-item {
-    margin: 30rpx;
+    margin: 30rpx 15rpx;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
     border-radius: 12rpx;
     padding: 30rpx 30rpx 20rpx;
     box-sizing: border-box;
+}
+.order-view .order-item:last-child {
+    margin-bottom: 50rpx;
 }
 .main-title {
     display: flex;

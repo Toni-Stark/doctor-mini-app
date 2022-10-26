@@ -9,7 +9,14 @@ Page({
 
     },
     onLongPress(){
+     
+    },
+    onPress(){
         console.log(23423)
+        wx.previewImage({
+            // current: "../../../img/index/code.png",
+            urls: ["http://bigdatascreen.bz.dev.jia10000.cn/refer/wechat.jpg"]
+        })
     },
     phoneCall(){
         wx.makePhoneCall({
