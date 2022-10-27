@@ -9,17 +9,8 @@
     padding: 60rpx 0;
     margin: 0 auto;
 }
-.header-banner {
-    background-image: linear-gradient(#ffffff, #5964ffb3);
-    border-bottom-right-radius: 19%;
-    border-bottom-left-radius: 19%;
-    height: 37vh;
-    width: 100%;
-    box-shadow: 0rpx 0rpx 17rpx 22rpx #dedede;
-}
 .content {
     flex: 1;
-    /* border-top: 1rpx solid #f2f2f2; */
     overflow-y: hidden;
     position: relative;
 }
@@ -44,7 +35,7 @@
     height: 46rpx;
     margin-left: 10rpx;
 }
-.doctor {
+/* .doctor {
     padding: 10rpx 20rpx;
     background-image: linear-gradient(90deg,#EEF2FF, #EEE1FF);
     border-radius: 15rpx;
@@ -52,8 +43,8 @@
     font-weight: bold;
     display: flex;
     align-items: center;
-}
-.join-detail {
+} */
+/* .join-detail {
     display: flex;
     padding: 13rpx 6rpx 13rpx 20rpx;
     background-image: linear-gradient(90deg,#EEF2FF, #EEE1FF);
@@ -68,20 +59,11 @@
     width: 39rpx;
     height: 39rpx;
     margin-left: 0rpx;
-}
-.order-item {
-    margin: 30rpx 15rpx;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    border-radius: 12rpx;
-    padding: 30rpx 30rpx 20rpx;
-    box-sizing: border-box;
-}
-.order-view .order-item:last-child {
+} */
+/* .order-view .order-item:last-child {
     margin-bottom: 50rpx;
 }
-.main-title {
+/* .main-title {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -95,8 +77,8 @@
     font-weight: 400;
     color: #666666;
     margin-bottom: 10rpx;
-}
-.main-time {
+} */
+/* .main-time {
     display: flex;
     padding: 5rpx 0 10rpx 0;
     justify-content: space-between;
@@ -104,12 +86,12 @@
 .main-time text {
     font-size: 28rpx;
     color: #999999;
-}
+} */
 
-.main-content {
+/* .main-content {
     padding: 0 0 20rpx 0;
-}
-.main-label {
+} */
+/* .main-label {
     display: flex;
     font-size: 30rpx;
     padding: 10rpx 0;
@@ -117,21 +99,18 @@
 .main-label view {
      color: #888888;
      padding-right: 30rpx;
-}
-.main-detail {
+} */
+/* .main-detail {
     display: flex;
     justify-content: flex-end;
     border-top: 1rpx solid #f2f2f2;
     padding-top: 20rpx;
     align-items: center;
-    
-}
-.main-detail view {
+} */
+/* .main-detail view {
     font-size: 32rpx;
-}
-.shadow-view {
-    box-shadow: 0rpx 5rpx 18rpx 0rpx #e2e2e2;
-}
+} */
+
 .popup-view {
     display: flex;
     height: 10.5vh;
@@ -143,8 +122,98 @@
     justify-content: space-between;
     box-sizing: border-box;
 }
-.mobile {}
 .copy {
     padding: 0 20rpx;
     color: #636363
+}
+.order-item {
+    margin: 30rpx 15rpx;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20rpx;
+    padding: 30rpx 0 0;
+    box-sizing: border-box;
+}
+.main-time {
+    display: flex;
+    padding: 5rpx 0 25rpx 0;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 30rpx;
+    border-bottom: 1rpx solid #f2f2f2;
+}
+
+.shadow-view {
+    box-shadow: 0rpx 5rpx 18rpx 0rpx #e2e2e2;
+}
+.platform {
+    font-size: 32rpx;
+    border: 1rpx solid #047192;
+    border-radius: 11rpx;
+    padding: 4rpx 10rpx;
+    color: #047192;
+}
+.platform-order {
+    display: flex;
+    margin-left: 25rpx;
+    font-size: 32rpx;
+    color: #000000;
+}
+.platform-text {
+    font-weight: bold;
+    white-space: pre;
+}
+.main-title {
+    padding: 20rpx 0;
+    margin: 0 30rpx;
+}
+.main-label {
+    display: flex;
+    font-size: 32rpx;
+}
+.main-title .main-label:not(:last-child) {
+    padding-bottom: 15rpx;
+}
+.border-b {
+    border-bottom: 1rpx solid #f2f2f2;
+}
+.doctor {
+    padding: 10rpx 20rpx;
+    background-image: linear-gradient(90deg,#EEF2FF, #EEE1FF);
+    border-radius: 15rpx;
+    color: #047192;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-right: 25rpx;
+}
+.join-detail {
+    display: flex;
+    padding: 13rpx 6rpx 13rpx 20rpx;
+    background-image: linear-gradient(90deg,#EEF2FF, #EEE1FF);
+    border-radius: 15rpx;
+    color: #047192;
+    font-weight: bold;
+    align-items: center;
+}
+
+.main-detail {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1rpx solid #f2f2f2;
+    padding: 20rpx;
+    align-items: center;
+}
+.main-detail view {
+    font-size: 32rpx;
+}
+
+.main-detail .detail-icon {
+    width: 39rpx;
+    height: 39rpx;
+    margin-left: 0rpx;
+}
+.order-view .order-item:last-child {
+    margin-bottom: 50rpx;
 }

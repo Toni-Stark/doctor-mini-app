@@ -75,8 +75,8 @@
     box-sizing: border-box;
     /* background-image: linear-gradient(#ffffff, #5898b1cf);#5964ffb3 */
     background-image: linear-gradient(#ffffff, #5964ffb3);
-    border-bottom-right-radius: 19%;
-    border-bottom-left-radius: 19%;
+    /* border-bottom-right-radius: 19%; */
+    /* border-bottom-left-radius: 19%; */
     box-shadow: 0rpx 14rpx 14rpx 13rpx #dedede;
 }
 .avatar {
