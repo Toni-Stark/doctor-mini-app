@@ -6,7 +6,8 @@
 .form {
     padding: 55rpx;
     background: #ffffff;
-    border-top: 1rpx solid #e4e4e4;
+    border-top: 1rpx solid #f2f2f2;
+    flex: 1;
 }
 
 .van-uploader__upload {
@@ -37,20 +38,25 @@
     height: 50rpx;
     width: 80%;
     padding: 20rpx;
-    border-radius: 50rpx;
+    border-radius: 10rpx;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(90deg,#EEF2FF, #EEE1FF);
-    color: #1e5477;
+    /* background-image: linear-gradient(90deg,#EEF2FF, #EEE1FF);
+    color: #1e5477; */
+    background-image: linear-gradient(#6266FF, #4562FF);
+    color: #ffffff;
     font-weight: bold;
+    font-size: 36rpx;
 }
 .box {
     width: 100%;
-    margin-top: 40rpx;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: fixed;
+    bottom: 0;
+    padding: 50rpx 0;
 }
 .label-view {
     display: flex;

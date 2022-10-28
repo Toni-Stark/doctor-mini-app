@@ -36,60 +36,50 @@
                         </view>
                     </view>
                 </view> -->
-                <view class="order-item shadow-view" bindtap="naviToDetail">
+                <view wx:for="{{dataList}}" class="order-item shadow-view" bindtap="naviToDetail">
                     <view class="main-time border-b">
-                        <view class="platform">拼多多</view>
+                        <view class="platform">{{item.companyName}}</view>
                         <view class="platform-order">
                             订单号: 
-                            <view class="platform-text"> {{1221654645878797122}}</view>
+                            <view class="platform-text"> {{item.orderId}}</view>
                         </view>
                     </view>
                     <view class="main-title border-b">
                         <view class="main-label">
                             支付时间： 
-                            <view class="main-text">2022年12月13日 16点35分</view> 
+                            <view class="main-text">{{item.payTime}}</view> 
                         </view>
                         <view class="main-label">
                             订单金额： 
-                            <view class="main-text">24元</view> 
+                            <view class="main-text">{{item.price}}</view> 
                         </view>
                         <view class="main-label">
                             核验人： 
-                            <view class="main-text">24元</view> 
+                            <view class="main-text">{{item.people}}</view> 
                         </view>
                     </view>
-                    <view class="main-title border-b">
+                    <view class="main-title border-b" wx:for="{{item.shopList}}" wx:for-item="shopItem">
                         <view class="main-label">
                             名称： 
-                            <view class="main-text">云南白药喷雾</view> 
+                            <view class="main-text">{{shopItem.name}}</view> 
                         </view>
                         <view class="main-label">
                             数量： 
-                            <view class="main-text">2瓶</view> 
-                        </view>
-                    </view>
-                    <view class="main-title">
-                        <view class="main-label">
-                            名称： 
-                            <view class="main-text">999感冒灵颗粒</view> 
-                        </view>
-                        <view class="main-label">
-                            数量： 
-                            <view class="main-text">2盒</view> 
+                            <view class="main-text">{{shopItem.count}}</view> 
                         </view>
                     </view>
                     <view class="main-detail">
-                        <view class="doctor" catchtap="addWechat">
+                        <view class="doctor" catchtap="getEvaluate">
                             评价
-                            <image mode="widthFix" src="../../img/index/talk-about2.png"></image>
+                            <image mode="widthFix" src="../../img/index/evaluate.png"></image>
                         </view>
                         <view class="doctor" catchtap="addWechat">
                             咨询医生
                             <image mode="widthFix" src="../../img/index/talk-about2.png"></image>
                         </view>
-                        <view class="join-detail">
-                            <view>进入详情</view>
-                            <image class="detail-icon" mode="widthFix" src="../../img/index/right2.png"></image>
+                        <view class="doctor" catchtap="setAlarmClock">
+                            用药提醒
+                            <image mode="widthFix" src="../../img/index/alarm-clock.png"></image>
                         </view>
                     </view>
                 </view>
@@ -111,3 +101,4 @@
   </view>
   <view class="bottom-banner"></view>
 </van-popup>
+<van-toast id="van-toast" />

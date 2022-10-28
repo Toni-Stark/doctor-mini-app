@@ -1,15 +1,68 @@
 // index.js
+import Toast from '@vant/weapp/toast/toast';
 const { route, storage } = require("../../utils/index")
 const app = getApp()
-
 Page({
     data: {
         userScan: 0,
         show: false,
-        doctorMobile: 18434332504
+        doctorMobile: 18434332504,
+        dataList: [
+            {
+                companyName: '美团',
+                orderId: '24234234645878797122',
+                payTime: '2022年12月13日 13点25分',
+                price: '30元',
+                people: '孙仲谋',
+                shopList: [
+                    {
+                        name: '999感冒灵颗粒',
+                        count: '3瓶',
+                    },
+                    {
+                        name: '云南白药喷雾',
+                        count: '3盒',
+                    },
+                ]
+            },
+            {
+                companyName: '拼多多',
+                orderId: '1221654645878797122',
+                payTime: '2022年12月13日 16点35分',
+                price: '24元',
+                people: '曹孟德',
+                shopList: [
+                    {
+                        name: '999感冒灵颗粒',
+                        count: '2瓶',
+                    },
+                    {
+                        name: '云南白药喷雾',
+                        count: '3盒',
+                    },
+                ]
+            },
+            {
+                companyName: '京东',
+                orderId: '12216546458787243243',
+                payTime: '2022年12月14日 17点35分',
+                price: '65元',
+                people: '刘玄德',
+                shopList: [
+                    {
+                        name: '999感冒灵颗粒',
+                        count: '3瓶',
+                    },
+                    {
+                        name: '云南白药喷雾',
+                        count: '4盒',
+                    },
+                ]
+            },
+        ]
     },
     naviToDetail(){
-        route.navigateTo('../mine/order-detail/index')
+        // route.navigateTo('../mine/order-detail/index')
     },
     copyWechatId(){
         let that = this;
@@ -28,11 +81,17 @@ Page({
             }
         })
     },
+    getEvaluate (){
+        route.navigateTo('../mine/order-evaluate/index')
+    },
     addWechat(){
         // this.setData({
         //     show: true,
         // })
         route.navigateTo('../mine/order-service/index')
+    },
+    setAlarmClock(){
+        Toast('用药提醒功能还在实验中...')
     },
     onClose(){
         this.setData({

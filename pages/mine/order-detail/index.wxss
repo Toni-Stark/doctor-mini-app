@@ -24,13 +24,15 @@
 .fixex .fixex-box:first-child view {
     width: 70%;
     height: 70%;
-    border-radius: 50rpx;
+    /* border-radius: 50rpx; */
+    border-radius: 7rpx;
     align-items: center;
     justify-content: center;
     color: #ffffff;
     display: flex;
     box-shadow: 0rpx 4rpx 11rpx 4rpx #eeeeee;
-    background-image: linear-gradient(90deg,  #FF7B1A, #FE4408);
+    /* background-image: linear-gradient(90deg,  #FF7B1A, #FE4408); */
+    background-image: linear-gradient(90deg,#EEF2FF, #EEE1FF);
 }
 .fixex .fixex-box:last-child view {
     font-weight: bold;
