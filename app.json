@@ -21,7 +21,7 @@
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#ffffff",
-        "navigationBarTitleText": "标题栏",
+        "navigationBarTitleText": "药药线上通",
         "navigationBarTextStyle": "black"
     },
     "sitemapLocation": "sitemap.json",

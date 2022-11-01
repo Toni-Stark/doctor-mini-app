@@ -62,7 +62,7 @@ Page({
         ]
     },
     naviToDetail(){
-        // route.navigateTo('../mine/order-detail/index')
+        route.navigateTo('../mine/order-detail/index')
     },
     copyWechatId(){
         let that = this;
