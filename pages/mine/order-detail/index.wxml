@@ -37,9 +37,15 @@
                 名称： 
                 <view class="main-text">{{shopItem.name}}</view> 
             </view>
-            <view class="main-label">
-                数量： 
-                <view class="main-text">{{shopItem.count}}</view> 
+            <view class="main-view">
+                <view class="main-label">
+                    数量： 
+                    <view class="main-text">{{shopItem.count}}</view> 
+                </view>
+                <view class="main-label">
+                    价格： 
+                    <view class="main-text">{{shopItem.unitPrice}}</view> 
+                </view>
             </view>
         </view>
     </view>

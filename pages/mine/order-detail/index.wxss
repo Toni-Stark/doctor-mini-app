@@ -115,11 +115,14 @@
     padding: 20rpx 0;
     margin: 0 30rpx;
 }
+.main-view {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5rpx;
+}
 .main-label {
     display: flex;
     font-size: 32rpx;
+    padding-bottom: 5rpx;
 }
-.main-title .main-label:not(:last-child) {
-    padding-bottom: 15rpx;
-}
-.main-text {}

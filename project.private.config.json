@@ -521,6 +521,12 @@
                     "pathName": "pages/mine/order-detail/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/mine/order-detail/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }
