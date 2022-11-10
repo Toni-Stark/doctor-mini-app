@@ -1,4 +1,5 @@
 const { route } = require("../../../utils/index")
+const { setCommentPost } = require("../../../common/interface");
 
 Page({
 
@@ -6,6 +7,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        id: '',
         value: 3,
         express: 3,
         fileList: [],
@@ -31,7 +33,8 @@ Page({
                 title: '药有点苦',  
                 id: '17'
             }
-        ]
+        ],
+        failText: ''
     },
     checkOut(e){
         this.setData({
@@ -58,9 +61,39 @@ Page({
             express: event.detail,
         });
     },
+    onChangeFail(event){
+        this.setData({
+            failText: event.detail.value,
+        });
+    },
+    setComment(){
+        setCommentPost({
+            member_order_id: this.data.id,
+            overall: this.data.value,
+            express: this.data.express,
+            content: this.data.failText
+        }).then(res=>{
+            if(res.code!=200){
+                return wx.showToast({
+                    title: res.msg,
+                    icon: 'none'
+                })
+            };
+            wx.showToast({
+                title: "评价成功",
+                icon: 'none'
+            })
+            setTimeout(()=>{
+                route.navigateBack(-1)
+            }, 500)
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.setData({
+            id: options.id
+        })
     },
 })

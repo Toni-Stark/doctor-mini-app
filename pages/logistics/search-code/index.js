@@ -1,3 +1,5 @@
+const { getOrderData } = require("../../../common/interface");
+
 // pages/logistics/search-code/index.js
 Page({
 
@@ -78,32 +80,37 @@ Page({
         });
     },
     getDetailInfo(value) {
-        let list = this.data.requestList.filter(item=>item.id === value);
-        if(list.length<=0){
-            wx.showToast({
-              icon: 'none',
-              title: '没有此商品的信息',
-            })
-            this.setData({
-                inputCode: '',
-                searchItem: null
-            });
-            return;
-        }
-        if (list.length>0) {
-            this.setData({
-                searchItem: list[0],
-                inputCode: ''
-            })
-        }
-        wx.hideToast();
+        getOrderData({
+            type: 2,
+            barcode: value,
+        }).then((res)=>{
+            console.log(res);
+        })
+        // let list = this.data.requestList.filter(item=>item.id === value);
+        // if(list.length<=0){
+        //     wx.showToast({
+        //       icon: 'none',
+        //       title: '没有此商品的信息',
+        //     })
+        //     this.setData({
+        //         inputCode: '',
+        //         searchItem: null
+        //     });
+        //     return;
+        // }
+        // if (list.length>0) {
+        //     this.setData({
+        //         searchItem: list[0],
+        //         inputCode: ''
+        //     })
+        // }
+        // wx.hideToast();
         // 6914329004530
     },
 
     currentInput(e){
         let value = (e.detail).toString();
         let notNull = value.trim().length>0;
-        console.log(e.detail)
         if(notNull){
             let isCR = value.slice(value.length-1,value.length) == '\n'
             if(isCR){

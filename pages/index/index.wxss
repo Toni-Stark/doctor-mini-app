@@ -97,6 +97,9 @@
     display: flex;
     font-size: 32rpx;
 }
+.main-shop-title {
+    white-space: nowrap;
+}
 .main-title .main-label:not(:last-child) {
     padding-bottom: 15rpx;
 }
@@ -154,6 +157,17 @@
     white-space: nowrap;
     align-items: center;
 }
+.nurse {
+    padding: 10rpx 20rpx;
+    background-image: linear-gradient(90deg,#e6e4e4, #e6e6e6);
+    border-radius: 11rpx;
+    color: #7b7b7b;
+    font-weight: bold;
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+}
+
 .main-detail .doctor:not(:last-child){
     /* margin-right: 25rpx; */
 }

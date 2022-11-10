@@ -1,3 +1,4 @@
+const { getOrderDetail } = require("../../../common/interface");
 const { route, request } = require("../../../utils/index");
 
 Page({
@@ -37,38 +38,38 @@ Page({
                 ]
             },
         ],
+        dataInfo: {}
     },
 
     back(){
         route.navigateBack(1)
-    },
+    }, 
     naviToPrice(){
-        route.navigateTo('../order-evaluate/index')
+        route.navigateTo('../order-evaluate/index?id='+this.data.id)
     },
     naviToService(){
-        route.navigateTo('../order-service/index')
+        route.navigateTo('../order-service/index?id='+this.data.id)
     },
-    getDetails() {
-        wx.showToast({
-          title: '加载中',
-          icon: 'loading'
-        })
-        return request.get('/matter/document/info', {}).then((res) => {
-            wx.hideToast()
-            if (res.code != 200) {
+    getDetails(params) {
+        getOrderDetail(params).then(res=>{
+            if(res.code!=200){
                 return wx.showToast({
-                    title: res.message,
+                    title: res.msg,
                     icon: 'none'
                 })
-            }
-            console.log(res, 'res')
-        })
+            };
+            this.setData({
+                dataInfo: res.data
+            }) 
+        });
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      console.log(options);
-      this.getDetails()
+        this.setData({
+            id: options.id
+        })
+        this.getDetails({member_order_id: options.id})
     },
 })

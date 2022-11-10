@@ -1,4 +1,5 @@
 // pages/logistics/query-code/index.js
+import { getOrderQuery } from "../../../common/interface"
 Page({
 
     /**
@@ -86,13 +87,18 @@ Page({
             })
             return;
         }
-        this.setData({
-            orderList: this.data.requestList,
+        getOrderQuery({
+            type: 2,
+            barcode: value,
+        }).then((res)=>{
+            console.log(res);
+            // this.setData({
+            //     orderList: this.data.requestList,
+            // })
+            // wx.hideToast();
         })
-        wx.hideToast();
     },
     currentConfirm (e) {
-        console.log(e, 'confirm')
         this.setListData(e.detail.value);
     },
     currentInput(e){

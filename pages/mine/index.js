@@ -1,3 +1,4 @@
+const { regLoginStatus } = require("../../common/interface")
 const { route, storage } = require("../../utils/index")
 const app = getApp()
 
@@ -10,20 +11,48 @@ Page({
     data: {
         nickName: '',
         avatarUrl: '',
-        userScan: 0
+        userScan: 0,
+        commonConfig: [
+            {
+                label: "订单列表",
+                icon: "../../img/mine/user-icon-mine.png",
+                navigate: '../index/index',
+                type: 'switch'
+            },
+            {
+                label: "我的评价",
+                icon: "../../img/mine/user-icon-zzzz.png",
+                navigate: './evaluation-list/index',
+                type: 'navigate'
+            },
+            {
+                label: "订单录入",
+                icon: "../../img/mine/order.png",
+                navigate: '../shop-result/index',
+                type: 'navigate'
+            },
+        ],
+        authConfig: [
+            {
+                label: "员工绑定",
+                icon: "../../img/mine/user-icon-mine.png",
+                navigate: './auth-staff/index',
+                type: 'navigate'
+            },
+        ],
+        isAuth: false,
     },
-    naviToOrderList(){
-        // route.navigateTo('./order-list/index')
-        route.switchTab('../index/index')
-    },
-    naviToEvaluateList(){
-        route.navigateTo('./evaluation-list/index')
-    },
-    naviToResult(){
-        route.navigateTo('../shop-result/index')
+
+    navigateTo(e){ 
+        let config = e.currentTarget.dataset.item;
+        if(config.type == "navigate"){
+            route.navigateTo(config.navigate);
+        } else if (config.type == "switch") {
+            route.switchTab(config.navigate);
+        }
     },
     naviToRegister(){
-        if(!storage.getStorageSync('nickName')){
+        if(!storage.getStorageSync('token')){
             route.navigateTo('./register/index')
         } else {
             let nickName = storage.getStorageSync('nickName') || '点击登录';
@@ -56,7 +85,23 @@ Page({
             })
         }
     },
+    regLogin: async (params) => {
+        let openid = '3242323434';
+        const result = regLoginStatus({openid});
+        if(result.code!=200){
+            return wx.showToast({
+              title: result.msg,
+              icon: 'none'
+            })
+        };
+    },
+    regAuthServer(){
+        this.setData({
+            isAuth: true
+        })
+    },
     onShow() {
+        this.regLogin();
         this.naviToRegister()
         if (typeof this.getTabBar === 'function' && this.getTabBar()) {
             this.getTabBar().setData({
@@ -64,5 +109,6 @@ Page({
             })
         }
         this.regPermissions();
+        this.regAuthServer()
     },
 })

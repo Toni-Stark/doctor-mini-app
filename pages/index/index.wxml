@@ -36,42 +36,45 @@
                         </view>
                     </view>
                 </view> -->
-                <view wx:for="{{dataList}}" class="order-item shadow-view" bindtap="naviToDetail">
+                <view wx:for="{{dataList}}" class="order-item shadow-view" data-id="{{item.member_order_id}}" bindtap="naviToDetail">
                     <view class="main-time border-b">
-                        <view class="platform">{{item.companyName}}</view>
+                        <view class="platform">{{shopList[item.order_info.platform_type]}}</view>
                         <view class="platform-order">
                             订单号: 
-                            <view class="platform-text"> {{item.orderId}}</view>
+                            <view class="platform-text"> {{item.order_info.order_no}}</view>
                         </view>
                     </view>
                     <view class="main-title border-b">
                         <view class="main-label">
                             支付时间： 
-                            <view class="main-text">{{item.payTime}}</view> 
+                            <view class="main-text">{{item.order_info.pay_time}}</view> 
                         </view>
                         <view class="main-label">
                             订单金额： 
-                            <view class="main-text">{{item.price}}</view> 
+                            <view class="main-text">{{item.order_info.order_total}}</view> 
                         </view>
                         <view class="main-label">
                             核验人： 
                             <view class="main-text">{{item.people}}</view> 
                         </view>
                     </view>
-                    <view class="main-title border-b" wx:for="{{item.shopList}}" wx:for-item="shopItem">
+                    <view class="main-title border-b" wx:for="{{item.item_list}}" wx:for-item="shopItem">
                         <view class="main-label">
-                            名称： 
-                            <view class="main-text">{{shopItem.name}}</view> 
+                            <text class="main-shop-title">名称：</text> 
+                            <view class="main-text">{{shopItem.title}}</view> 
                         </view>
                         <view class="main-label">
                             数量： 
-                            <view class="main-text">{{shopItem.count}}</view> 
+                            <view class="main-text">{{shopItem.quantity}}</view> 
                         </view>
                     </view>
                     <view class="main-detail">
-                        <view class="doctor" catchtap="getEvaluate">
-                            评价
+                        <view wx:if="{{item.order_info.comment_id !== 0}}" class="doctor" data-id="{{item.member_order_id}}" catchtap="getEvaluate">
+                            评价 
                             <image mode="widthFix" src="../../img/index/evaluate.png"></image>
+                        </view>
+                        <view wx:else="" class="nurse" data-id="{{item.member_order_id}}" catchtap="getEvaluateFalse">
+                            已评价 
                         </view>
                         <view class="doctor" catchtap="addWechat">
                             咨询医生
@@ -82,7 +85,7 @@
                             <image mode="widthFix" src="../../img/index/alarm-clock.png"></image>
                         </view>
                     </view>
-                </view>
+                </view> 
             </view>
         </scroll-view>
     </view>

@@ -1,0 +1,60 @@
+const {request} = require('../utils/index');
+
+// 获取首页订单列表数据
+export const getHomeOrderList = async (params) => {
+    return await request.post('/member/order/index', params);
+}
+// 获取订单详情
+export const getOrderDetail = async (params) => {
+    return await request.post('/member/order/info', params);
+}
+// 验证登录状态
+export const regLoginStatus = async (params) => {
+    return await request.post('/member/member/check-login', params);
+}
+// 登录 
+export const userLogin = async (params) => {
+    return await request.post('/member/member/login', params);
+}
+// 获取手机号
+export const getUserPhone = async (params) => {
+    return await request.post('/member/member/auth-mobile', params);
+}
+// 录入订单
+export const setRelateMember = async (params) => {
+    return await request.post('/member/order/relate-member', params);
+}
+// 评价列表
+export const getInterfaceList = async (params) => {
+    return await request.post('/member/comment/index', params);
+}
+// 订单录入渠道
+export const getPlatformList = async (params) => {
+    return await request.post('/member/order/channels', params);
+}
+// 添加评价
+export const setCommentPost = async (params) => {
+    return await request.post('/member/comment/set', params);
+}
+// 评价列表
+export const getCommentList = async (params) => {
+    return await request.post('/member/comment/index', params);
+}
+// 医生列表
+export const getDoctorList = async (params) => {
+    return await request.post('/merchant/doctor/index', params);
+}
+// 绑定员工
+export const setAuthLogin = async (params) => {
+    return await request.post('/member/member/auth-staff', params);
+}
+// 下账查询
+export const getOrderQuery = async (params) => {
+    return await request.post('/merchant/goods/search', params);
+}
+// 出库验货
+export const getOrderData = async (params) => {
+    return await request.post('/merchant/goods/search', params);
+}
+
+

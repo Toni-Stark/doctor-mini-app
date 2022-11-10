@@ -126,3 +126,6 @@
     font-size: 32rpx;
     padding-bottom: 5rpx;
 }
+.main-label-title {
+    white-space: nowrap;
+}

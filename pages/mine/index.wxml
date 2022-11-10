@@ -10,27 +10,21 @@
         </view>
     </view>
     <view class="list alone">
-        <view class="item" catchtap="naviToOrderList">
+        <view wx:for="{{commonConfig}}" class="item" data-item="{{item}}" catchtap="navigateTo">
             <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-mine.png"></image>
-                <text>订单列表</text>
+                <image class="item-image" mode="widthFix" src="{{item.icon}}"></image>
+                <text>{{item.label}}</text>
             </view>
             <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
         </view>
-        <view class="item" catchtap="naviToEvaluateList">
+        <view wx:if="{{isAuth}}" wx:for="{{authConfig}}" class="item" data-item="{{item}}" catchtap="navigateTo">
             <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-zzzz.png"></image>
-                <text>我的评价</text>
+                <image class="item-image" mode="widthFix" src="{{item.icon}}"></image>
+                <text>{{item.label}}</text>
             </view>
             <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
         </view>
-        <view class="item" catchtap="naviToResult">
-            <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/order.png"></image>
-                <text>订单录入</text>
-            </view>
-            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
-        </view>
+        
     </view>
 </view>
 <view class="bottom-banner"></view>

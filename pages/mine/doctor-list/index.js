@@ -1,7 +1,5 @@
-// pages/mine/evaluation-list/index.js
-const { getInterfaceList } = require("../../../common/interface");
+const { getInterfaceList, getDoctorList } = require("../../../common/interface");
 const { route } = require("../../../utils/index");
-
 Page({
 
     /**
@@ -15,25 +13,28 @@ Page({
     back(){
         route.navigateBack(1)
     },
-    naviToDetail(){
-        route.navigateTo('../order-evaluate/index')
+    naviToDetail(e){
+        let id = e.currentTarget.dataset.id;
+        let qrcode = e.currentTarget.dataset.code;
+        route.navigateTo('../order-service/index?id='+id+'&qrcode='+qrcode);
     },
     addDataList(){
         let page = this.data.page + 1;
-        const result = getInterfaceList({p: page});
-        if(result.code!=200){
-            return wx.showToast({
-              title: result.msg,
-              icon: 'none'
-            })
-        };
-        if(result.data.length>0){
-            let list = [...this.data.dataList, ...result.data];
-            this.setData({
-                dataList: list,
-                page: page
-            })
-        }
+        getDoctorList({p: page}).then(res=>{
+            if(result.code!=200){
+                return wx.showToast({
+                    title: result.msg,
+                    icon: 'none'
+                })
+            };
+            if(result.data.list.length>0){
+                let list = [...this.data.dataList, ...result.data.list];
+                this.setData({
+                    dataList: list,
+                    page: page
+                })
+            }
+        });
     },
     brashData(){
         this.setData({
@@ -42,7 +43,7 @@ Page({
         this.getDetailList({p: this.data.page});
     },
     getDetailList(params){
-        getInterfaceList(params).then(res=>{
+        getDoctorList(params).then(res=>{
             this.setData({refresh: false})
             if(res.code!=200){
                 return wx.showToast({
@@ -51,7 +52,7 @@ Page({
                 })
             };
             this.setData({
-                dataList: res.data,
+                dataList: res.data.list,
             }) 
         });
         

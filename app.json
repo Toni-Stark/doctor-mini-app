@@ -16,7 +16,9 @@
         "pages/logistics/bound-code/index",
         "pages/logistics/search-code/index",
         "pages/tabView/index",
-        "pages/logistics/query-code/index"
+        "pages/logistics/query-code/index",
+        "pages/mine/doctor-list/index",
+        "pages/mine/auth-staff/index"
     ],
     "window": {
         "backgroundTextStyle": "light",

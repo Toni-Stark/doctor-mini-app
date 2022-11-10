@@ -1,6 +1,6 @@
 <view class="container">
     <view class="form">
-        <view>
+        <!-- <view>
             <van-uploader       
                 file-list="{{ fileList }}" 
                 preview-size="80" 
@@ -13,7 +13,7 @@
                 multiple="{{true}}"
                 bind:delete="deleteItem"
                 bind:after-read="afterRead"/>
-        </view>
+        </view> -->
         <view class="label">
             <text>综合评分</text>
             <van-rate
@@ -36,17 +36,17 @@
                 bind:change="onChangeExpress"
             />
         </view>
-        <view class="label label-active">
+        <!-- <view class="label label-active">
             <text>猜你想说</text>
             <view class="label-view">
                 <view wx:for="{{cateList}}" data-id="{{item.id}}" catchtap="checkOut" class="{{currentId == item.id ? 'active' : ''}}">{{item.title}}</view>
             </view>
-        </view>
+        </view> -->
         <view>
-            <textarea placeholder="请您写下真实感受" class="textarea" cols="30" rows="10"></textarea>
+            <textarea placeholder="请您写下真实感受" value="{{failText}}" bindinput="onChangeFail" class="textarea" cols="30" rows="10"></textarea>
         </view>
     </view>
     <view class="box">
-        <view class="btn">提交评价</view>
+        <view class="btn" catchtap="setComment">提交评价</view>
     </view>
 </view>
