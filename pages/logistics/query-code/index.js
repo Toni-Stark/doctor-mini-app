@@ -1,5 +1,5 @@
 // pages/logistics/query-code/index.js
-import { getOrderQuery } from "../../../common/interface"
+import { getBoundReg, getOrderQuery } from "../../../common/interface"
 Page({
 
     /**
@@ -36,7 +36,7 @@ Page({
                 dose: '3mg:100µg*24粒/盒',
             }
         ],
-        orderList: [],
+        orderList: {},
         inputFocus: false,
         hasCode: false,
         currentCode: '',
@@ -82,20 +82,34 @@ Page({
               icon: 'none'
             })
             this.setData({
-                orderList: [],
+                orderList: {},
                 inputCode: '',
             })
             return;
         }
-        getOrderQuery({
-            type: 2,
+        getBoundReg({
+            type: 1,
             barcode: value,
-        }).then((res)=>{
-            console.log(res);
-            // this.setData({
-            //     orderList: this.data.requestList,
-            // })
-            // wx.hideToast();
+        }).then(res => {
+            if(res.code != 200){
+                this.setData({
+                    requestCodes: [value],
+                    orderList: {},
+                    inputCode: '',
+                    hadExpressSingle: true,
+                })
+                return wx.showToast({
+                  title: res.msg,
+                  icon: 'none'
+                })
+            }
+            this.setData({
+                requestCodes: [value],
+                orderList: res.data,
+                inputCode: '',
+                hadExpressSingle: true,
+            })
+            wx.hideToast();
         })
     },
     currentConfirm (e) {

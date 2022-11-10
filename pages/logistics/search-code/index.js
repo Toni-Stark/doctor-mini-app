@@ -11,7 +11,8 @@ Page({
         requestList: [
             {
                 name: '藿香正气水',
-                id: '6914329004530',
+                code: '6914329004530',
+                id:'15',
                 address: '桐君阁大药房',
                 count: 2,
                 price: '23.2',
@@ -22,7 +23,8 @@ Page({
             },
             {
                 name: '999感冒灵',
-                id: '6926378900626',
+                code: '6926378900626',
+                id:'55',
                 address: '桐君阁大药房',
                 count: 3,
                 price: '23.2',
@@ -33,7 +35,8 @@ Page({
             },
             {
                 name: '马来酸曲美布汀片',
-                id: '6953345101229',
+                code: '6953345101229',
+                id:'35',
                 address: '桐君阁大药房',
                 count: 2,
                 price: '23.2',
@@ -44,7 +47,8 @@ Page({
             },
             {
                 name: '连花清瘟颗粒',
-                id: '6903544060292',
+                code: '6903544060292',
+                id:'33',
                 address: '桐君阁大药房',
                 count: 1,
                 price: '23.2',
@@ -55,7 +59,8 @@ Page({
             },
             {
                 name: '阿莫西林胶囊',
-                id: '6973009160164',
+                code: '6973009160164',
+                id:'123',
                 address: '桐君阁大药房',
                 count: 4,
                 price: '23.2',
@@ -84,7 +89,21 @@ Page({
             type: 2,
             barcode: value,
         }).then((res)=>{
-            console.log(res);
+            if(res.code != 200){
+                this.setData({
+                    inputCode: '',
+                    searchItem: null
+                });
+                return wx.showToast({
+                  title: res.msg,
+                  icon: 'none'
+                })
+            }
+            this.setData({
+                searchItem: res.data,
+                inputCode: ''
+            })
+            wx.hideToast();
         })
         // let list = this.data.requestList.filter(item=>item.id === value);
         // if(list.length<=0){

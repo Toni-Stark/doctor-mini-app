@@ -36,20 +36,20 @@
             <view class="scroll-list {{orderList.length>0?'m-bottom':''}}">
                 <view class="scroll-item" wx:for="{{orderList}}" wx:key="index" catchtap="removeFocus">
                     <view class="item-header">药品名称：{{item.name}}</view>
-                    <view class="item-pid">药品编号：{{item.id}}</view>
-                    <view class="item-pid">药品厂家：{{item.address}}</view>
-                    <view class="item-pid">药品规格：{{item.dose}}</view>
-                    <view class="item-pid">生产日期：{{item.createTime}}</view>
-                    <view class="item-pid">有效日期：{{item.removeTime}}</view>
+                    <view class="item-pid">药品编号：{{item.barcode}}</view>
+                    <view class="item-pid">药品厂家：{{item.factory}}</view>
+                    <view class="item-pid">药品规格：{{item.standard}}</view>
+                    <view class="item-pid">生产日期：{{item.product_date}}</view>
+                    <view class="item-pid">有效日期：{{item.period_to}}</view>
                     <view class="item-count">
                         <view class="item-num">
                             库存：
-                            <count-view data-index="{{index}}" count="{{item.count}}" bindsetCount="setCount"></count-view>
-                        </view>
+                            <count-view data-index="{{index}}" count="{{item.quantity}}" bindsetCount="setCount"></count-view>
+                        </view> 
                         <view class="cicle-left"></view>
                         <view class="cicle-right"></view>
                     </view>
-                </view>
+                </view>          
             </view>
             <view class="upload-view" wx:if="{{orderList.length>0}}">
                 <view class="upload" bindtap="uploade">提交</view>

@@ -1,3 +1,5 @@
+import { getBoundReg } from "../../../common/interface";
+
 // pages/logistics/order-code/index.js
 Page({
     data: {
@@ -77,7 +79,7 @@ Page({
         });
     },
     regNumberRemaining(list){
-        let remaining = list.find(item=> item.count !== item.selected);
+        let remaining = list.delivery_items.find(item=> item.quantity != item.selected);
         if(!remaining){
             this.setData({
                 hadRemaining: true
@@ -110,10 +112,10 @@ Page({
 
     setCount(e){
         let index = e.currentTarget.dataset.index;
-        this.data.requestList[index].selected = Number(e.detail);
+        this.data.requestList.delivery_items[index].selected = Number(e.detail);
         let list = this.data.requestList;
         this.setData({
-            requestList: list,
+            requestList: JSON.parse(JSON.stringify(list)),
             focus: false
         });
         this.regNumberRemaining(list);
@@ -130,15 +132,29 @@ Page({
     },
 
     setOrderList(value){
-        this.setData({
-            // requestCodes: ['243833105279','2647280845879638942'],
-            requestCodes: ['2647280845879638942'],
-            requestList: JSON.parse(JSON
-                .stringify(this.data.responseData)),
-            inputCode: '',
-            hadExpressSingle: true,
+        getBoundReg({
+            type: 1,
+            barcode: value,
+        }).then(res => {
+            if(res.code != 200){
+                return wx.showToast({
+                  title: res.msg,
+                  icon: 'none'
+                })
+            }
+            let data = res.data;
+                data.delivery_items.map((item)=>{
+                    item['selected'] = 0;
+                    return item;
+                });
+            this.setData({
+                requestCodes: [value],
+                requestList: data,
+                inputCode: '',
+                hadExpressSingle: true,
+            })
+            wx.hideToast();
         })
-        wx.hideToast();
     },
 
     setOrderItem(value){
@@ -146,7 +162,7 @@ Page({
         this.setData({
             inputCode: value,
         })
-        let obj = this.data.requestList.filter(item=>item.id === value);
+        let obj = this.data.requestList.delivery_items.filter(item=>item.barcode === value);
         if(obj.length<=0){
             wx.showToast({
                 icon: 'none',
@@ -157,10 +173,10 @@ Page({
             });
             return;
         }
-        let index = this.data.requestList.findIndex(item => item.id === value);
+        let index = this.data.requestList.delivery_items.findIndex(item => item.barcode === value);
         let list = [];
         if (index>=0) {
-            if(this.data.requestList[index].selected == this.data.requestList[index].count){
+            if(this.data.requestList.delivery_items[index].selected == this.data.requestList.delivery_items[index].quantity){
                 wx.showToast({
                     icon: 'none',
                     title: '此项商品数量已足够',
@@ -168,7 +184,7 @@ Page({
                 this.setData({inputCode: ''});
                 return;
             }
-            this.data.requestList[index].selected ++ ;
+            this.data.requestList.delivery_items[index].selected ++ ;
             list = this.data.requestList;
             this.setData({requestList: list})
         }

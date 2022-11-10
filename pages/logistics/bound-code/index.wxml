@@ -42,18 +42,18 @@
                         <view class="order-title" wx:for="{{requestCodes}}">订单{{index+1}}/{{item}}</view>
                     </view>
                 </view>
-                <view class="scroll-item" wx:for="{{requestList}}" wx:key="index" catchtap="removeFocus">
+                <view class="scroll-item" wx:for="{{requestList.delivery_items}}" wx:key="index" catchtap="removeFocus">
                     <view class="item-header">药品名称：{{item.name}}</view>
-                    <view class="item-pid">药品编号：{{item.id}}</view>
-                    <view class="item-pid">药品厂家：{{item.address}}</view>
-                    <view class="item-pid">药品规格：{{item.dose}}</view>
-                    <view class="item-pid">生产日期：{{item.createTime}}</view>
-                    <view class="item-pid">有效日期：{{item.removeTime}}</view>
+                    <view class="item-pid">药品编号：{{item.barcode}}</view>
+                    <view class="item-pid">药品厂家：{{item.factory}}</view>
+                    <view class="item-pid">药品规格：{{item.standard}}</view>
+                    <view class="item-pid">生产日期：{{item.product_date}}</view>
+                    <view class="item-pid">有效日期：{{item.period_to}}</view>
                     <view class="item-count">
-                        商品数量：{{item.count}}
+                        商品数量：{{item.quantity}}
                         <view class="item-select">
                             核验数量：
-                            <count-view wx:if="{{item.selected !== item.count}}" data-index="{{index}}" count="{{item.selected}}" bindsetCount="setCount"></count-view>
+                            <count-view wx:if="{{item.selected != item.quantity}}" data-index="{{index}}" count="{{item.selected}}" bindsetCount="setCount"></count-view>
                             <view class="item-success" wx:else="">完成</view>
                         </view>
                         <view class="cicle-left"></view>

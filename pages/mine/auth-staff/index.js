@@ -1,5 +1,6 @@
 // pages/mine/auth-staff/index.js
 import { setAuthLogin } from "../../../common/interface"
+import {route} from'../../../utils/index'
 Page({
 
     data: {
@@ -33,7 +34,7 @@ Page({
                 icon: 'none'
             })
             setTimeout(()=>{
-                route.naviBack(-1)
+                route.navigateBack(1)
             }, 500)
         })
     },

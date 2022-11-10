@@ -56,5 +56,15 @@ export const getOrderQuery = async (params) => {
 export const getOrderData = async (params) => {
     return await request.post('/merchant/goods/search', params);
 }
-
-
+// 发货核验
+export const getBoundReg = async (params) => {
+    return await request.post('/merchant/order/search', params);
+}
+// 出库验货
+export const setOrderData = async (params) => {
+    return await request.post('/merchant/goods/search', params);
+}
+//清点入库
+export const setListInBox = async (params) => {
+    return await request.post('/merchant/goods/storage', params);
+}
