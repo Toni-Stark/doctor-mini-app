@@ -1,15 +1,16 @@
 <view class="container-view">
     <view class="avatar-view">
-        <view class="avatar">
-            <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-              <image 
-                  class="avatar-image" 
-                  mode="aspectFill" 
-                  src="{{avatarUrl || '../../img/app-logo/0.png'}}"
-              ></image>
+        <view class="avatar" bindtap="getUser">
+            <!-- <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+           
             </button>
-            <input type="nickname" value="{{nickName}}" placeholder-class="pla-class" placeholder="点击获取昵称[已登录]" bindtap="getFocus" bindinput="onInput" bindconfirm="onInput" class="weui-input"/>
-              <!-- <text class="avatar-text">{{nickName||'请登录'}}</text> -->
+            <input type="nickname" value="{{nickName}}" placeholder-class="pla-class" placeholder="点击获取昵称[已登录]" bindtap="getFocus" bindinput="onInput" bindconfirm="onInput" class="weui-input"/> -->
+            <image 
+                  class="avatar-image" 
+                  mode="aspectFill"  
+                  src="{{avatarUrl}}"
+              ></image>
+              <view class="avatar-name">{{nickName||'点击设置昵称头像'}}</view>
         </view>
     </view>
     <view class="list alone">

@@ -20,7 +20,8 @@
     "pages/mine/doctor-list/index",
     "pages/mine/auth-staff/index",
     "pages/mine/register/agreement/index",
-    "pages/mine/register/policy/index"
+    "pages/mine/register/policy/index",
+    "pages/mine/setting-user/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

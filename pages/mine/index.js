@@ -1,4 +1,4 @@
-const { regLoginStatus } = require("../../common/interface")
+const { regLoginStatus, getUserInfoSync } = require("../../common/interface")
 const { route, storage } = require("../../utils/index")
 const app = getApp()
 
@@ -53,6 +53,9 @@ Page({
         nickName: ' ',
       })
     },
+    getUser(){
+        this.getUserInfoApI(true);
+    },
     onInput(e){
       const { value } = e.detail 
       this.setData({
@@ -79,12 +82,7 @@ Page({
         if(!storage.getStorageSync('token')){
             route.navigateTo('./register/index')
         } else {
-            let nickName = storage.getStorageSync('nickName');
-            let avatarUrl = storage.getStorageSync('avatarUrl');
-            this.setData({
-                nickName: nickName,
-                avatarUrl: avatarUrl,
-            })
+            this.getUserInfoApI();
         }
     },
     /**
@@ -124,6 +122,36 @@ Page({
             isAuth: true
         })
     },
+    getUserInfoApI(isBtn){
+        let avatar = storage.getStorageSync('avatarUrl');
+        let nickname = storage.getStorageSync('nickname');
+        if(avatar && nickname){
+            return;
+        }
+        getUserInfoSync().then(res => {
+            if(res.code != 200){
+                return wx.showToast({
+                  title: res.msg,
+                  icon: 'none'
+                })
+            };
+            if(res.data.nickname && res.data.avatar) {
+                this.setData({
+                    nickName: res.data.nickname,
+                    avatarUrl: res.data.avatar,
+                })
+                storage.setStorageSync('avatarUrl', res.data.avatar);
+                storage.setStorageSync('nickname', res.data.nickname);
+            } else if(isBtn){
+                route.navigateTo('./setting-user/index')
+            } else {
+                this.setData({
+                    nickName: '点击设置昵称头像',
+                    avatarUrl: '../../img/app-logo/0.png',
+                })
+            }
+        })
+    },
     onShow() {
         // this.regLogin();
         this.naviToRegister()
@@ -133,6 +161,6 @@ Page({
             })
         }
         this.regPermissions();
-        this.regAuthServer()
+        this.regAuthServer();
     },
 })

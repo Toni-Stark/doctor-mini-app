@@ -72,3 +72,7 @@ export const setListInBox = async (params) => {
 export const setBoundUpdate = async (params) => {
   return await request.post('/merchant/shipment/taking', params);
 }
+//获取用户信息
+export const getUserInfoSync = async (params) => {
+    return await request.post('/member/member/get-member-info', params);
+  }

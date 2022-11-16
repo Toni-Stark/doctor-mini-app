@@ -105,6 +105,12 @@ button::after{
     height: 150rpx;
     border-radius: 50%;
 }
+.avatar-name {
+    font-size: 44rpx;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 30rpx 0 0;
+}
 .weui-input {
   caret-color:transparent
 }
