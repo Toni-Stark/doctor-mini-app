@@ -1,0 +1,146 @@
+/* pages/logistics/index.wxss */
+.container {
+    height: 100vh;
+    overflow: hidden;
+}
+.active {
+    background-image: linear-gradient(#8469FF, #6266FF);
+    color: #ffffff;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header {
+    background-image: linear-gradient(#6266FF, #4562FF);
+    height: 163rpx;
+    width: 119%;
+    align-items: center;
+    display: flex;
+    padding-bottom: 75rpx;
+    box-sizing: border-box;
+    justify-content: center;
+    font-size: 28rpx;
+    color: #ffffff;
+    border-bottom-left-radius: 86%;
+    border-bottom-right-radius: 86%;
+    align-self: center;
+    position: relative;
+}
+
+.content {
+    z-index: 90;
+    /* margin-top: -140rpx; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+.search {
+    width: 79%;
+    background-color: #ffffff;
+    border-radius: 50rpx;
+    height: 93rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 17rpx 0 40rpx;
+    box-sizing: border-box;
+    box-shadow: 4rpx 10rpx 40rpx 2rpx rgba(127, 129, 240, 0.51);
+}
+.search text {
+    color: #484B54;
+    font-size: 32rpx;
+}
+.search view {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef1ff;
+    padding: 7rpx;
+}
+.search image{
+    height: 58%;
+    width: 58%;
+}
+.card-list {
+    width: 100%;
+    padding: 30rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.card-item {
+    background-color: #ffffff;
+    width: 48%;
+    box-shadow: 0rpx 5rpx 9rpx 4rpx #ededed;
+    height: 250rpx;
+    display: flex;
+    border-radius: 25rpx;
+    padding: 20rpx;
+    margin-bottom: 30rpx;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 32rpx;
+}
+.card-item image {
+    height: 77rpx;
+    width: 77rpx;
+    margin-bottom: 20rpx;
+}
+.card-dual {
+    margin-left: 3%;
+}
+.card-list .fill {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 37rpx;
+}
+.card-list .fill image {
+  width: 90rpx;
+  height: 90rpx;
+  margin-right: 50rpx;
+  margin-bottom: 0;
+}
+
+
+.submit {
+  padding: 15rpx 14rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 15rpx;
+  font-size: 35rpx;
+  width: 85%;
+  background-image: linear-gradient(#6266FF, #4562FF);
+}
+.empty-order-text, .empty-order-desc {
+  color: #969799;
+  font-size: 32rpx;
+  display: flex;
+  justify-content: center;
+  padding: 0 0 5rpx
+}
+.empty-order-desc {
+  padding: 0 0 25rpx
+}
+.empty-order-view {
+  padding: 50rpx;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

@@ -8,19 +8,22 @@
         bindrefresherrefresh="brashData" 
         bindscrolltolower="addDataList" 
         scroll-y="true">
-        <view class="eval-item shadow" bindtap="naviToDetail">
+        <view wx:if="{{dataList.length>0}}" class="eval-item shadow" wx:for="{{dataList}}" data-id="{{item.id}}" bindtap="naviToDetail">
             <view class="main-time">
-                <view></view>
+                <view>评价时间</view>
                 <text>8月17日 19:12</text>
             </view>
             <view class="main-content">
-                <view class="main-label"><view>评价对象</view>藿香正气液</view>
-                <view class="main-label"><view>评价内容</view>清热解毒，提神醒脑</view>
+                <view class="main-label"><view>评价对象</view>{{item.title}}</view>
+                <view class="main-label"><view>评价内容</view>{{item.content}}</view>
             </view>
             <view class="main-detail">
                 <view>进入详情</view>
                 <image mode="widthFix" src="../../../img/mine/grey-r-arrow.png"></image>
             </view>
+        </view>
+        <view wx:if="{{dataList.length<=0}}">
+          <van-empty description="没有评价记录" />
         </view>
     </scroll-view>
 </view>

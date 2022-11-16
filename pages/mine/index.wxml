@@ -1,91 +1,38 @@
-<!--pages/mine/index.wxml-->
-<view class="container">
-    <view class="active" style="height:{{height}}px;padding-bottom: {{navTop}}px;">
-        我的
-    </view>
-    <view class="header">
-    </view>
+<view class="container-view">
     <view class="avatar-view">
         <view class="avatar">
-            <image class="avatar-image" mode="aspectFill" src="{{avatarUrl}}"></image>
-            <text class="avatar-text">{{nickName}}</text>
+            <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+              <image 
+                  class="avatar-image" 
+                  mode="aspectFill" 
+                  src="{{avatarUrl || '../../img/app-logo/0.png'}}"
+              ></image>
+            </button>
+            <input type="nickname" value="{{nickName}}" placeholder-class="pla-class" placeholder="点击获取昵称[已登录]" bindtap="getFocus" bindinput="onInput" bindconfirm="onInput" class="weui-input"/>
+              <!-- <text class="avatar-text">{{nickName||'请登录'}}</text> -->
         </view>
     </view>
     <view class="list alone">
-        <view class="item" catchtap="naviToOrderList">
+        <view wx:for="{{commonConfig}}" class="item" data-item="{{item}}" catchtap="navigateTo">
             <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-mine.png"></image>
-                <text>订单列表</text>
+                <image class="item-image" mode="widthFix" src="{{item.icon}}"></image>
+                <text>{{item.label}}</text>
             </view>
             <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
         </view>
-        <view class="item" catchtap="naviToEvaluateList">
+        <view wx:if="{{isAuth}}" wx:for="{{authConfig}}" class="item" data-item="{{item}}" catchtap="navigateTo">
             <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-zzzz.png"></image>
-                <text>我的评价</text>
+                <image class="item-image" mode="widthFix" src="{{item.icon}}"></image>
+                <text>{{item.label}}</text>
             </view>
             <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
         </view>
+        
     </view>
-
-    <!-- <view class="list border-bottom">
-        <view class="item" catchtap="naviToRegister">
-            <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-mine.png"></image>
-                <text>个人档案</text>
-            </view>
-            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
-        </view>
-        <view class="item">
-            <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-zzzz.png"></image>
-                <text>症状自诊记录</text>
-            </view>
-            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
-        </view>
-        <view class="item">
-            <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-xbzy.png"></image>
-                <text>小病找药记录</text>
-            </view>
-            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
-        </view>
-        <view class="item">
-            <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-yhwd.png"></image>
-                <text>医患问答记录</text>
-            </view>
-            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
-        </view>
-    </view>
-    <view class="list">
-        <view class="item">
-            <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/member-active.png"></image>
-                <text>会员激活</text>
-            </view>
-            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
-        </view>
-        <view class="item">
-            <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-fenxiang.png"></image>
-                <text>分享</text>
-            </view>
-            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
-        </view>
-        <view class="item">
-            <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-fankui.png"></image>
-                <text>意见反馈</text>
-            </view>
-            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
-        </view>
-        <view class="item">
-            <view class="item-start">
-                <image class="item-image" mode="widthFix" src="../../img/mine/user-icon-about.png"></image>
-                <text>关于</text>
-            </view>
-            <image class="end-btn" mode="widthFix" src="../../img/mine/grey-r-arrow.png"></image>
-        </view>
-    </view> -->
 </view>
+<view class="bottom-banner"></view>
+<tabView activeIdx="{{2}}" userScan="{{userScan}}"></tabView>
+
+
+
+

@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "get-phone": "../../../components/get-phone/index"
-  }
+    "get-phone": "../../../components/get-phone/index",
+    "van-toast": "@vant/weapp/toast/index"
+  },
+  "navigationBarTitleText": "注冊"
 }

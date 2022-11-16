@@ -17,9 +17,6 @@ App({
     // 获取胶囊信息
     let menuButtonObject = wx.getMenuButtonBoundingClientRect();
     let screenObject = wx.getWindowInfo()
-    console.log('log-----------')
-    console.log(screenObject)
-    console.log('log-----------')
     // 获取设备信息
     wx.getSystemInfo({
       success: res => {
@@ -30,6 +27,8 @@ App({
         this.globalData.navHeight = navHeight;
         this.globalData.navTop = navTop;
         this.globalData.screenHeight = screenObject.screenHeight;
+        this.globalData.paddingTop = screenObject.statusBarHeight + 'rpx';
+        // '10px'
       },
       fail: err => {
         console.log(err)

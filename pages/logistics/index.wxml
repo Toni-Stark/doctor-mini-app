@@ -1,0 +1,18 @@
+<!--pages/logistics/index.wxml-->
+<view class="container">
+    <view class="content">
+        <view class="card-list" wx:if="{{isStaff}}">
+            <view wx:for="{{tabList}}" class="{{item.class}}" data-navigate="{{item.navigate}}" catchtap="naviToQuery">
+                <image mode="heightFix" src="{{item.icon}}" alt=""/>
+                {{item.title}}
+            </view>
+        </view>
+        <view class="empty-order-view" wx:else="">
+          <view class="empty-order-text">请绑定员工信息</view>
+          <view class="empty-order-desc">以使用移动扫码枪功能</view>
+          <view class="submit" catchtap="naviToAuth">员工绑定</view>
+        </view>
+    </view>
+    <view class="bottom-banner"></view>
+</view>
+<tabView activeIdx="{{1}}" userScan="{{userScan}}"></tabView>

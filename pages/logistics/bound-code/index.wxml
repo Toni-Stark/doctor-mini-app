@@ -1,0 +1,70 @@
+<!--pages/logistics/order-code/index.wxml-->
+<view class="container">
+    <view class="search" >
+        <view class="scan" catchtap="getFocus">
+            <image mode="widthFix" src="../../../img/logistics/logistics.png"></image>
+        </view>
+        <view class="input">
+            <view class="field-group">
+                <van-cell-group class="field-cell">
+                    <van-field
+                        value="{{inputCode}}"
+                        placeholder="请扫描快递单或药品编码"
+                        focus="{{focus}}" 
+                        bind:input="currentInput" 
+                        bind:blur="currentBlur" 
+                        bind:focus="currentFocus"
+                        show-confirm-bar="{{true}}"
+                        type="textarea"
+                        confirm-type="search"
+                        border="{{ false }}"
+                    />
+                </van-cell-group>
+            </view>
+        </view>
+        <view class="image" catchtap="getFocus">
+            <image mode="widthFix" src="../../../img/logistics/search.png"></image>
+        </view>
+        <view class="blue-tip" wx:if="{{inputFocus}}">
+            <view class="border-tip"></view>
+            请点击输入框后继续录入
+        </view>
+    </view>
+    <view class="context">
+        <scroll-view
+            class="scroll-view"
+            scroll-y
+        >
+            <view class="scroll-list {{hadRemaining?'m-bottom':''}}">
+                <view class="order-list" wx:if="{{requestCodes.length>0}}">
+                    订单号:
+                    <view class="order-table">
+                        <view class="order-title" wx:for="{{requestCodes}}">订单{{index+1}}/{{item}}</view>
+                    </view>
+                </view>
+                <view class="scroll-item" wx:for="{{requestList.delivery_items}}" wx:key="index" catchtap="removeFocus">
+                    <view class="item-header">药品名称：{{item.name}}</view>
+                    <view class="item-pid">药品编号：{{item.barcode}}</view>
+                    <view class="item-pid">药品厂家：{{item.factory}}</view>
+                    <view class="item-pid">药品规格：{{item.standard}}</view>
+                    <view class="item-pid">生产日期：{{item.product_date}}</view>
+                    <view class="item-pid">有效日期：{{item.period_to}}</view>
+                    <view class="item-count">
+                        商品数量：{{item.quantity}}
+                        <view class="item-select">
+                            核验数量：
+                            <count-view wx:if="{{item.selected != item.quantity}}" data-index="{{index}}" count="{{item.selected}}" bindsetCount="setCount"></count-view>
+                            <view class="item-success" wx:else="">完成</view>
+                        </view>
+                        <view class="cicle-left"></view>
+                        <view class="cicle-right"></view>
+                    </view>
+                </view>
+            </view>
+
+            <view class="upload-view" wx:if="{{hadRemaining}}">
+                <view class="upload">提交</view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

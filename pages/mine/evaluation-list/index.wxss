@@ -1,12 +1,13 @@
 /* pages/mine/evaluation-list/index.wxss */
 .eval-container {
-    background-color: #f2f2f2;
+    background-color: #ffffff;
     overflow: hidden;
     height: 100vh;
+
 }
 .eval-list {
     display: flex;
-    height: 89vh;
+    height: 100vh;
 }
 .eval-item {
     margin: 30rpx;
@@ -21,6 +22,14 @@
     display: flex;
     padding: 5rpx 0 10rpx 0;
     justify-content: space-between;
+    align-items: center;
+}
+.main-time view {
+  display: flex;
+  font-size: 30rpx;
+  padding: 10rpx 0;
+  font-size: 30rpx;
+  color: #999999;
 }
 .main-time text {
     font-size: 28rpx;
@@ -51,4 +60,5 @@
 .main-label view {
      color: #888888;
      padding-right: 30rpx;
+     white-space: nowrap;
 }

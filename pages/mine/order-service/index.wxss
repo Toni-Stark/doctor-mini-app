@@ -2,10 +2,16 @@
 .container {
     background-color: #f9f9f9;
     height: 100vh;
+    align-items: center;
+}
+.title {
+    margin: 100rpx 0 20rpx;
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #047192;
 }
 .card {
     width: 70%;
-    margin-top: 100rpx;
     align-self: center;
     justify-content: center;
     display: flex;

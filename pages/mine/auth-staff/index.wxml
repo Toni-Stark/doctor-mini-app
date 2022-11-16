@@ -1,0 +1,29 @@
+<view class="container">
+    <view class="content">
+        <view class="content-card">
+            <view class="order">
+                <view class="order-id">
+                    <input 
+                        placeholder="请输入员工登录名" 
+                        placeholder-class="order-placeholder" 
+                        bindinput="bindChangeName"
+                        value="{{name}}" 
+                        type="text"
+                    />
+                </view>
+            </view>
+            <view class="order">
+                <view class="order-id">
+                    <input 
+                        placeholder="请输入员工登录密码" 
+                        placeholder-class="order-placeholder" 
+                        bindinput="bindChangePass"
+                        value="{{password}}" 
+                        type="text"
+                    />
+                </view>
+            </view>
+        </view>
+        <view class="submit" catchtap="naviBack">立即绑定</view>
+    </view>
+</view>

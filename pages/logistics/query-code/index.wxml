@@ -1,0 +1,67 @@
+<!--pages/logistics/query-code/index.wxml-->
+<view class="container">
+    <view class="search">
+        <view class="scan" catchtap="getFocus">
+            <image mode="widthFix" src="../../../img/logistics/logistics.png"></image>
+        </view>
+        <view class="input">
+            <view class="field-group">
+                <van-cell-group class="field-cell">
+                    <van-field
+                        value="{{inputCode}}"
+                        placeholder="请扫描条码或者输入订单号"
+                        focus="{{focus}}" 
+                        bind:input="currentInput" 
+                        bind:blur="currentBlur" 
+                        bind:focus="currentFocus"
+                        bind:confirm="currentConfirm"
+                        show-confirm-bar="{{true}}"
+                        type="textarea"
+                        confirm-type="search"
+                        border="{{ false }}"
+                    />
+                </van-cell-group>
+            </view>
+        </view>
+        <view class="image" catchtap="getFocus">
+            <image mode="widthFix" src="../../../img/logistics/search.png"></image>
+        </view>
+        <view class="blue-tip" wx:if="{{inputFocus}}">
+            <view class="border-tip"></view>
+            请点击输入框后继续录入
+        </view>
+    </view>
+    <view class="context">
+        <scroll-view class="scroll-view" scroll-y>
+          <view class="order-flex" wx:if="{{currentCode && orderList.order_info}}">
+            <view class="order-title" >订单号: {{currentCode}}</view>
+            <view class="order-view-context">
+              <view>订单价格：{{orderList.order_info.price}}</view>
+              <view>订单状态：{{orderList.order_info.status}}</view>
+            </view>
+            <view class="order-view-context">
+              <view>支付时间：{{orderList.order_info.pay_time}}</view>
+              <view>订单渠道：{{orderList.order_info.platform}}</view>
+            </view>
+          </view>
+            <view class="scroll-list">
+                <view class="scroll-item" wx:for="{{orderList.delivery_items}}" wx:key="index" catchtap="removeFocus">
+                    <view class="item-header">药品名称：{{item.name}}</view>
+                    <view class="item-pid">药品编号：{{item.barcode}}</view>
+                    <view class="item-pid">药品厂家：{{item.factory}}</view> 
+                    <view class="item-pid">药品规格：{{item.standard}}</view>
+                    <view class="item-pid">生产日期：{{item.product_date}}</view>
+                    <view class="item-pid">有效日期：{{item.period_to}}</view>
+                    <view class="item-count">
+                        <view class="item-num">
+                            下单数量：{{item.quantity}}
+                            <!-- <count-view data-index="{{index}}" count="{{item.count}}" bindsetCount="setCount"></count-view> -->
+                        </view>
+                        <view class="cicle-left"></view>
+                        <view class="cicle-right"></view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

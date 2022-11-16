@@ -1,0 +1,24 @@
+<view class="container eval-container">
+    <scroll-view 
+        class="eval-list"
+        refresher-triggered="{{refresh}}" 
+        refresher-enabled 
+        lower-threshold="20" 
+        bindrefresherrefresh="brashData" 
+        bindscrolltolower="addDataList" 
+        scroll-y="true">
+        <view wx:if="{{dataList.length>0}}" wx:for="{{dataList}}" class="eval-item shadow" data-id="{{item.id}}" data-code="{{item.qrcode}}" bindtap="naviToDetail">
+            <view class="main-content">
+                <view class="main-label"><view>医生姓名</view>{{item.name}}</view>
+                <view class="main-label"><view>医生简介</view>清热解毒，提神醒脑</view>
+            </view>
+            <view class="main-detail">
+                立即联系
+                <image mode="widthFix" src="../../../img/mine/grey-r-arrow.png"></image>
+            </view>
+        </view>
+        <view wx:if="{{dataList.length<=0}}">
+          <van-empty description="没有医师信息" />
+        </view>
+    </scroll-view>
+</view>

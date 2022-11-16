@@ -1,0 +1,135 @@
+/* pages/logistics/order-code/index.wxss */
+.container {
+    height: 100vh;
+    border-top: 1rpx solid #f2f2f2;
+}
+.search {
+    display: flex;
+    margin: 30rpx 30rpx 15rpx;
+    padding: 0 15rpx;
+    border: 1rpx solid #e8e8e8;
+    border-radius: 15rpx;
+    height: 65rpx;
+}
+.scan {
+    padding: 15rpx;
+    border-right: 1rpx solid #e8e8e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.scan image {
+    width: 47rpx;
+    height: 47rpx;
+}
+.input {
+    display: flex;
+    width: 100%;
+}
+.input textarea {
+    width: 100%;
+    height: 40rpx;
+    font-size: 32rpx;
+    padding: 0 10rpx !important;
+    /* padding: 15rpx 20rpx; */
+    /* line-height: 31rpx; */
+    box-sizing: border-box;
+}
+.image {
+    padding: 15rpx;
+    border-left: 1rpx solid #e8e8e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search .image image {
+    width: 38rpx;
+    height: 38rpx;
+}
+.context {
+    flex: 1;
+}
+.scroll-view {
+    height: 100%;
+}
+.scroll-list {
+    display: flex;
+    flex-direction: column;
+    padding: 15rpx;
+    box-sizing: border-box;
+}
+.scroll-item {
+    box-shadow: 0rpx 0rpx 15rpx 0rpx #d6d6d6;
+    margin: 10rpx 15rpx 25rpx;
+    border-radius: 15rpx;
+    cursor: pointer;
+    font-size: 32rpx;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.item-header {
+    padding: 15rpx;
+}
+.item-pid {
+    padding: 8rpx 15rpx;
+}
+.item-count {
+    padding: 20rpx 15rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1rpx dashed #eaeaea;
+    margin-top: 15rpx;
+    position: relative;
+}
+.cicle-left, .cicle-right {
+    width: 30rpx;
+    height: 30rpx;
+    background-color: #ffffff;
+    position: absolute;
+    top: 0;
+    border-radius: 50%;
+    margin-top: -15rpx;
+}
+.cicle-left {
+    margin-left: -8rpx;
+    margin-top: -15rpx;
+    left: 0;
+    background: linear-gradient(to left, #eaeaea 0%,#ededed 35%,#F1F1F1 65%,#f7f7f7 100%);
+    border-right: 2rpx solid #e0e0e0;
+}
+.cicle-right {
+    margin-right: -8rpx;
+    right: 0;
+    background: linear-gradient(to right, #eaeaea 0%,#ededed 35%,#F1F1F1 65%,#f7f7f7 100%);
+    border-left: 1rpx solid #e0e0e0;
+}
+.create {
+    width: 35rpx;
+}
+.create-view {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.field-group {
+    width: 100%;
+    height: 100%;
+}
+.field-cell {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.van-cell-group {
+    width: 100%;
+}
+.van-cell {
+    padding: 0 !important;
+}
+.van-hairline--top-bottom:after {
+    border-width: 0 !important;
+}

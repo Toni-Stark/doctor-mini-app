@@ -1,0 +1,30 @@
+<view class="container">
+    <view class="content">
+        <view class="content-card">
+            <view class="shop" wx:if="{{!channel}}">
+                <view class="check" bindtap="onFocus">
+                    <view class="check-view" style="color: {{selectValue?'#000000':'#c4c4c4'}}">{{selectTitle||'-- 请选择渠道 --'}}</view>
+                    <view class="check-out">
+                        <image class="check-image" mode="widthFix" src="../../img/components/down.png"></image>
+                    </view>
+                    <view class="check-list" style="display: {{isShow?'block':'none'}};">
+                        <view catchtap="delStatus">-- 请选择渠道 --</view>
+                        <view wx:for="{{shopList}}" data-title="{{index}}" data-index="{{item}}" catchtap="selectStatus">{{index}}</view>
+                    </view> 
+                </view>
+            </view> 
+            <view class="order">
+                <view class="order-id">
+                    <input 
+                        placeholder="请填写您的订单号" 
+                        placeholder-class="order-placeholder" 
+                        bindinput="bindChange"
+                        value="{{value}}" 
+                        type="text"
+                    />
+                </view>
+            </view>
+        </view>
+        <view class="submit" catchtap="naviBack">提交</view>
+    </view>
+</view>

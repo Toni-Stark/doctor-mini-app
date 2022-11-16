@@ -1,0 +1,13 @@
+.container-policy {
+  font-size: 32rpx;
+  padding: 0 15rpx;
+}
+.title {
+  text-align: center;
+  padding: 30rpx 0;
+  font-size: 36rpx;
+}
+.time {
+  display: flex;
+  flex-direction: column;
+}

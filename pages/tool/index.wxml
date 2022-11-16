@@ -1,23 +1,46 @@
 <!--pages/tool/index.wxml-->
-<view>
-    <scroll-view  
-        class="scroll-view"
-        refresher-triggered="{{refresh}}" 
-        refresher-enabled 
-        lower-threshold="20" 
-        bindrefresherrefresh="brashData" 
-        bindscrolltolower="addDataList" 
-        scroll-y="true">
-        <view class="scroll-list">
-            <view class="scroll-item" wx:for="{{dataList}}" wx:key="index" style="background-image: {{item.background}};">
-                <image class="item-image" mode="widthFix" src="{{item.icon}}"></image>
-                <view class="item-title">{{item.title}}</view>
+<view class="container">
+    <view class="active" style="height:{{height}}px;padding-bottom: {{navTop}}px;">
+        便捷小程序
+    </view>
+    <view class="header"></view>
+    <view class="scroll-parent">
+        <scroll-view  
+            class="scroll-view"
+            refresher-triggered="{{refresh}}" 
+            refresher-enabled 
+            lower-threshold="20" 
+            bindrefresherrefresh="brashData" 
+            bindscrolltolower="addDataList" 
+            scroll-y="true">
+            <view class="cate-list">
+                <view class="cate-title">生活类APP</view>
+                <view class="scroll-list">
+                    <view 
+                        wx:for="{{dataList}}"
+                        class="scroll-item {{touchIndex===index?'current':''}}" 
+                        wx:key="index"
+                        data-index="{{index}}" 
+                        bindtouchstart="getStart"  
+                        bindtouchend="getEnd"
+                        bindtap="naviToDetail">
+                        <image class="item-image" mode="widthFix" src="{{item.icon}}"></image>
+                        <view class="item-title">{{item.title}}</view>
+                    </view>
+                    <view 
+                        data-index="99" 
+                        class="scroll-item {{touchIndex==='99'?'currentAdd':''}}"
+                        bindtouchstart="getStart"  
+                        bindtouchend="getEnd"
+                        bindtap="naviToAdd">
+                        <image class="item-image" mode="widthFix" src="../../img/app-logo/appstore.png"></image>
+                        <view class="item-title">
+                            <text class="item-text">添加小程序</text>    
+                        </view>
+                    </view>
+                </view>
             </view>
-            <view class="scroll-item" style="background-image: linear-gradient(90deg, #60ab0d, #bb860f);">
-                <image class="item-image" mode="widthFix" src="../../img/app-logo/appstore.png"></image>
-                <view class="item-title">添加小程序</view>
-            </view>
-        </view>
-    </scroll-view>
- 
+     
+        </scroll-view>
+    </view>
 </view>

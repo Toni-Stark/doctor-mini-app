@@ -1,103 +1,88 @@
-<!--index.wxml-->
-<view class="container">
-    <view class="active" style="height:{{headerHeight}}px">
-        药药线上通
-    </view>
-    <view class="header">
-        <image class="header-rubi" mode="widthFix" src='../../img/index/home-robot.png'></image>
-        <text class="header-title">我是药药线上通 您身边的智能家庭医生</text>
-        <view class="search" catchtap="naviToCustomer">
-            <text>有健康问题，先来问问我吧...</text>
-            <!-- <image mode="heightFix" src="../../img/index/audio.png"></image> -->
-        </view>
-    </view>
-    <view class="tabbar">
-        <!-- <view class="tab">
-            <image class="tab-image" mode="widthFix" src="../../img/index/zizhen.png"></image>
-            <text class="tab-label">症状自诊</text>
-        </view>
-        <view class="tab">
-            <image class="tab-image" mode="widthFix" src="../../img/index/yaopin.png"></image>
-            <text c lass="tab-label">小病找药</text>
-        </view>
-        <view class="tab">
-            <image class="tab-image" mode="widthFix" src="../../img/index/jibing.png"></image>
-            <text class="tab-label">疾病知识</text>
-        </view>
-        <view class="tab">
-            <image class="tab-image" mode="widthFix" src="../../img/index/yaopin.png"></image>
-            <text class="tab-label">药品知识</text>
-        </view> -->
-        <view class="banner-list">
-            <view class="banner-item" catchtap="naviToCustomer">
-                <image class="banner-image" mode="widthFix" src='../../img/index/bg-kap1.png'></image>
-                <view class="banner-absou">
-                    <image class="banner-image-eval" mode="widthFix" src="../../img/index/home-icon-paichufang.png"></image>
-                    <text class="banner-text-eval">症状自诊</text>
+<view class="container-index">
+    <view class="header-view"></view>
+    <view class="content">
+        <scroll-view 
+            class="order-list"
+            refresher-triggered="{{refresh}}" 
+            refresher-enabled 
+            lower-threshold="20" 
+            bindrefresherrefresh="brashData" 
+            bindscrolltolower="addDataList" 
+            scroll-y="true">
+            <view class="order-view">
+                <view wx:if="{{dataList.length>0}}" wx:for="{{dataList}}" class="order-item shadow-view" data-comment="{{item.order_info.comment_id}}" data-order="{{item.order_info.order_no}}" data-id="{{item.member_order_id}}" data-edit="{{item.order_info.comment_id!=0}}" bindtap="naviToDetail">
+                    <view class="main-time border-b">
+                        <view class="platform">{{item.order_info.platform}}</view>
+                        <view class="platform-order">
+                            订单号: 
+                            <view class="platform-text"> {{item.order_info.order_no}}</view>
+                        </view>
+                    </view>
+                    <view class="main-title border-b">
+                        <view class="main-label">
+                            支付时间： 
+                            <view class="main-text">{{item.order_info.pay_time}}</view> 
+                        </view>
+                        <view class="main-label">
+                            订单金额： 
+                            <view class="main-text">{{item.order_info.order_total}}</view> 
+                        </view>
+                        <view class="main-label" wx:if="{{item.people}}">
+                            核验人： 
+                            <view class="main-text">{{item.people}}</view> 
+                        </view>
+                    </view>
+                    <view class="main-title border-b" wx:for="{{item.item_list}}" wx:for-item="shopItem">
+                        <view class="main-label">
+                            <text class="main-shop-title">名称：</text> 
+                            <view class="main-text">{{shopItem.title}}</view> 
+                        </view>
+                        <view class="main-label">
+                            数量： 
+                            <view class="main-text">{{shopItem.quantity}}</view> 
+                        </view>
+                    </view>
+                    <view class="main-detail">
+                        <view wx:if="{{item.order_info.comment_id == 0}}" class="doctor" data-order="{{item.order_info.order_no}}" data-id="{{item.member_order_id}}" catchtap="getEvaluate">
+                            评价 
+                            <image mode="widthFix" src="../../img/index/evaluate.png"></image>
+                        </view>
+                        <view wx:else="" class="nurse" data-id="{{item.member_order_id}}" catchtap="getEvaluateFalse">
+                            已评价 
+                        </view>
+                        <view class="doctor" catchtap="addWechat">
+                            咨询医生
+                            <image mode="widthFix" src="../../img/index/talk-about2.png"></image>
+                        </view>
+                        <view class="doctor" catchtap="setAlarmClock">
+                            用药提醒
+                            <image mode="widthFix" src="../../img/index/alarm-clock.png"></image>
+                        </view>
+                    </view>
+                </view> 
+                <view wx:if="{{dataList.length<=0}}" class="order-item empty-view">
+                  <van-empty description="没有订单信息" />
+                  <view class="empty-order-view">
+                    <view class="empty-order-text">请点击下面按钮导入订单</view>
+                    <view class="submit" catchtap="naviToAuth">导入订单</view>
+                  </view>
                 </view>
             </view>
-            <view class="banner-item" catchtap="naviToSearch">
-                <image class="banner-image" mode="widthFix" src='../../img/index/bg-kap2.png'></image>
-                <view class="banner-absou">
-                    <image class="banner-image-eval" mode="widthFix" src="../../img/index/home-icon-anpai.png"></image>
-                    <text class="banner-text-eval">药品知识</text>
-                </view>
-            </view>
-            <view class="banner-item" catchtap="naviToRecommend">
-                <image class="banner-image" mode="widthFix" src='../../img/index/bg-kap3.png'></image>
-                <view class="banner-absou">
-                    <image class="banner-image-eval" mode="widthFix" src="../../img/index/home-icon-zhidao.png"></image>
-                    <text class="banner-text-eval">推荐文章</text>
-                </view>
-            </view>
-        </view>
+        </scroll-view>
     </view>
-    <view class="card">
-        <view class="card-header">
-            <image class="card-img" mode="widthFix" src="../../img/index/home-icon-question.png"></image>
-            你可以这样问我
-        </view>
-        <view class="card-tip-list">
-            <view class="card-tip-item" wx:for="{{askList}}" wx:key="index" data-title="{{item.title}}" catchtap="naviToServices">{{item.title}}</view>
-        </view>
-    </view>
-    <view class="banner">
-        <view class="banner-title">推荐文章</view>
-        <view class="share">
-            <view class="share-list">
-                <view class="share-item" catchtap="naviToDetail">
-                    <view class="share-point"></view>
-                    <view class="share-label">心衰患者的运动方式</view>
-                </view>
-                <view class="share-item">
-                    <view class="share-point"></view>
-                    <view class="share-label">卵巢囊肿，我该如何对付你？</view>
-                </view>
-                <view class="share-item">
-                    <view class="share-point"></view>
-                    <view class="share-label">疥疮有哪些后遗症？</view>
-                </view>
-                <view class="share-item">
-                    <view class="share-point"></view>
-                    <view class="share-label">糖尿病生活方式</view>
-                </view>
-                <view class="share-item">
-                    <view class="share-point"></view>
-                    <view class="share-label">乳腺癌患者应如何安排日常生活？</view>
-                </view>
-                <view class="share-item">
-                    <view class="share-point"></view>
-                    <view class="share-label">胃癌手术后要少吃多餐</view>
-                </view>
-                <view class="share-item">
-                    <view class="share-point"></view>
-                    <view class="share-label">肺纤维化患者出现顽固性咳嗽要警惕肺癌</view>
-                </view>
-                <view class="share-item">
-                    <view class="share-point"></view>
-                    <view class="share-label">如何进行癌症筛查</view>
-                </view>
-            </view>
-        </view>
-    </view>
+    <view class="bottom-banner"></view>
 </view>
+<tabView activeIdx="{{0}}" userScan="{{userScan}}"></tabView>
+<van-popup
+  show="{{ show }}"
+  round
+  position="bottom"
+  custom-style="height: 21vh"
+  bind:close="onClose">
+  <view class="popup-view" bindtap="copyWechatId">
+    <view class="mobile">医生微信号：{{doctorMobile}}</view>
+    <view class="copy">点击复制</view>
+  </view>
+  <view class="bottom-banner"></view>
+</van-popup>
+<van-toast id="van-toast" />

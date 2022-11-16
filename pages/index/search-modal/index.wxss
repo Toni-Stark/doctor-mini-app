@@ -94,13 +94,13 @@
     color: transparent;   
 }
 .tab-list view {
-    font-size: 31rpx;
+    font-size: 27rpx;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20rpx 27rpx;
+    padding: 26rpx 27rpx;
     background: #F7F7F7;
-    position: relative
+    position: relative;
 }
 
 .result-list {
@@ -120,9 +120,9 @@
 .result-title {
     background-color: #E9F5F6;
     color: #009189;
-    padding: 5rpx 30rpx;
+    padding: 7rpx 30rpx;
     border-radius: 50rpx;
-    font-size: 32rpx;   
+    font-size: 29rpx;
 }
 .result-tab-list {
     display: flex;
@@ -138,7 +138,7 @@
     margin-top: 20rpx;
     border-radius: 50rpx;
     padding: 9rpx 0;
-    font-size: 28rpx;
+    font-size:26rpx;
 }
 .result-tab-list view:nth-child(2n) {
     margin-left: 2%;

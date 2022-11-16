@@ -1,4 +1,5 @@
 // pages/mine/register/index.js
+const { userLogin, getUserPhone } = require('../../../common/interface');
 const {request, storage, route} = require('../../../utils/index');
 const app = getApp()
 Page({
@@ -12,7 +13,10 @@ Page({
         avatar: '',
         info: {},
         needPhone: false,
-        isAgree: false
+        isAgree: false,
+        code: '',
+        isOrder: false,
+        isStaff: false
     },
 
     naviToAgreement(){
@@ -34,45 +38,80 @@ Page({
             duration: 1500
         })
     },
-
     getPhone(e){
-        console.log('手机号获取', e);
         this.setData({needPhone:false});
-        setTimeout(()=>{
-            route.navigateBack(1);
-        }, 500)
+        getUserPhone({code: e.detail.code}).then(res => {
+            if(res.code!= 200){
+                storage.removeStorage('token');
+                storage.removeStorage('openid');
+                return wx.showToast({
+                title: res.msg,
+                icon: 'none'
+                })
+            }
+            wx.showToast({
+              title: '登录成功',
+              icon: 'none'
+            })
+            setTimeout(()=>{
+              if(this.data.isOrder){
+                route.redirectTo('../../shop-result/index')
+              } else if (this.data.isStaff){
+                route.redirectTo('../../mine/auth-staff/index')
+              } else {
+                route.navigateBack(1);
+              }
+            }, 500)
+        });
+   
     },
 
     handleLogin() {
-        this.showToast('登录中', 'loading')
-        if(!this.data.isAgree) {
-            return  this.showToast('请勾选并阅读《用户协议》和《隐私政策》', 'none')
+        let that = this;
+        that.showToast('登录中', 'loading')
+        if(!that.data.isAgree) {
+            return  that.showToast('请勾选并阅读《用户协议》和《隐私政策》', 'none')
         }
         wx.login({
-            success: res => {
-            },
+            complete: res => {
+                if(res.code){
+                    userLogin({code: res.code, type: 'mini'}).then(result => {
+                        if(result.code!= 200){
+                            return wx.showToast({
+                            title: result.code,
+                            icon: 'none'
+                            })
+                        }
+                        storage.setStorageSync('token', result.data.token)
+                        storage.setStorageSync('openid', result.data.openid)
+                        storage.setStorageSync('is_staff', result.data.is_staff)
+                        that.setData({
+                            code: res.code,
+                            openid: result.data.openid
+                        })
+                    });
+                }
+            }
         })
-        wx.getUserProfile({
+        wx.getUserInfo({
             desc: '用于完善会员资料',
             success: res => {
-                console.log(res, 'res')
-                storage.setStorageSync('nickName', res.userInfo.nickName)
-                storage.setStorageSync('avatarUrl', res.userInfo.avatarUrl)
-                this.setData({
+                that.setData({
                     name: res.userInfo.nickName,
                     avatar: res.userInfo.avatarUrl,
                     needPhone: true,
                 })
-            }
-        })  
+            },
+        })
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        wx.setNavigationBarTitle({
-            title: "登录"
+        this.setData({
+          isOrder: options.order == 1,
+          isStaff: options.staff == 1
         })
         wx.setNavigationBarColor({
           backgroundColor: '#ffffff',

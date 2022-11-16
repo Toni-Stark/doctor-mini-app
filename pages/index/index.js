@@ -1,89 +1,201 @@
 // index.js
-const { route } = require("../../utils/index")
+import Toast from '@vant/weapp/toast/toast';
+import { getHomeOrderList, getPlatformList, setRelateMember } from '../../common/interface';
+const { route, storage } = require("../../utils/index")
 const app = getApp()
 
 Page({
-  data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
-    askList: [
-        {
-            title: '咳嗽是怎么回事'
-        },
-        {
-            title: '呕吐是怎么回事'
-        },  
-        {
-            title: '咳嗽用什么药'
-        },  
-        {
-            title: '感冒的治疗方法'
-        },  
-        {
-            title: '清开灵颗粒的注意事项'
-        }  
-    ],
-  },
-  naviToServices(e){
-      let title = e.target.dataset.title;
-      route.navigateTo('./customer-services/index?title='+title);
-  },
-  naviToCustomer(){
-      route.navigateTo('./customer-services/index');
-  },
-  naviToRecommend(){
-    route.navigateTo('./recommend/index');
-  },
-  naviToSearch(){
-    route.navigateTo('./search-modal/index');
-  },
-  // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad() {
-    if (wx.getUserProfile) {
-        let headerHeight = app.globalData.navHeight
-        let navTop = app.globalData.navTop
-        this.setData({
-            height: headerHeight,
-            navTop: navTop
+    data: {
+        userScan: 0,
+        show: false,
+        refresh: false,
+        doctorMobile: 18434332504,
+        dataList: [],
+        page: 1,
+        shopList: {},
+        isLogin: false
+    },
+
+    brashData(){
+        this.setData({refresh: true});
+        getHomeOrderList({p: 1}).then(res=>{
+            if(res.code!=200){
+                return wx.showToast({
+                    title: res.msg,
+                    icon: 'none'
+                })
+            };
+            this.setData({
+                dataList: res.data.list,
+                page: 1,
+                refresh: false,
+            }) 
+        });
+    },
+
+    naviToDetail(e){
+      let {id, order, edit, comment} = e.currentTarget.dataset;
+      route.navigateTo('../mine/order-detail/index?order_no='+order+'&id='+id+'&edit='+edit+'&comment='+comment)
+    },
+    copyWechatId(){
+        let that = this;
+        wx.setClipboardData({
+            data: this.data.doctorMobile.toString(),
+            success (res) {
+                that.setData({
+                    show: false
+                })
+                wx.hideToast()
+                wx.showToast({
+                    icon: 'none',
+                    title: '已经复制微信号，请打开微信添加医生微信号',
+                    duration: 2000
+                })
+            }
         })
-        this.setData({
-            headerHeight: headerHeight,
-            canIUseGetUserProfile: true
+    },
+    getEvaluate (e){
+        let {id, order} = e.currentTarget.dataset;
+        route.navigateTo('../mine/order-evaluate/index?order_no='+order+'&id='+id)
+    },
+    getEvaluateFalse(){
+        wx.showToast({
+            title: '此订单已经评价过了',
+            icon: 'none'
         })
-    }
-  },
-  getUserProfile(e) {
-    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-    wx.getUserProfile({
-      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
+    },
+    addWechat(){
+        route.navigateTo('../mine/doctor-list/index')
+    },
+    setAlarmClock(){
+        Toast('用药提醒功能还在实验中...')
+    },
+    onClose(){
         this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+            show: false,
         })
+    },
+
+    setStatusHeight(){
+        if (wx.getUserProfile) {
+            let headerHeight = app.globalData.navHeight;
+            let navTop = app.globalData.navTop;
+            let paddingTop = app.globalData.paddingTop;
+            this.setData({
+                height: headerHeight,
+                navTop: navTop,
+                headerHeight: headerHeight,
+                canIUseGetUserProfile: true,
+                padding: paddingTop
+            })
+        }
+    },
+
+    addDataList(e){
+        let page = this.data.page + 1;
+        getHomeOrderList({p: page}).then(res=>{
+          if(res.code!=200){
+              return wx.showToast({
+                title: res.msg,
+                icon: 'none'
+              })
+          };
+          if(res.data.list.length>0){
+              let list = [...this.data.dataList, ...res.data.list];
+              this.setData({
+                  dataList: list,
+                  page: page
+              })
+          }
+        });
+        
+    },
+
+    getDetail() { 
+        getHomeOrderList({p: this.data.page}).then(res=>{
+
+            if(res.code!=200){
+                return wx.showToast({
+                title: res.msg,
+                icon: 'none'
+                })
+            };
+            this.setData({
+                dataList: res.data.list
+            }) 
+        });
+    },
+
+    getPlatform (){
+        getPlatformList().then(res=>{
+            if(res.code!=200){
+                return wx.showToast({
+                    title: res.msg,
+                    icon: 'none',
+                })
+            };
+            this.setData({
+                shopList: res.data,
+            }) 
+            wx.hideLoading()
+        })
+    },
+ 
+    onLoad(options) {
+      if(options.order_no){
+        storage.setStorageSync('channel', options.channel)
+        if(storage.getStorageSync('token')){
+          route.navigateTo('../mine/order-detail/index?id='+options.order_no);
+          return;
+        } else {
+          route.navigateTo('../mine/register/index');
+          return;
+        }
+      } else {
+        storage.removeStorage('channel');
       }
-    })
-  },
-  getUserInfo(e) {
-    // 不推荐使用getUserInfo获取用户信息，预计自2021年4月13日起，getUserInfo将不再弹出弹窗，并直接返回匿名的用户个人信息
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  },
-  onShareAppMessage(){
-      return {
-          title: '药药线上通',
-          path: '/pages/index/index'
-      }  
-  }
+      wx.showToast({
+        title: '加载中...',
+        icon: 'loading'
+      })
+        this.setStatusHeight();
+    }, 
+    regPermissions(){
+        let nickName = storage.getStorageSync('nickName');
+        if (typeof this.getTabBar === 'function') {
+            let userScan = nickName ? 1 : 0;
+            this.setData({
+                userScan
+            })
+        }
+    },
+    naviToAuth(){
+      if(storage.getStorageSync('token')){
+        // route.navigateTo('../mine/auth-staff/index')
+        route.navigateTo('../shop-result/index')
+      } else {
+        route.navigateTo('../mine/register/index?order=1')
+      }
+    },
+    onShow() {
+        if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+            this.getTabBar().setData({
+                activeIdx: 0
+            })
+        };
+        if(storage.getStorageSync('token')){
+          this.setData({
+            isLogin: true
+          })
+        }
+        this.getDetail()
+        this.regPermissions();
+        this.getPlatform()
+    },
+    onShareAppMessage(){
+        return {
+            title: '药药线上通 - 药药线上通测试商户',
+            path: '/pages/index/index'
+        }  
+    }
 })

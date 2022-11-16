@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},  
-  "navigationStyle": "custom"
+  "usingComponents": {
+    "tabView": "../../pages/tabView/index"
+  },  
+  "navigationBarTitleText": ""
 }

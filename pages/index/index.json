@@ -1,5 +1,9 @@
 {
   "usingComponents": {
+    "tabView": "../../pages/tabView/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-empty": "@vant/weapp/empty/index"
   },  
-  "navigationStyle": "custom"
+  "navigationBarTitleText": "订单列表 - 药药线上通测试商户"
 }

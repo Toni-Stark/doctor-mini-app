@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "count-view": "../../../components/count-setting/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-cell-group": "@vant/weapp/cell-group/index"
+  },
+  "navigationBarTitleText": "订单查询"
+}

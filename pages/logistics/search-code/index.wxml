@@ -1,0 +1,52 @@
+<view class="container">
+    <view class="search">
+        <view class="scan" catchtap="getFocus">
+            <image mode="widthFix" src="../../../img/logistics/logistics.png"></image>
+        </view>
+        <view class="input">
+            <view class="field-group">
+                <van-cell-group class="field-cell">
+                    <van-field
+                        value="{{inputCode}}"
+                        placeholder="请扫描货物条形码查询商品"
+                        focus="{{focus}}" 
+                        bind:input="currentInput" 
+                        bind:blur="currentBlur" 
+                        bind:focus="currentFocus"
+                        bind:confirm="currentConfirm"
+                        show-confirm-bar="{{true}}"
+                        type="textarea"
+                        confirm-type="search"
+                        border="{{ false }}"
+                    />
+                </van-cell-group>
+            </view>
+        </view>
+        <view class="image" catchtap="getFocus">
+            <image mode="widthFix" src="../../../img/logistics/search.png"></image>
+        </view>
+    </view>
+    <view class="context">
+        <scroll-view
+            class="scroll-view"
+            scroll-y
+        >
+            <view class="scroll-list">
+                <view class="scroll-item" wx:if="{{searchItem}}" catchtap="removeFocus">
+                    <view class="item-header">药品名称：{{searchItem.name}}</view>
+                    <view class="item-pid">药品编号：{{searchItem.barcode}}</view>
+                    <view class="item-pid">药品厂家：{{searchItem.factory}}</view>
+                    <view class="item-pid">药品规格：{{searchItem.standard}}</view>
+                    <view class="item-pid">生产日期：{{searchItem.product_date}}</view>
+                    <view class="item-pid">有效日期：{{searchItem.period_to}}</view>
+                    <view class="item-count">
+                        <view>库存数量：{{searchItem.stock}}</view>
+                        <view class="create-view">成本：{{searchItem.erpcost}} <view class="create"></view> 价格：{{searchItem.erpprice}}</view>
+                        <view class="cicle-left"></view>
+                        <view class="cicle-right"></view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

@@ -1,58 +1,64 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/mine/index",
-        "pages/mine/register/index",
-        "pages/mine/order-list/index",
-        "pages/mine/order-detail/index",
-        "pages/mine/order-service/index",
-        "pages/mine/order-evaluate/index",
-        "pages/mine/evaluation-list/index",
-        "pages/index/customer-services/index",
-        "pages/index/recommend/index",
-        "pages/index/recommend-detail/index",
-        "pages/index/search-modal/index",
-        "pages/index/search-list/index",
-        "pages/index/search-more/index",
-        "pages/shop/index",
-        "pages/shop/shop-result/index",
-        "pages/tool/index"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#ffffff",
-        "navigationBarTitleText": "标题栏",
-        "navigationBarTextStyle": "black"
-    },
-    "sitemapLocation": "sitemap.json",
-    "lazyCodeLoading": "requiredComponents",
-    "embeddedAppIdList": [
-        "wx91d27dbf599dff74"
-    ],
-    "tabBar": {
-        "color": "#666666",
-        "selectedColor": "#3E7BFA",
-        "list": [
-            {
-                "pagePath": "pages/index/index",
-                "iconPath": "./img/tabBar/index1.png",
-                "selectedIconPath": "./img/tabBar/index.png"
-            },
-            {
-                "pagePath": "pages/shop/index",
-                "iconPath": "./img/tabBar/shop1.png",
-                "selectedIconPath": "./img/tabBar/shop.png"
-            },
-            {
-                "pagePath": "pages/tool/index",
-                "iconPath": "./img/tabBar/tool1.png",
-                "selectedIconPath": "./img/tabBar/tool.png"
-            },
-            {
-                "pagePath": "pages/mine/index",
-                "iconPath": "./img/tabBar/me1.png",
-                "selectedIconPath": "./img/tabBar/me.png"
-            }
-        ]
-    }
+  "pages": [
+    "pages/index/index",
+    "pages/mine/index",
+    "pages/mine/register/index",
+    "pages/mine/order-list/index",
+    "pages/mine/order-detail/index",
+    "pages/mine/order-service/index",
+    "pages/mine/order-evaluate/index",
+    "pages/mine/evaluation-list/index",
+    "pages/shop-result/index",
+    "pages/tool/index",
+    "pages/tool/add-tool/index",
+    "pages/logistics/index",
+    "pages/logistics/order-code/index",
+    "pages/logistics/bound-code/index",
+    "pages/logistics/search-code/index",
+    "pages/tabView/index",
+    "pages/logistics/query-code/index",
+    "pages/mine/doctor-list/index",
+    "pages/mine/auth-staff/index",
+    "pages/mine/register/agreement/index",
+    "pages/mine/register/policy/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "药药线上通",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "embeddedAppIdList": [
+    "wx91d27dbf599dff74"
+  ],
+  "tabBar": {
+    "custom": true,
+    "color": "#666666",
+    "selectedColor": "#3E7BFA",
+    "list": [
+      {
+        "text": "订单列表",
+        "pagePath": "pages/index/index",
+        "iconPath": "./img/tabBar/index1.png",
+        "selectedIconPath": "./img/tabBar/index.png"
+      },
+      {
+        "text": "移动扫描枪",
+        "pagePath": "pages/logistics/index",
+        "iconPath": "./img/tabBar/logistics3.png",
+        "selectedIconPath": "./img/tabBar/logistics2.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/mine/index",
+        "iconPath": "./img/tabBar/me1.png",
+        "selectedIconPath": "./img/tabBar/me.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "tabView": "./pages/tabView/index"
+  }
 }

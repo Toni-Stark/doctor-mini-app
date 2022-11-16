@@ -1,19 +1,19 @@
-<!--pages/shop/shop-result/index.wxml-->
 <view class="container">
     <view class="active" style="height:{{height}}px;padding-bottom: {{navTop}}px;">
-        购物回执单
+        添加小程序便签
     </view>
     <view class="header"></view>
     <view class="content">
         <view class="content-card">
+            <view class="card-title">下面两种方式任选一种</view>
             <view class="order">
-                请填写订单号：
+                小程序appId：
                 <view class="order-id">
-                    <input placeholder="请填写您的商品订单" placeholder-class="order-placeholder" type="text"/>
+                    <input placeholder="请填写小程序appId" placeholder-class="order-placeholder" type="text"/>
                 </view>
             </view>
             <view class="shop">
-                请选择购物平台：
+                系统推荐小程序：
                 <view class="check" bindtap="onFocus">
                     <view class="check-view" style="color: {{selectValue?'#000000':'#c4c4c4'}}">{{selectValue||'-- 请选择 --'}}</view>
                     <view class="check-out">
@@ -21,12 +21,12 @@
                     </view>
                     <view class="check-list" style="display: {{isShow?'block':'none'}};">
                         <view catchtap="delStatus">-- 请选择 --</view>
-                        <view wx:for="{{shopList}}" data-title="{{item}}" catchtap="selectStatus">{{item}}</view>
+                        <view wx:for="{{shopList}}" data-title="{{item.title}}" catchtap="selectStatus"><image class="check-list-image" src="{{item.icon}}"></image>{{item.title}}</view>
                     </view> 
                 </view>
             </view> 
         </view>
-        <view class="submit" catchtap="naviBack">提交</view>
+        <view class="submit" catchtap="naviBack">添加</view>
         <view class="back" catchtap="naviBack">返回</view>
     </view>
 </view>

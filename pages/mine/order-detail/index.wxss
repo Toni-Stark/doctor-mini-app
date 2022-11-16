@@ -20,17 +20,24 @@
     justify-content: center;
     background-color: #ffffff;
 }
-
 .fixex .fixex-box:first-child view {
     width: 70%;
     height: 70%;
-    border-radius: 50rpx;
+    /* border-radius: 50rpx; */
+    border-radius: 12rpx;
     align-items: center;
     justify-content: center;
     color: #ffffff;
     display: flex;
     box-shadow: 0rpx 4rpx 11rpx 4rpx #eeeeee;
-    background-image: linear-gradient(90deg,  #FF7B1A, #FE4408);
+    /* background-image: linear-gradient(90deg,  #FF7B1A, #FE4408); */
+    /* background-image: linear-gradient(90deg,#EEF2FF, #EEE1FF); */
+    background-image: linear-gradient(#6266FF, #4562FF);
+    color: #ffffff;
+}
+.fixex-box view image {
+    width: 58rpx;
+    margin-right: 12rpx;
 }
 .fixex .fixex-box:last-child view {
     font-weight: bold;
@@ -62,4 +69,64 @@
 }
 .view .label view {
     text-indent:2em;
+}
+
+.order-item {
+    margin: 30rpx 15rpx;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20rpx;
+    padding: 30rpx 0 0;
+    box-sizing: border-box;
+}
+.shadow-view {
+    box-shadow: 0rpx 5rpx 18rpx 0rpx #e2e2e2;
+}
+.main-time {
+    display: flex;
+    padding: 5rpx 0 25rpx 0;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 30rpx;
+    border-bottom: 1rpx solid #f2f2f2;
+}
+.border-b {
+    border-bottom: 1rpx solid #f2f2f2;
+}
+.platform {
+    font-size: 32rpx;
+    border: 1rpx solid #047192;
+    border-radius: 11rpx;
+    padding: 4rpx 10rpx;
+    color: #047192;
+}
+.platform-order {
+    display: flex;
+    margin-left: 25rpx;
+    font-size: 32rpx;
+    color: #000000;
+}
+.platform-text {
+    font-weight: bold;
+    white-space: pre;
+}
+.main-title {
+    padding: 20rpx 0;
+    margin: 0 30rpx;
+}
+.main-view {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5rpx;
+}
+.main-label {
+    display: flex;
+    font-size: 32rpx;
+    padding-bottom: 5rpx;
+    align-items: center;
+}
+.main-label-title {
+    white-space: nowrap;
 }
