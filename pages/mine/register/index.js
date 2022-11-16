@@ -15,6 +15,8 @@ Page({
         needPhone: false,
         isAgree: false,
         code: '',
+        isOrder: false,
+        isStaff: false
     },
 
     naviToAgreement(){
@@ -42,15 +44,23 @@ Page({
             if(res.code!= 200){
                 storage.removeStorage('token');
                 storage.removeStorage('openid');
-                storage.removeStorage('nickName');
-                storage.removeStorage('avatarUrl');
                 return wx.showToast({
                 title: res.msg,
                 icon: 'none'
                 })
             }
+            wx.showToast({
+              title: '登录成功',
+              icon: 'none'
+            })
             setTimeout(()=>{
+              if(this.data.isOrder){
+                route.redirectTo('../../shop-result/index')
+              } else if (this.data.isStaff){
+                route.redirectTo('../../mine/auth-staff/index')
+              } else {
                 route.navigateBack(1);
+              }
             }, 500)
         });
    
@@ -66,9 +76,6 @@ Page({
             complete: res => {
                 if(res.code){
                     userLogin({code: res.code, type: 'mini'}).then(result => {
-                        console.log(423423423)
-                        console.log(result)
-                        console.log(423423423)
                         if(result.code!= 200){
                             return wx.showToast({
                             title: result.code,
@@ -77,6 +84,7 @@ Page({
                         }
                         storage.setStorageSync('token', result.data.token)
                         storage.setStorageSync('openid', result.data.openid)
+                        storage.setStorageSync('is_staff', result.data.is_staff)
                         that.setData({
                             code: res.code,
                             openid: result.data.openid
@@ -85,11 +93,9 @@ Page({
                 }
             }
         })
-        wx.getUserProfile({
+        wx.getUserInfo({
             desc: '用于完善会员资料',
             success: res => {
-                storage.setStorageSync('nickName', res.userInfo.nickName)
-                storage.setStorageSync('avatarUrl', res.userInfo.avatarUrl)
                 that.setData({
                     name: res.userInfo.nickName,
                     avatar: res.userInfo.avatarUrl,
@@ -103,6 +109,10 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.setData({
+          isOrder: options.order == 1,
+          isStaff: options.staff == 1
+        })
         wx.setNavigationBarColor({
           backgroundColor: '#ffffff',
           frontColor: '#000000',

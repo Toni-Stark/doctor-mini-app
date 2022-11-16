@@ -1,4 +1,4 @@
-import { getBoundReg } from "../../../common/interface";
+import { getBoundReg, setBoundUpdate } from "../../../common/interface";
 
 // pages/logistics/order-code/index.js
 Page({
@@ -88,21 +88,27 @@ Page({
                 icon: 'loading',
                 title: '上传中...',
             })
-            setTimeout(()=>{
-                wx.hideToast();
-                wx.showToast({
-                    icon: 'success',
-                    title: '上传核验成功',
+            setBoundUpdate({express_no:this.data.requestCodes[0]}).then(res=>{
+              wx.hideToast();
+              if(res.code!=200) {
+                return wx.showToast({
+                  icon: 'none',
+                  title: res.msg,
                 })
-                this.setData({
-                    requestList: [],
-                    requestCodes: [],
-                    inputCode: '',
-                    hadExpressSingle: false,
-                    hadRemaining: false,
-                    focus: true
-                })
-            }, 2500);
+              }
+              wx.showToast({
+                  icon: 'success',
+                  title: '上传核验成功',
+              })
+              this.setData({
+                  requestList: [],
+                  requestCodes: [],
+                  inputCode: '',
+                  hadExpressSingle: false,
+                  hadRemaining: false,
+                  focus: true
+              })
+            })
         } else if (this.data.hadRemaining){
             this.setData({
                 hadRemaining: false
@@ -133,10 +139,15 @@ Page({
 
     setOrderList(value){
         getBoundReg({
-            type: 1,
-            barcode: value,
+            express_no: value,
         }).then(res => {
             if(res.code != 200){
+              this.setData({
+                requestCodes: '',
+                requestList: [],
+                inputCode: '',
+                hadExpressSingle: true,
+            })
                 return wx.showToast({
                   title: res.msg,
                   icon: 'none'
@@ -209,7 +220,6 @@ Page({
         // 6914329004530
     },
     currentInput(e){
-        console.log(e)
         let value = (e.detail).toString();
         let isCR = value.slice(value.length-1, value.length) == '\n';
         let notNull = value.trim().length>0;

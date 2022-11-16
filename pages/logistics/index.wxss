@@ -98,3 +98,49 @@
 .card-dual {
     margin-left: 3%;
 }
+.card-list .fill {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 37rpx;
+}
+.card-list .fill image {
+  width: 90rpx;
+  height: 90rpx;
+  margin-right: 50rpx;
+  margin-bottom: 0;
+}
+
+
+.submit {
+  padding: 15rpx 14rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 15rpx;
+  font-size: 35rpx;
+  width: 85%;
+  background-image: linear-gradient(#6266FF, #4562FF);
+}
+.empty-order-text, .empty-order-desc {
+  color: #969799;
+  font-size: 32rpx;
+  display: flex;
+  justify-content: center;
+  padding: 0 0 5rpx
+}
+.empty-order-desc {
+  padding: 0 0 25rpx
+}
+.empty-order-view {
+  padding: 50rpx;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

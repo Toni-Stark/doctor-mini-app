@@ -1,4 +1,4 @@
-const { getOrderData } = require("../../../common/interface");
+const { getOrderData, setOrderData } = require("../../../common/interface");
 
 // pages/logistics/search-code/index.js
 Page({
@@ -85,8 +85,8 @@ Page({
         });
     },
     getDetailInfo(value) {
-        getOrderData({
-            type: 2,
+        setOrderData({
+            // type: 2,
             barcode: value,
         }).then((res)=>{
             if(res.code != 200){

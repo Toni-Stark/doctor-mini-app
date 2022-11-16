@@ -68,7 +68,7 @@
 .avatar-view {
     z-index: 50;
     padding: 70rpx 0 0;
-    height: 37vh;
+    height: 450rpx;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -85,13 +85,30 @@
     align-items: center;
     justify-content: center;
 }
+.avatar-wrapper {
+  background: rgba(255,255,255,0)!important;
+  border: 0 !important;
+}
+.avatar input {
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+}
+.pla-class {
+  color: #ffffff
+}
+button::after{
+  border: 0 !important;
+}
 .avatar-image {
     width: 150rpx;
     height: 150rpx;
     border-radius: 50%;
 }
+.weui-input {
+  caret-color:transparent
+}
 .avatar-text {
-    margin-top: 30rpx;
     font-weight: bold;
     font-size: 48rpx;
     color: #ffffff;

@@ -4,5 +4,5 @@
     "van-field": "@vant/weapp/field/index",
     "van-cell-group": "@vant/weapp/cell-group/index"
   },
-  "navigationBarTitleText": "下账查询"
+  "navigationBarTitleText": "订单查询"
 }

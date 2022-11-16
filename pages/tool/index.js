@@ -44,7 +44,6 @@ Page({
 
     naviToDetail(e){
         let index = e.currentTarget.dataset.index;
-        console.log( );
         if(!this.data.dataList[index]?.result){
             route.navigateTo('../shop-result/index');
         }

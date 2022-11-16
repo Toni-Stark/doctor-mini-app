@@ -118,10 +118,7 @@
     font-weight: bold;
     border-radius: 15rpx;
     background-image: linear-gradient(#6266FF, #4562FF);
-    position: absolute;
-    bottom: 15%;
-    right: 15%;
-    left: 15%;
+    margin-top: 100rpx;
 }
 .back {
     width: 60%;

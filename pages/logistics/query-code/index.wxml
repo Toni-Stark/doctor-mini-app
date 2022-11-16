@@ -33,7 +33,17 @@
     </view>
     <view class="context">
         <scroll-view class="scroll-view" scroll-y>
-            <view class="order-title" wx:if="{{currentCode}}">订单号: {{currentCode}}</view>
+          <view class="order-flex" wx:if="{{currentCode && orderList.order_info}}">
+            <view class="order-title" >订单号: {{currentCode}}</view>
+            <view class="order-view-context">
+              <view>订单价格：{{orderList.order_info.price}}</view>
+              <view>订单状态：{{orderList.order_info.status}}</view>
+            </view>
+            <view class="order-view-context">
+              <view>支付时间：{{orderList.order_info.pay_time}}</view>
+              <view>订单渠道：{{orderList.order_info.platform}}</view>
+            </view>
+          </view>
             <view class="scroll-list">
                 <view class="scroll-item" wx:for="{{orderList.delivery_items}}" wx:key="index" catchtap="removeFocus">
                     <view class="item-header">药品名称：{{item.name}}</view>

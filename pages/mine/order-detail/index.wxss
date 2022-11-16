@@ -125,6 +125,7 @@
     display: flex;
     font-size: 32rpx;
     padding-bottom: 5rpx;
+    align-items: center;
 }
 .main-label-title {
     white-space: nowrap;

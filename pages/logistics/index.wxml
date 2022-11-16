@@ -1,33 +1,16 @@
 <!--pages/logistics/index.wxml-->
 <view class="container">
-    <!-- <view class="active" style="height:{{height}}px;padding-top: {{padding}};">
-        库存管理
-    </view> -->
-    <!-- <view class="header"></view> -->
     <view class="content">
-        <!-- <view class="search" catchtap="naviToCustomer">
-            <text>商品查询，点击这里...</text>
-            <view>
-                <image mode="heightFix" src="../../img/logistics/search.png"></image>
+        <view class="card-list" wx:if="{{isStaff}}">
+            <view wx:for="{{tabList}}" class="{{item.class}}" data-navigate="{{item.navigate}}" catchtap="naviToQuery">
+                <image mode="heightFix" src="{{item.icon}}" alt=""/>
+                {{item.title}}
             </view>
-        </view> -->
-        <view class="card-list">
-            <view class="card-item" catchtap="naviToQuery">
-                <image mode="heightFix" src="../../img/logistics/query.png" alt=""/>
-                下账查询
-            </view>
-            <view class="card-item card-dual" catchtap="naviToBound">
-                <image mode="heightFix" src="../../img/logistics/outbound.png" alt=""/>
-                发货核验
-            </view>
-            <view class="card-item" catchtap="naviToSearch">
-                <image mode="heightFix" src="../../img/logistics/search.png" alt=""/>
-                商品查询
-            </view>
-            <view class="card-item card-dual" catchtap="naviToOrder">
-                <image mode="heightFix" src="../../img/logistics/order.png" alt=""/>
-                清点入库
-            </view>
+        </view>
+        <view class="empty-order-view" wx:else="">
+          <view class="empty-order-text">请绑定员工信息</view>
+          <view class="empty-order-desc">以使用移动扫码枪功能</view>
+          <view class="submit" catchtap="naviToAuth">员工绑定</view>
         </view>
     </view>
     <view class="bottom-banner"></view>

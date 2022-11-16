@@ -8,26 +8,56 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userScan: 0
+        userScan: 0,
+        tabList: [
+          {
+            title: '订单查询',
+            navigate: './query-code/index',
+            icon: '../../img/logistics/query.png',
+            class: 'card-item'
+          },
+          {
+            title: '商品查询',
+            navigate: './search-code/index',
+            icon: '../../img/logistics/search.png',
+            class: 'card-item  card-dual'
+          },
+          {
+            title: '发货核验',
+            navigate: './bound-code/index',
+            icon: '../../img/logistics/outbound.png',
+            class: 'card-item fill',
+          },
+          // {
+          //   title: '清点入库',
+          //   navigate: './order-code/index',
+          //   icon: '../../img/logistics/order.png',
+          //   class: 'card-item card-dual'
+          // },
+        ],
+        isStaff: false
     },
 
-    naviToQuery(){
-        route.navigateTo('./query-code/index');
-    },
-    naviToOrder(){
-        route.navigateTo('./order-code/index');
-    },
-    naviToBound(){
-        route.navigateTo('./bound-code/index');
-    },
-    naviToSearch(){
-        route.navigateTo('./search-code/index');
-    },
+    naviToQuery(e){
+        if(wx.getStorageSync('token')){
+         return route.navigateTo(e.currentTarget.dataset.navigate);
+        }
+        return wx.showToast({
+          title: '请先登录后再使用扫码功能',
+          icon: 'none'
+        })
+    },    
+    naviToAuth(){
+      if(storage.getStorageSync('token')){
+        route.navigateTo('../mine/auth-staff/index')
+      } else {
+        route.navigateTo('../mine/register/index?staff=1')
+      }
+    },  
     regPermissions(){
         let nickName = storage.getStorageSync('nickName');
         if (typeof this.getTabBar === 'function') {
             let userScan = nickName ? 1 : 0;
-            console.log(userScan)
             this.setData({
                 userScan:1
             })
@@ -53,5 +83,8 @@ Page({
             })
         }
         this.regPermissions();
+          this.setData({
+            isStaff: storage.getStorageSync('is_staff') != 0
+          })
     },
 })

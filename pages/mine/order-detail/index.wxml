@@ -1,50 +1,11 @@
 <!--pages/mine/order-detail/index.wxml-->
 <view class="container">
-    <!-- <view wx:for="{{dataList}}" class="order-item shadow-view" bindtap="naviToDetail">
-        <view class="main-time border-b">
-            <view class="platform">{{item.companyName}}</view>
-            <view class="platform-order">
-                订单号: 
-                <view class="platform-text"> {{item.orderId}}</view>
-            </view>
-        </view>
-        <view class="main-title border-b">
-            <view class="main-label">
-                支付时间： 
-                <view class="main-text">{{item.payTime}}</view> 
-            </view>
-            <view class="main-label">
-                订单金额： 
-                <view class="main-text">{{item.price}}</view> 
-            </view>
-            <view class="main-label">
-                核验人： 
-                <view class="main-text">{{item.people}}</view> 
-            </view>
-        </view>
-        <view class="main-title border-b" wx:for="{{item.shopList}}" wx:for-item="shopItem">
-            <view class="main-label">
-                名称： 
-                <view class="main-text">{{shopItem.name}}</view> 
-            </view>
-            <view class="main-view">
-                <view class="main-label">
-                    数量： 
-                    <view class="main-text">{{shopItem.count}}</view> 
-                </view>
-                <view class="main-label">
-                    价格： 
-                    <view class="main-text">{{shopItem.unitPrice}}</view> 
-                </view>
-            </view>
-        </view>
-    </view> -->
-    <view class="order-item shadow-view" bindtap="naviToDetail">
+    <view wx:if="{{dataInfo.order_info}}" class="order-item shadow-view" bindtap="naviToDetail">
         <view class="main-time border-b">
             <view class="platform">{{dataInfo.order_info.platform}}</view>
             <view class="platform-order">
                 订单号: 
-                <view class="platform-text"> {{dataInfo.order_info.order_no}}</view>
+                <view class="platform-text"> {{order_no||dataInfo.order_info.order_no}}</view>
             </view>
         </view>
         <view class="main-title border-b">
@@ -66,20 +27,25 @@
                 <text class="main-label-title">名称：</text>     
                 <view class="main-text">{{shopItem.title}}</view> 
             </view>
-            <view class="main-view">
-                <view class="main-label">
-                    数量： 
-                    <view class="main-text">{{shopItem.quantity}}</view> 
-                </view>
+            <view class="main-label">
+                数量： 
+                <view class="main-text">{{shopItem.quantity}}</view> 
+            </view>
+            <view class="main-label">
+                价格： 
+                <view class="main-text">{{shopItem.total_price}}</view> 
+            </view> 
+            <!-- <view class="main-view">
+              
                 <view class="main-label">
                     价格： 
                     <view class="main-text">{{shopItem.total_price}}</view> 
                 </view> 
-            </view>
+            </view> -->
         </view>
     </view>
     <view class="fixex">
-        <view class="fixex-box" bindtap="naviToPrice">
+      <view class="fixex-box" bindtap="naviToPrice">
             <view>
                 <image mode="widthFix" src="../../../img/index/evaluate-eval.png"></image>
                 评价

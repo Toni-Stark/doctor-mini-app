@@ -45,10 +45,14 @@ Page({
         route.navigateBack(1)
     }, 
     naviToPrice(){
-        route.navigateTo('../order-evaluate/index?id='+this.data.id)
+      let url = '../order-evaluate/index?order='+this.data.order_no+'&id='+this.data.comment;
+      if(this.data.edit){
+        url = '../order-evaluate/index?order='+this.data.order_no+'&id='+this.data.comment+'&edit='+1
+      }
+        route.navigateTo(url)
     },
     naviToService(){
-        route.navigateTo('../order-service/index?id='+this.data.id)
+        route.navigateTo('../../mine/doctor-list/index')
     },
     getDetails(params) {
         getOrderDetail(params).then(res=>{
@@ -68,7 +72,10 @@ Page({
      */
     onLoad: function (options) {
         this.setData({
-            id: options.id
+            id: options.id,
+            order_no: options.order_no,
+            edit: options.edit,
+            comment: options.comment,
         })
         this.getDetails({member_order_id: options.id})
     },

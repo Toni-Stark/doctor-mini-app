@@ -87,9 +87,8 @@ Page({
             })
             return;
         }
-        getBoundReg({
-            type: 1,
-            barcode: value,
+        getOrderQuery({
+            order_no: value,
         }).then(res => {
             if(res.code != 200){
                 this.setData({

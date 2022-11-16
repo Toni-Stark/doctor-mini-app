@@ -11,20 +11,24 @@ Page({
         isShow: false,
         shopList: {},
         selectValue: '',
-        value: ''
+        value: '',
+        channel: '',
+        selectTitle: ''
     }, 
     naviBack(e){
-        let res = setRelateMember({
+        let channel = this.data.channel || this.data.selectValue;
+        setRelateMember({
             order_no: this.data.value,
-            channel: this.data.selectValue
+            channel: channel
+        }).then(res=>{
+          if(res.code!=200){
+              return wx.showToast({
+                title: res.msg,
+                icon: 'none'
+              }) 
+          };
+          route.navigateBack(-1);
         })
-        if(res.code!=200){
-            return wx.showToast({
-              title: res.msg,
-              icon: 'none'
-            }) 
-        };
-        route.navigateBack(-1);
     },
     bindChange(e){
         this.setData({
@@ -34,12 +38,14 @@ Page({
     delStatus(e){
         this.setData({
             selectValue: '',
+            selectTitle: '-- 请选择渠道 --',
             isShow: false
         })
     },
     selectStatus(e){
         this.setData({
             selectValue: e.currentTarget.dataset.index,
+            selectTitle: e.currentTarget.dataset.title,
             isShow: false
         })
     },
@@ -74,5 +80,10 @@ Page({
             navTop: navTop
         })
         this.getDetail();
+        if(wx.getStorageSync('channel')){
+          this.setData({
+            channel: wx.getStorageSync('channel'),
+          })
+        }
     },
 })

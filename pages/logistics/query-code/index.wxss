@@ -159,10 +159,23 @@
     border-left: 20rpx solid transparent;
     border-bottom: 18rpx solid #ffe58f;
 }
+.order-flex {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10rpx;
+  border-bottom: 1rpx dashed #eaeaea;
+}
 .order-title {
-    padding: 15rpx 30rpx;
+    padding: 15rpx 30rpx 5rpx;
     font-size: 30rpx;
     font-weight: bold;
+}
+.order-view-context {
+  padding: 5rpx 30rpx;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .field-group {

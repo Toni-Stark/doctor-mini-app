@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "van-empty": "@vant/weapp/empty/index"
   },
   "navigationBarTitleText": "评价列表"
 }

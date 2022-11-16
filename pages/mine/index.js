@@ -31,6 +31,12 @@ Page({
                 navigate: '../shop-result/index',
                 type: 'navigate'
             },
+            {
+                label: "医师列表",
+                icon: "../../img/index/talk-about2.png",
+                navigate: './doctor-list/index',
+                type: 'navigate'
+            },
         ],
         authConfig: [
             {
@@ -42,7 +48,25 @@ Page({
         ],
         isAuth: false,
     },
-
+    getFocus(){
+      this.setData({
+        nickName: ' ',
+      })
+    },
+    onInput(e){
+      const { value } = e.detail 
+      this.setData({
+        nickName: value,
+      })
+      storage.setStorageSync('nickName', value);
+    },
+    onChooseAvatar(e) {
+      const { avatarUrl } = e.detail 
+      this.setData({
+        avatarUrl,
+      })
+      storage.setStorageSync('avatarUrl', avatarUrl);
+    },
     navigateTo(e){ 
         let config = e.currentTarget.dataset.item;
         if(config.type == "navigate"){
@@ -55,8 +79,8 @@ Page({
         if(!storage.getStorageSync('token')){
             route.navigateTo('./register/index')
         } else {
-            let nickName = storage.getStorageSync('nickName') || '点击登录';
-            let avatarUrl = storage.getStorageSync('avatarUrl') || '../../img/mine/home-robot.png';
+            let nickName = storage.getStorageSync('nickName');
+            let avatarUrl = storage.getStorageSync('avatarUrl');
             this.setData({
                 nickName: nickName,
                 avatarUrl: avatarUrl,
@@ -86,14 +110,14 @@ Page({
         }
     },
     regLogin: async (params) => {
-        let openid = '3242323434';
-        const result = regLoginStatus({openid});
-        if(result.code!=200){
-            return wx.showToast({
-              title: result.msg,
-              icon: 'none'
-            })
-        };
+      const openid = wx.getStorageSync('openid')
+      const result = regLoginStatus({type: 'mini', openid});
+      if(result.code!=200){
+          return wx.showToast({
+            title: result.msg,
+            icon: 'none'
+          })
+      };
     },
     regAuthServer(){
         this.setData({
@@ -101,7 +125,7 @@ Page({
         })
     },
     onShow() {
-        this.regLogin();
+        // this.regLogin();
         this.naviToRegister()
         if (typeof this.getTabBar === 'function' && this.getTabBar()) {
             this.getTabBar().setData({

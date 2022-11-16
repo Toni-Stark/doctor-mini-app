@@ -28,7 +28,11 @@ export const setRelateMember = async (params) => {
 export const getInterfaceList = async (params) => {
     return await request.post('/member/comment/index', params);
 }
-// 订单录入渠道
+// 评价详情
+export const getInterfaceDetail = async (params) => {
+  return await request.post('/member/comment/info', params);
+}
+// 订单录入渠道 
 export const getPlatformList = async (params) => {
     return await request.post('/member/order/channels', params);
 }
@@ -50,21 +54,21 @@ export const setAuthLogin = async (params) => {
 }
 // 下账查询
 export const getOrderQuery = async (params) => {
-    return await request.post('/merchant/goods/search', params);
-}
-// 出库验货
-export const getOrderData = async (params) => {
-    return await request.post('/merchant/goods/search', params);
-}
-// 发货核验
-export const getBoundReg = async (params) => {
     return await request.post('/merchant/order/search', params);
 }
-// 出库验货
+// 发货核验
+export const getBoundReg = async (params) => { 
+    return await request.post('/merchant/shipment/search', params);
+}
+// 商品查询
 export const setOrderData = async (params) => {
     return await request.post('/merchant/goods/search', params);
 }
 //清点入库
 export const setListInBox = async (params) => {
     return await request.post('/merchant/goods/storage', params);
+}
+//核验提交
+export const setBoundUpdate = async (params) => {
+  return await request.post('/merchant/shipment/taking', params);
 }

@@ -4,7 +4,7 @@
             <view class="order">
                 <view class="order-id">
                     <input 
-                        placeholder="登录名" 
+                        placeholder="请输入员工登录名" 
                         placeholder-class="order-placeholder" 
                         bindinput="bindChangeName"
                         value="{{name}}" 
@@ -15,7 +15,7 @@
             <view class="order">
                 <view class="order-id">
                     <input 
-                        placeholder="登录密码" 
+                        placeholder="请输入员工登录密码" 
                         placeholder-class="order-placeholder" 
                         bindinput="bindChangePass"
                         value="{{password}}" 
@@ -24,6 +24,6 @@
                 </view>
             </view>
         </view>
-        <view class="submit" catchtap="naviBack">提交</view>
+        <view class="submit" catchtap="naviBack">立即绑定</view>
     </view>
 </view>

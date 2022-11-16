@@ -28,25 +28,20 @@ function request(url, params, method, options) {
           return config.debug ? reject(response) : abort(url, params, method, '', 0, '请求响应失败，状态码:' + response.statusCode);
         }
 
-        // 注销或者是未授权.
         if (response.data && response.data.code == 401) {
           getApp().globalData.user = null;
           storage.removeStorageSync('token')
-          // 注意这里是未授权信息.
-          return () => {
             wx.showToast({
-                title: response.data.msg,
+              title: response.data.msg,
+              icon: 'none'
             })
-            route.navigateTo('/pages/mine/register/index')
-          }
+          return route.navigateTo('/pages/mine/register/index');
         }
 
         // 响应成功的信息.
         return resolve(response.data);
       },
-      // 直接报错就可以了.
       fail: () => {
-        // 等会测试一下. 如果不是测试环境就直接上传.
         if (config.debug) {
           return reject({
             msg: '请求失败',
@@ -55,7 +50,6 @@ function request(url, params, method, options) {
             data: params
           });
         }
-        // 开始上报.
         abort(url, params, method, '', 0, '请求响应失败');
       },
     })

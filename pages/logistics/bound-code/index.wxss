@@ -181,7 +181,8 @@
     font-size: 32rpx;
 }
 .m-bottom {
-    margin-bottom: 100rpx;
+  margin-bottom: 100rpx;
+  padding-bottom: 100rpx;
 }
 .field-group {
     width: 100%;

@@ -3,5 +3,5 @@
     "get-phone": "../../../components/get-phone/index",
     "van-toast": "@vant/weapp/toast/index"
   },
-  "navigationBarTitleText": "登录"
+  "navigationBarTitleText": "注冊"
 }

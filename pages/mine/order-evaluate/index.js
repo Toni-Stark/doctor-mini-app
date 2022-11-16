@@ -1,5 +1,5 @@
 const { route } = require("../../../utils/index")
-const { setCommentPost } = require("../../../common/interface");
+const { setCommentPost, getInterfaceDetail } = require("../../../common/interface");
 
 Page({
 
@@ -34,13 +34,13 @@ Page({
                 id: '17'
             }
         ],
-        failText: ''
+        failText: '',
+        edit: false
     },
     checkOut(e){
         this.setData({
             currentId: e.currentTarget.dataset.id
         })
-        console.log(this.data.currentId)
     },
     afterRead(event) {
         let list = this.data.fileList.concat(event.detail.file)
@@ -88,12 +88,46 @@ Page({
             }, 500)
         })
     },
+
+    getDetail(options){
+      getInterfaceDetail({
+        comment_id: options.id
+      }).then(res=>{
+        if(res.code!=200){
+          return wx.showToast({
+              title: res.msg,
+              icon: 'none'
+          })
+        };
+        this.setData({
+          edit: true,
+          id: options.id,
+          order: options.order,
+          info: res.data,
+          failText: res.data.comment.content,
+          express: res.data.comment.express,
+          value: res.data.comment.overall,
+        });
+      })
+      return;
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.setData({
-            id: options.id
-        })
+      wx.setNavigationBarTitle({
+        title: options?.edit ? "评价信息":"发表评价"
+      })
+
+      if(options?.edit){
+        this.getDetail(options)
+      } else {
+         this.setData({
+            id: options.id,
+            order: options.order_no,
+            edit: false
+        });
+      }
     },
 })

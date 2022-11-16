@@ -1,62 +1,64 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/mine/index",
-        "pages/mine/register/index",
-        "pages/mine/order-list/index",
-        "pages/mine/order-detail/index",
-        "pages/mine/order-service/index",
-        "pages/mine/order-evaluate/index",
-        "pages/mine/evaluation-list/index",
-        "pages/shop-result/index",
-        "pages/tool/index",
-        "pages/tool/add-tool/index",
-        "pages/logistics/index",
-        "pages/logistics/order-code/index",
-        "pages/logistics/bound-code/index",
-        "pages/logistics/search-code/index",
-        "pages/tabView/index",
-        "pages/logistics/query-code/index",
-        "pages/mine/doctor-list/index",
-        "pages/mine/auth-staff/index"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#ffffff",
-        "navigationBarTitleText": "药药线上通",
-        "navigationBarTextStyle": "black"
-    },
-    "sitemapLocation": "sitemap.json",
-    "lazyCodeLoading": "requiredComponents",
-    "embeddedAppIdList": [
-        "wx91d27dbf599dff74"
-    ],
-    "tabBar": {
-        "custom": true,
-        "color": "#666666",
-        "selectedColor": "#3E7BFA",
-        "list": [
-            {
-                "text": "订单列表",
-                "pagePath": "pages/index/index",
-                "iconPath": "./img/tabBar/index1.png",
-                "selectedIconPath": "./img/tabBar/index.png"
-            },
-            {
-                "text": "移动扫描枪",
-                "pagePath": "pages/logistics/index",
-                "iconPath": "./img/tabBar/logistics3.png",
-                "selectedIconPath": "./img/tabBar/logistics2.png"
-            },
-            {
-                "text": "我的",
-                "pagePath": "pages/mine/index",
-                "iconPath": "./img/tabBar/me1.png",
-                "selectedIconPath": "./img/tabBar/me.png"
-            }
-        ]
-    },
-    "usingComponents": {
-        "tabView": "./pages/tabView/index"
-    }
+  "pages": [
+    "pages/index/index",
+    "pages/mine/index",
+    "pages/mine/register/index",
+    "pages/mine/order-list/index",
+    "pages/mine/order-detail/index",
+    "pages/mine/order-service/index",
+    "pages/mine/order-evaluate/index",
+    "pages/mine/evaluation-list/index",
+    "pages/shop-result/index",
+    "pages/tool/index",
+    "pages/tool/add-tool/index",
+    "pages/logistics/index",
+    "pages/logistics/order-code/index",
+    "pages/logistics/bound-code/index",
+    "pages/logistics/search-code/index",
+    "pages/tabView/index",
+    "pages/logistics/query-code/index",
+    "pages/mine/doctor-list/index",
+    "pages/mine/auth-staff/index",
+    "pages/mine/register/agreement/index",
+    "pages/mine/register/policy/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "药药线上通",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "embeddedAppIdList": [
+    "wx91d27dbf599dff74"
+  ],
+  "tabBar": {
+    "custom": true,
+    "color": "#666666",
+    "selectedColor": "#3E7BFA",
+    "list": [
+      {
+        "text": "订单列表",
+        "pagePath": "pages/index/index",
+        "iconPath": "./img/tabBar/index1.png",
+        "selectedIconPath": "./img/tabBar/index.png"
+      },
+      {
+        "text": "移动扫描枪",
+        "pagePath": "pages/logistics/index",
+        "iconPath": "./img/tabBar/logistics3.png",
+        "selectedIconPath": "./img/tabBar/logistics2.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/mine/index",
+        "iconPath": "./img/tabBar/me1.png",
+        "selectedIconPath": "./img/tabBar/me.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "tabView": "./pages/tabView/index"
+  }
 }

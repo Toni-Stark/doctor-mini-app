@@ -1,6 +1,7 @@
 // pages/mine/auth-staff/index.js
 import { setAuthLogin } from "../../../common/interface"
 import {route} from'../../../utils/index'
+import storage from "../../../utils/storage"
 Page({
 
     data: {
@@ -29,12 +30,13 @@ Page({
                   icon: 'none'
                 })
             };
+            storage.setStorageSync('staff_id', res.data.staff_id)
             wx.showToast({
                 title: '绑定成功',
                 icon: 'none'
             })
             setTimeout(()=>{
-                route.navigateBack(1)
+                route.navigateBack(1);
             }, 500)
         })
     },

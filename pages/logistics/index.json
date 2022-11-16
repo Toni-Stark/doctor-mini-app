@@ -2,5 +2,5 @@
   "usingComponents": {
     "tabView": "../../pages/tabView/index"
   },  
-  "navigationBarTitleText": "库存管理"
+  "navigationBarTitleText": "移动扫描枪 - 药药线上通测试商户"
 }

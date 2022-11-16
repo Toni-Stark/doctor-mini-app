@@ -15,25 +15,28 @@ Page({
     back(){
         route.navigateBack(1)
     },
-    naviToDetail(){
-        route.navigateTo('../order-evaluate/index')
+    naviToDetail(e){
+      let id = e.currentTarget.dataset.id
+      route.navigateTo('../order-evaluate/index?edit=1&id='+id)
     },
     addDataList(){
         let page = this.data.page + 1;
-        const result = getInterfaceList({p: page});
-        if(result.code!=200){
+        getInterfaceList({p: page}).then(result=>{
+          if(result.code!=200){
             return wx.showToast({
               title: result.msg,
               icon: 'none'
             })
-        };
-        if(result.data.length>0){
-            let list = [...this.data.dataList, ...result.data];
-            this.setData({
-                dataList: list,
-                page: page
-            })
-        }
+          };
+          if(result.data.length>0){
+              let list = [...this.data.dataList, ...result.data.list];
+              this.setData({
+                  dataList: list,
+                  page: page
+              })
+          }
+        });
+       
     },
     brashData(){
         this.setData({
@@ -51,7 +54,7 @@ Page({
                 })
             };
             this.setData({
-                dataList: res.data,
+                dataList: res.data.list,
             }) 
         });
         

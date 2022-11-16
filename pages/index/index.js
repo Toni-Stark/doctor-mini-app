@@ -1,62 +1,9 @@
 // index.js
 import Toast from '@vant/weapp/toast/toast';
-import { getHomeOrderList, getPlatformList } from '../../common/interface';
+import { getHomeOrderList, getPlatformList, setRelateMember } from '../../common/interface';
 const { route, storage } = require("../../utils/index")
 const app = getApp()
 
-const list = [
-    {
-        companyName: '美团',
-        orderId: '24234234645878797122',
-        payTime: '2022年12月13日 13点25分',
-        price: '30元',
-        people: '孙仲谋',
-        shopList: [
-            {
-                name: '999感冒灵颗粒',
-                count: '3瓶',
-            },
-            {
-                name: '云南白药喷雾',
-                count: '3盒',
-            },
-        ]
-    },
-    {
-        companyName: '拼多多',
-        orderId: '1221654645878797122',
-        payTime: '2022年12月13日 16点35分',
-        price: '24元',
-        people: '曹孟德',
-        shopList: [
-            {
-                name: '999感冒灵颗粒',
-                count: '2瓶',
-            },
-            {
-                name: '云南白药喷雾',
-                count: '3盒',
-            },
-        ]
-    },
-    {
-        companyName: '京东',
-        orderId: '12216546458787243243',
-        payTime: '2022年12月14日 17点35分',
-        price: '65元',
-        people: '刘玄德',
-        shopList: [
-            {
-                name: '999感冒灵颗粒',
-                count: '3瓶',
-            },
-            {
-                name: '云南白药喷雾',
-                count: '4盒',
-            },
-        ]
-    },
-];
 Page({
     data: {
         userScan: 0,
@@ -65,7 +12,8 @@ Page({
         doctorMobile: 18434332504,
         dataList: [],
         page: 1,
-        shopList: {}
+        shopList: {},
+        isLogin: false
     },
 
     brashData(){
@@ -77,7 +25,6 @@ Page({
                     icon: 'none'
                 })
             };
-            console.log(res.data.list)
             this.setData({
                 dataList: res.data.list,
                 page: 1,
@@ -87,7 +34,8 @@ Page({
     },
 
     naviToDetail(e){
-        route.navigateTo('../mine/order-detail/index?id='+e.currentTarget.dataset.id)
+      let {id, order, edit, comment} = e.currentTarget.dataset;
+      route.navigateTo('../mine/order-detail/index?order_no='+order+'&id='+id+'&edit='+edit+'&comment='+comment)
     },
     copyWechatId(){
         let that = this;
@@ -107,8 +55,8 @@ Page({
         })
     },
     getEvaluate (e){
-        let id = e.currentTarget.dataset.id
-        route.navigateTo('../mine/order-evaluate/index?id='+id)
+        let {id, order} = e.currentTarget.dataset;
+        route.navigateTo('../mine/order-evaluate/index?order_no='+order+'&id='+id)
     },
     getEvaluateFalse(){
         wx.showToast({
@@ -145,24 +93,27 @@ Page({
 
     addDataList(e){
         let page = this.data.page + 1;
-        const result = getHomeOrderList({p: page});
-        if(result.code!=200){
-            return wx.showToast({
-              title: result.msg,
-              icon: 'none'
-            })
-        };
-        if(result.data.list.length>0){
-            let list = [...this.data.dataList, ...result.data.list];
-            this.setData({
-                dataList: list,
-                page: page
-            })
-        }
+        getHomeOrderList({p: page}).then(res=>{
+          if(res.code!=200){
+              return wx.showToast({
+                title: res.msg,
+                icon: 'none'
+              })
+          };
+          if(res.data.list.length>0){
+              let list = [...this.data.dataList, ...res.data.list];
+              this.setData({
+                  dataList: list,
+                  page: page
+              })
+          }
+        });
+        
     },
 
     getDetail() { 
         getHomeOrderList({p: this.data.page}).then(res=>{
+
             if(res.code!=200){
                 return wx.showToast({
                 title: res.msg,
@@ -173,7 +124,6 @@ Page({
                 dataList: res.data.list
             }) 
         });
-        
     },
 
     getPlatform (){
@@ -187,13 +137,28 @@ Page({
             this.setData({
                 shopList: res.data,
             }) 
+            wx.hideLoading()
         })
     },
  
-    onLoad() {
+    onLoad(options) {
+      if(options.order_no){
+        storage.setStorageSync('channel', options.channel)
+        if(storage.getStorageSync('token')){
+          route.navigateTo('../mine/order-detail/index?id='+options.order_no);
+          return;
+        } else {
+          route.navigateTo('../mine/register/index');
+          return;
+        }
+      } else {
+        storage.removeStorage('channel');
+      }
+      wx.showToast({
+        title: '加载中...',
+        icon: 'loading'
+      })
         this.setStatusHeight();
-        this.getDetail()
-        this.getPlatform()
     }, 
     regPermissions(){
         let nickName = storage.getStorageSync('nickName');
@@ -204,17 +169,32 @@ Page({
             })
         }
     },
+    naviToAuth(){
+      if(storage.getStorageSync('token')){
+        // route.navigateTo('../mine/auth-staff/index')
+        route.navigateTo('../shop-result/index')
+      } else {
+        route.navigateTo('../mine/register/index?order=1')
+      }
+    },
     onShow() {
         if (typeof this.getTabBar === 'function' && this.getTabBar()) {
             this.getTabBar().setData({
                 activeIdx: 0
             })
         };
+        if(storage.getStorageSync('token')){
+          this.setData({
+            isLogin: true
+          })
+        }
+        this.getDetail()
         this.regPermissions();
+        this.getPlatform()
     },
     onShareAppMessage(){
         return {
-            title: '药药线上通',
+            title: '药药线上通 - 药药线上通测试商户',
             path: '/pages/index/index'
         }  
     }
