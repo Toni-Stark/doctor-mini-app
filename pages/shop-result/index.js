@@ -16,19 +16,28 @@ Page({
         selectTitle: ''
     }, 
     naviBack(e){
-        let channel = this.data.channel || this.data.selectValue;
-        setRelateMember({
-            order_no: this.data.value,
-            channel: channel
-        }).then(res=>{
-          if(res.code!=200){
-              return wx.showToast({
-                title: res.msg,
-                icon: 'none'
-              }) 
-          };
-          route.navigateBack(-1);
-        })
+        console.log(storage.getStorageSync('token'), this.data.value, this.data.channel, this.data.selectValue)
+        if(storage.getStorageSync('token')){
+            let channel = this.data.channel || this.data.selectValue;
+            setRelateMember({
+                order_no: this.data.value,
+                channel: channel
+            }).then(res=>{
+              if(res.code!=200){
+                  return wx.showToast({
+                    title: res.msg,
+                    icon: 'none'
+                  }) 
+              };
+              if(this.data.channel){
+                route.redirectTo('../index/index')
+              } else {
+                route.navigateBack(-1);
+              }
+            })
+        } else {
+            route.navigateTo('../mine/register/index');
+        }
     },
     bindChange(e){
         this.setData({
@@ -55,7 +64,7 @@ Page({
         })
     },
 
-    getDetail(){
+    getDetail(options){
         getPlatformList().then(res=>{
             if(res.code!=200){
                 return wx.showToast({
@@ -63,6 +72,23 @@ Page({
                     icon: 'none',
                 })
             };
+            if(options.order_no){
+                let title = '';
+                for (const i in res.data) {
+                    if(res.data[i] == options.channel){
+                        title = i;
+                    }
+                } 
+                this.setData({
+                    value: options.order_no,
+                    channel: options.channel,
+                    selectTitle: title,
+                    selectValue: options.channel,
+                    shopList: res.data,
+                });
+                return;
+            }
+           
             this.setData({
                 shopList: res.data,
             }) 
@@ -73,17 +99,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let headerHeight = app.globalData.navHeight
-        let navTop = app.globalData.navTop
-        this.setData({
-            height: headerHeight,
-            navTop: navTop
-        })
-        this.getDetail();
-        if(wx.getStorageSync('channel')){
-          this.setData({
-            channel: wx.getStorageSync('channel'),
-          })
-        }
+        this.getDetail(options);
     },
+    onShow: function (options) {
+        console.log('onShow', options);
+    }
 })

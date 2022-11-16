@@ -113,7 +113,6 @@ Page({
 
     getDetail() { 
         getHomeOrderList({p: this.data.page}).then(res=>{
-
             if(res.code!=200){
                 return wx.showToast({
                 title: res.msg,
