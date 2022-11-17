@@ -1,1 +1,38 @@
 /* pages/mine/setting-user/index.wxss */
+
+.avatar-wrapper {
+    background: rgba(255,255,255,0)!important;
+    border: 0 !important;
+    padding: 10vh 0 2vh;
+}
+
+.pla-class {
+    color: #838383
+}
+button::after{
+  border: 0 !important;
+}
+
+.avatar-image {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 12%;
+}
+.weui-input { 
+  /* caret-color:transparent; */
+  display: flex;
+  width: 100%;
+  font-weight: 500;
+  font-size: 35rpx;
+}
+.user-name {
+    display: flex;
+    border-top: 1rpx solid #f2f2f2;
+    border-bottom: 1rpx solid #f2f2f2;
+    padding: 30rpx 40rpx;
+    font-size: 34rpx;
+    font-weight: bold;
+}
+.label {
+    width: 30%;
+}

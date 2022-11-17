@@ -1,2 +1,16 @@
 <!--pages/mine/setting-user/index.wxml-->
-<text>pages/mine/setting-user/index.wxml</text>
+<view class="user-container">
+    <view class="header">
+        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+            <image 
+                class="avatar-image" 
+                mode="aspectFill"  
+                src="{{avatarUrl}}"
+            ></image>
+        </button>
+    </view>
+    <view class="user-name">
+        <view class="label">昵称</view>
+        <input type="nickname" value="{{nickname}}" placeholder-class="pla-class" placeholder="请输入昵称" bindtap="getFocus" bindinput="onInput" bindcon firm="onInput" class="weui-input"/>
+    </view>
+</view>

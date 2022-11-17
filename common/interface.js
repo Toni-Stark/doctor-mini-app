@@ -1,6 +1,6 @@
 const {request} = require('../utils/index');
 
-// 获取首页订单列表数据
+// 获取首页订单列表数据 
 export const getHomeOrderList = async (params) => {
     return await request.post('/member/order/index', params);
 }
@@ -75,4 +75,9 @@ export const setBoundUpdate = async (params) => {
 //获取用户信息
 export const getUserInfoSync = async (params) => {
     return await request.post('/member/member/get-member-info', params);
-  }
+}
+//上传用户昵称
+export const setUserInfo = async (params) => {
+    return await request.post('/member/member/set-info', params);
+}
+

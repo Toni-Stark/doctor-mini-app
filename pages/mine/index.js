@@ -48,27 +48,8 @@ Page({
         ],
         isAuth: false,
     },
-    getFocus(){
-      this.setData({
-        nickName: ' ',
-      })
-    },
     getUser(){
         this.getUserInfoApI(true);
-    },
-    onInput(e){
-      const { value } = e.detail 
-      this.setData({
-        nickName: value,
-      })
-      storage.setStorageSync('nickName', value);
-    },
-    onChooseAvatar(e) {
-      const { avatarUrl } = e.detail 
-      this.setData({
-        avatarUrl,
-      })
-      storage.setStorageSync('avatarUrl', avatarUrl);
     },
     navigateTo(e){ 
         let config = e.currentTarget.dataset.item;
@@ -123,11 +104,11 @@ Page({
         })
     },
     getUserInfoApI(isBtn){
-        let avatar = storage.getStorageSync('avatarUrl');
-        let nickname = storage.getStorageSync('nickname');
-        if(avatar && nickname){
-            return;
-        }
+        // let avatar = storage.getStorageSync('avatarUrl');
+        // let nickname = storage.getStorageSync('nickname');
+        // // if(avatar && nickname){
+        // //     return;
+        // // }
         getUserInfoSync().then(res => {
             if(res.code != 200){
                 return wx.showToast({

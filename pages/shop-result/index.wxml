@@ -1,7 +1,7 @@
 <view class="container">
     <view class="content">
         <view class="content-card">
-            <view class="shop" wx:if="{{!channel}}">
+            <view class="shop">
                 <view class="check" bindtap="onFocus">
                     <view class="check-view" style="color: {{selectValue?'#000000':'#c4c4c4'}}">{{selectTitle||'-- 请选择渠道 --'}}</view>
                     <view class="check-out">
