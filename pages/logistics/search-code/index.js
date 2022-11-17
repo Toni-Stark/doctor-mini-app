@@ -79,6 +79,27 @@ Page({
             focus: true
         });
     },
+    getFocusScan(){
+        let that = this;
+        wx.scanCode({
+            onlyFromCamera: true,
+            success (res) {
+                console.log(res, res.result);
+                let reg = res.result.slice(0,2) == '69';
+                if(reg) {
+                    that.getDetailInfo(res.result)
+                } else {
+                    wx.showToast({
+                        icon: 'none',
+                        title: '请扫描商品条形码',
+                    });
+                    this.setData({
+                        focus: true
+                    })
+                }
+            }
+        })
+    },
     removeFocus(){
         this.setData({
             focus: false
@@ -92,11 +113,12 @@ Page({
             if(res.code != 200){
                 this.setData({
                     inputCode: '',
-                    searchItem: null
+                    searchItem: null,
+                    focus: true
                 });
                 return wx.showToast({
                   title: res.msg,
-                  icon: 'none'
+                  icon: 'none',
                 })
             }
             this.setData({
@@ -142,7 +164,8 @@ Page({
                         title: '请扫描商品条形码',
                     });
                     this.setData({
-                        inputCode: ''
+                        inputCode: '',
+                        focus: true
                     })
                 }
             }

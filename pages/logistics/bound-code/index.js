@@ -203,6 +203,41 @@ Page({
         this.regNumberRemaining(list);
         this.setData({inputCode: ''})
     },
+    getFocusScan(){
+        let that = this;
+        wx.scanCode({
+            onlyFromCamera: true,
+            success (res) {
+                console.log(res, res.result);
+                let notNull = res.result.trim().length>0;
+                let reg = res.result.slice(0,2) == '69';
+                if(notNull && !that.data.hadExpressSingle && reg){
+                    wx.showToast({
+                        title: '请先扫描快递单号以获取订单信息',
+                        icon: 'none'
+                    })
+                    that.setData({
+                        inputCode: '',
+                        focus: true
+                    })
+                    return;
+                }
+                if(notNull){
+                    that.setListData(res.result, reg);
+                }
+                if(!notNull){
+                    that.setData({
+                        inputCode: '',
+                        focus: true
+                    });
+                    wx.showToast({
+                        title: '请输入快递单号',
+                        icon: 'none'
+                    })
+                }
+            }
+        })
+    },
 
     setListData(event, reg){
         if(!this.data.hadExpressSingle){

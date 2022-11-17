@@ -42,6 +42,16 @@ Page({
         currentCode: '',
         focus: true
     },
+    getFocusScan(){
+        let that = this;
+        wx.scanCode({
+            onlyFromCamera: true,
+            success (res) {
+                console.log(res, res.result);
+                that.setListData(res.result);
+            }
+        })
+    },
     getFocus(){
         this.setData({
             focus: true
@@ -84,6 +94,7 @@ Page({
             this.setData({
                 orderList: {},
                 inputCode: '',
+                focus: true
             })
             return;
         }
@@ -96,6 +107,7 @@ Page({
                     orderList: {},
                     inputCode: '',
                     hadExpressSingle: true,
+                    focus: true
                 })
                 return wx.showToast({
                   title: res.msg,

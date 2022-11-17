@@ -1,7 +1,7 @@
 <!--pages/logistics/order-code/index.wxml-->
 <view class="container">
     <view class="search" >
-        <view class="scan" catchtap="getFocus">
+        <view class="scan" catchtap="getFocusScan">
             <image mode="widthFix" src="../../../img/logistics/logistics.png"></image>
         </view>
         <view class="input">
